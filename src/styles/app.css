@@ -1,0 +1,113 @@
+/* Huapango +reads — sistema de diseño.
+ * Tokens copiados de la landing (editorialhuapangolanding/tailwind.config.js).
+ * Fuente de verdad: .claude/skills/huapango-reads/references/diseno.md */
+
+@import "@fontsource-variable/newsreader/wght.css";
+@import "@fontsource-variable/newsreader/wght-italic.css";
+@import "@fontsource-variable/plus-jakarta-sans/wght.css";
+@import "tailwindcss";
+
+@theme {
+  --color-bond-50: #fffefa;
+  --color-bond-100: #fdfbf7;
+  --color-bond-200: #f5efe6;
+  --color-bond-300: #eadfcf;
+  --color-bond-400: #d5c4ac;
+  --color-bond-500: #bca88e;
+
+  --color-carbon-950: #0c0c0b;
+  --color-carbon-900: #141413;
+  --color-carbon-850: #1c1c1a;
+  --color-carbon-800: #232321;
+  --color-carbon-700: #3a3935;
+  --color-carbon-600: #5a5953;
+  --color-carbon-500: #74736c;
+  --color-carbon-400: #8e8d86;
+  --color-carbon-300: #aba9a0;
+  --color-carbon-200: #c7c6be;
+  --color-carbon-100: #e6e5de;
+
+  --color-terregal-400: #d66e53;
+  --color-terregal-500: #c05a3e;
+  --color-terregal-600: #a3452b;
+  --color-terregal-700: #7e341f;
+  --color-terregal-800: #562112;
+  --color-terregal-900: #381308;
+
+  --color-ochre-300: #e5bf7a;
+  --color-ochre-400: #d4a359;
+  --color-ochre-500: #bf8a3d;
+  --color-ochre-600: #9e6f2c;
+
+  --font-serif: "Newsreader Variable", Georgia, Cambria, serif;
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --shadow-book: 0 18px 38px -10px rgb(0 0 0 / 0.6), 0 8px 16px -6px rgb(0 0 0 / 0.35);
+  --shadow-book-hover: 0 25px 50px -12px rgb(0 0 0 / 0.7), 0 12px 24px -8px rgb(163 69 43 / 0.35);
+  --shadow-book-hero: 0 30px 60px -15px rgb(0 0 0 / 0.75), 0 12px 24px -8px rgb(163 69 43 / 0.25);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-carbon-900);
+    color: var(--color-bond-100);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 5rem; /* altura del header fijo */
+  }
+
+  ::selection {
+    background-color: var(--color-terregal-500);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terregal-400);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Lomo de libro físico, igual que en la landing */
+  .book-spine {
+    position: relative;
+  }
+  .book-spine::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 12px;
+    background: linear-gradient(
+      90deg,
+      rgb(0 0 0 / 0.24) 0%,
+      rgb(255 255 255 / 0.16) 35%,
+      rgb(0 0 0 / 0.18) 75%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Filas tipo carrusel: desplazamiento horizontal sin barra visible */
+  .row-scroll {
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+  .row-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

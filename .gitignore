@@ -1,0 +1,19 @@
+dist
+.output
+.nitro
+.vinxi
+.vercel
+.wrangler
+.netlify
+
+# Entorno (nunca subir secretos)
+.env
+.env*.local
+
+/node_modules
+
+.idea
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
