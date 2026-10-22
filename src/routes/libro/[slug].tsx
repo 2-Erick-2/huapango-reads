@@ -14,7 +14,7 @@ import {
   getBook,
   getRelatedBooks,
 } from "~/lib/catalog";
-import { absoluteUrl, PUBLISHER_URL } from "~/lib/site";
+import { absoluteUrl, originUrl, PUBLISHER_URL } from "~/lib/site";
 
 const loadBook = query(async (slug: string) => {
   const book = await getBook(slug);
@@ -91,7 +91,7 @@ export default function BookPage() {
                   datePublished: book().publishedAt,
                   inLanguage: "es",
                   genre: book().genres,
-                  image: absoluteUrl(book().cover.jpg),
+                  image: originUrl(book().cover.jpg),
                   url: absoluteUrl(`/libro/${book().slug}`),
                   description: book().synopsis,
                 }}

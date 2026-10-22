@@ -1,12 +1,18 @@
-import { A } from "@solidjs/router";
+import { A, useLocation } from "@solidjs/router";
 import { HttpStatusCode } from "@solidjs/start";
+import { Show } from "solid-js";
 import { SiteHeader } from "~/components/catalog/SiteHeader";
 import { Seo } from "~/components/ui/Seo";
 
 export default function NotFound() {
+  // /404.html es el archivo que GitHub Pages sirve para rutas inexistentes: se genera con
+  // estado 200 al prerenderizar (Pages ya responde 404 al servirlo). En servidor real, 404.
+  const isStaticFallback = () => useLocation().pathname.endsWith("/404.html");
   return (
     <div class="min-h-screen">
-      <HttpStatusCode code={404} />
+      <Show when={!isStaticFallback()}>
+        <HttpStatusCode code={404} />
+      </Show>
       <Seo
         title="Página no encontrada · Huapango +reads"
         description="Esta página no existe."

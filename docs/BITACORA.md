@@ -2,6 +2,35 @@
 
 > Historial cronológico. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 
+## 2026-10-22 — Repo público y demo en GitHub Pages
+
+**Pedido:** "hazlo público en GitHub para poder mostrar la demo". El dueño eligió la opción "Público + GitHub Pages".
+
+**Hecho:**
+
+- **Soporte de subruta** (ADR 0009):
+  - `src/lib/site.ts` (`BASE_PATH`, `asset()`, `absoluteUrl()`, `originUrl()`, `NOINDEX`).
+  - Router con `base`; portadas, logo e íconos con `asset()`; enlaces internos convertidos a `<A>`.
+  - `vite.config.ts`: `base`, `baseURL` de Nitro y prerender cuando `NITRO_PRESET=github_pages`.
+- **`src/routes/[...404].tsx`:** responde 200 solo al generar `/404.html` para Pages.
+- **`src/vite-env.d.ts`:** tipos de `VITE_SITE_ORIGIN` y `VITE_NOINDEX`.
+- **Nuevo workflow `.github/workflows/pages.yml`:** compila el demo estático y lo publica en Pages.
+- **Limpieza antes de hacer público:**
+  - Se quitó de la documentación el nombre de otra cuenta de GitHub del dueño.
+  - El README ahora tiene el link del demo y el aviso de derechos reservados (sin licencia).
+- **Repo cambiado a público y Pages activado** con origen "GitHub Actions".
+- **Documentación actualizada:** AGENTS, README, ESTADO, ROADMAP y ADR 0009.
+
+**Verificado:**
+
+- `npm run check` ✅ (typecheck, lint, 11 tests y build normal).
+- **Build normal sin cambios:** canonical a `reads.editorialhuapango.com.mx`, sin `noindex`, portadas en `/books/…` y 404 real.
+- **Build de Pages:** 9 rutas prerenderizadas, más `404.html` y `.nojekyll`; `noindex` y canonical a `2-erick-2.github.io/huapango-reads/…`.
+- **Playwright** sirviendo `.output/public` bajo `/huapango-reads/` (escritorio y celular): **32/32 ✅**, 0 imágenes rotas y sin errores de JavaScript.
+- El resultado del deploy real en Pages se anota abajo, en "Deploy".
+
+**Pendiente / siguiente:** mostrar el demo al cliente; Lighthouse sobre el demo publicado; producción en Vercel cuando el dueño lo autorice.
+
 ## 2026-10-22 — Repo privado en GitHub (sin deploy)
 
 **Pedido:** "haz el commit y crea el repo privado, aún no quiero tenerlo en Vercel, por ahora solo en GitHub para poder verlo desde ahí".
@@ -20,7 +49,7 @@
 **Notas para otros agentes:**
 
 - Subir workflows (`.github/workflows/`) requiere el permiso `workflow` en `gh`: se hizo `gh auth refresh -s workflow`.
-- En esta Mac, el llavero de git tiene guardada **otra cuenta** (`loomindev02-debug`). Este repo usa la sesión de `gh` (`2-Erick-2`) **solo a nivel local**: `git config --local credential.https://github.com.helper '!gh auth git-credential'`. No se cambió la configuración global para no afectar otros proyectos.
+- Si el llavero de git tiene guardada otra cuenta de GitHub, este repo usa la sesión de `gh` (`2-Erick-2`) **solo a nivel local**: `git config --local credential.https://github.com.helper '!gh auth git-credential'`. No se cambió la configuración global para no afectar otros proyectos.
 
 **Pendiente / siguiente:** deploy en Vercel cuando el dueño lo autorice; revisión del demo con el cliente.
 

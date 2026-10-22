@@ -1,4 +1,5 @@
 import { A } from "@solidjs/router";
+import { asset } from "~/lib/site";
 
 /** Logo "Huapango +reads": wordmark SVG de la editorial + "+reads" en Newsreader cursiva */
 export function Logo(props: { size?: "sm" | "md" }) {
@@ -10,7 +11,7 @@ export function Logo(props: { size?: "sm" | "md" }) {
       aria-label="Huapango +reads, ir al inicio"
     >
       <img
-        src="/brand/logo-huapango-claro.svg"
+        src={asset("/brand/logo-huapango-claro.svg")}
         alt=""
         width="484"
         height="114"

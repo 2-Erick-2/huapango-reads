@@ -13,4 +13,6 @@ npm run dev    # http://localhost:3000
 npm run check  # typecheck + lint + tests + build
 ```
 
-© Editorial Huapango. Código privado.
+**Demo:** https://2-erick-2.github.io/huapango-reads/ (versión de demostración, no es producción).
+
+© Editorial Huapango. Todos los derechos reservados. El código es visible públicamente, pero **no** se concede licencia de uso, copia ni redistribución. Las portadas, logos y textos pertenecen a Editorial Huapango y a sus autores.

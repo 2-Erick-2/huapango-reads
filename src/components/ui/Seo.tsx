@@ -1,6 +1,6 @@
 import { Link, Meta, Title } from "@solidjs/meta";
 import { Show } from "solid-js";
-import { absoluteUrl, SITE_NAME } from "~/lib/site";
+import { absoluteUrl, asset, NOINDEX, originUrl, SITE_NAME } from "~/lib/site";
 
 /** Metadatos SEO por página: título, descripción, canonical, Open Graph, Twitter y JSON-LD. */
 export function Seo(props: {
@@ -13,12 +13,12 @@ export function Seo(props: {
   noindex?: boolean;
 }) {
   const url = () => absoluteUrl(props.path);
-  const image = () => absoluteUrl(props.image ?? "/brand/logo-huapango-claro.svg");
+  const image = () => originUrl(props.image ?? asset("/brand/logo-huapango-claro.svg"));
   return (
     <>
       <Title>{props.title}</Title>
       <Meta name="description" content={props.description} />
-      <Show when={props.noindex}>
+      <Show when={props.noindex || NOINDEX}>
         <Meta name="robots" content="noindex" />
       </Show>
       <Link rel="canonical" href={url()} />

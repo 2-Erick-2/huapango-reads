@@ -1,4 +1,4 @@
-import { createAsync, query, type RouteDefinition } from "@solidjs/router";
+import { A, createAsync, query, type RouteDefinition } from "@solidjs/router";
 import { For, Show } from "solid-js";
 import { BookCover } from "~/components/catalog/BookCover";
 import { BookRow } from "~/components/catalog/BookRow";
@@ -74,7 +74,7 @@ export default function Home() {
                     </ButtonLink>
                   </div>
                 </div>
-                <a
+                <A
                   href={`/libro/${d().featured.slug}`}
                   class="group block w-[210px] shrink-0 sm:w-[280px] md:w-[340px]"
                   aria-label={`Ver ficha de ${d().featured.title}`}
@@ -86,7 +86,7 @@ export default function Home() {
                     shadow="hero"
                     class="transition-transform duration-300 group-hover:-translate-y-1.5"
                   />
-                </a>
+                </A>
               </div>
             </section>
 

@@ -16,12 +16,12 @@ export function SiteHeader() {
           >
             Inicio
           </A>
-          <a href="/#raices" class="text-carbon-300 no-underline hover:text-bond-100">
+          <A href="/#raices" class="text-carbon-300 no-underline hover:text-bond-100">
             Colecciones
-          </a>
-          <a href="/#proximamente" class="text-carbon-300 no-underline hover:text-bond-100">
+          </A>
+          <A href="/#proximamente" class="text-carbon-300 no-underline hover:text-bond-100">
             Próximamente
-          </a>
+          </A>
           <span class="text-carbon-500" title="Disponible al iniciar sesión (próximamente)">
             Mi biblioteca
           </span>

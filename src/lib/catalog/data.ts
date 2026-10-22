@@ -4,12 +4,13 @@
  * Fuente LOCAL temporal — en el Hito 2 se reemplaza por Supabase (ver docs/ROADMAP.md).
  * Regla: no inventar datos. Lo desconocido va en `null` ("Por confirmar").
  */
+import { asset } from "../site";
 import type { Book, Collection, UpcomingBook } from "./types";
 
 const cover = (file: string) => ({
-  jpg: `/books/${file}.jpg`,
-  webp: `/books/${file}.webp`,
-  webpSmall: `/books/${file}-260.webp`,
+  jpg: asset(`/books/${file}.jpg`),
+  webp: asset(`/books/${file}.webp`),
+  webpSmall: asset(`/books/${file}-260.webp`),
 });
 
 const PRINT_FORMAT = "Bolsillo 18 × 12.5 cm · Bond crema 70 g · Cubierta flexible";

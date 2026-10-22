@@ -10,7 +10,8 @@
 - **Producción (planeada):** `https://reads.editorialhuapango.com.mx`
 - **Landing de la editorial (otro repo, NO tocar desde aquí):** `https://www.editorialhuapango.com.mx` (repo `2-Erick-2/editorialhuapangolanding`)
 - **Diseño de referencia (Claude Design, privado del dueño):** https://claude.ai/artifact/CpdQ77dtym3sgLXDPW852m
-- **Repositorio (privado):** https://github.com/2-Erick-2/huapango-reads. CI en GitHub Actions; en esta Mac, git usa `gh` como credencial solo en este repo (ver bitácora).
+- **Repositorio (público):** https://github.com/2-Erick-2/huapango-reads. CI en GitHub Actions; git usa `gh` como credencial solo en este repo (ver bitácora).
+- **Demo público (GitHub Pages, no es producción):** https://2-erick-2.github.io/huapango-reads/
 - **Dueño técnico:** Erick (GitHub `2-Erick-2`). **Cliente:** Luis Armando Rosado, Editorial Huapango.
 
 ## Reglas que no se negocian
@@ -42,6 +43,10 @@ npm run build        # build de producción (Nitro) en .output/
 npm start            # sirve el build (PORT=4300 npm start para otro puerto)
 npm run check        # typecheck + lint + tests + build (lo mismo que corre CI)
 npm run typecheck | lint | test | format
+
+# Simular el demo de GitHub Pages en local (sitio estático bajo /huapango-reads/)
+BASE_PATH=/huapango-reads/ NITRO_PRESET=github_pages VITE_SITE_ORIGIN=https://2-erick-2.github.io VITE_NOINDEX=true npm run build
+# → .output/public (sirve esa carpeta como /huapango-reads/)
 ```
 
 No se necesitan variables de entorno en el Hito 1. Para las siguientes, ver `.env.example`.
@@ -64,7 +69,7 @@ src/
   app.tsx                  Router y layout raíz
   entry-server.tsx         Documento HTML (lang es-MX, íconos)
   styles/app.css           Tailwind v4 + tokens de la landing (@theme)
-  lib/site.ts              URL pública y helpers
+  lib/site.ts              URL pública, subruta (BASE_PATH) y helpers asset()/absoluteUrl()
   lib/catalog/             Tipos, datos locales del catálogo y funciones de acceso (async)
   lib/reader/              Paginación, preferencias, tipos y texto de demostración
   components/ui/           Logo, Button, Seo
@@ -77,6 +82,7 @@ src/
 
 - **Idioma:** UI, documentación y commits en español. Ortografía RAE: mayúscula solo inicial en títulos.
 - **Datos:** la UI consume solo `~/lib/catalog` (funciones async). En el Hito 2 se cambia la implementación por Supabase sin tocar componentes.
+- **Rutas y archivos:** enlaces internos siempre con `<A>` del router; archivos de `public/` siempre con `asset("/ruta")`. Así funciona igual en un dominio propio que bajo `/huapango-reads/` (ADR 0009).
 - **Estilos:** utilidades de Tailwind con los tokens de `app.css`. Nada de colores ni fuentes fuera de la paleta.
 - **Solid:** signals, `createAsync` + `query` para datos, refs con `let el!: HTMLElement`. Lógica pura en `lib/` con pruebas en Vitest.
 - **Commits y push:** solo cuando el dueño lo pida.

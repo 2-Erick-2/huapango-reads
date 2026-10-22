@@ -5,7 +5,7 @@
 
 ## En una frase
 
-**Hito 1A en curso:** el demo navegable (inicio estilo Netflix, ficha de libro y lector de demostración) funciona **en local** y el código está en el repo privado **https://github.com/2-Erick-2/huapango-reads**. El deploy en Vercel queda **pospuesto por decisión del dueño** (por ahora solo GitHub).
+**Hito 1A:** el demo navegable (inicio estilo Netflix, ficha de libro y lector de demostración) está **publicado en GitHub Pages: https://2-erick-2.github.io/huapango-reads/**. El repo es **público** (https://github.com/2-Erick-2/huapango-reads). La producción en `reads.editorialhuapango.com.mx` (Vercel) sigue **pospuesta por decisión del dueño**.
 
 ## Qué funciona (real)
 
@@ -26,6 +26,7 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 - **"Comprar"** está deshabilitado ("disponible pronto"). **"Mi biblioteca"** no funciona.
 - **Catálogo:** datos locales en `src/lib/catalog/data.ts`; Supabase llega en el Hito 2.
 - **Insignia "Demo"** visible en el encabezado.
+- **GitHub Pages** sirve una versión **estática** (prerenderizada) con `noindex`; no tiene servidor. Producción usará SSR en Vercel (ADR 0009).
 
 ## Por confirmar con la editorial
 
@@ -37,18 +38,20 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 
 ## Bloqueos y siguientes pasos
 
-1. **Deploy (pospuesto por el dueño):** cuando se autorice, crear el proyecto en Vercel conectado al repo y agregar el CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.
-2. **CI:** confirmar en GitHub Actions que el workflow `CI` pasa con el primer push.
-3. Revisión del demo con el cliente → ajustes de diseño.
+1. **Mostrar el demo al cliente** con el link de GitHub Pages y recoger sus ajustes.
+2. **Producción (pospuesta por el dueño):** proyecto en Vercel + CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.
+3. Medir Lighthouse sobre el demo publicado.
 
 ## Riesgos conocidos
 
 - **`npm audit`:** 4 alertas "high" en una sola cadena (`braces` → `micromatch` → `fast-glob` → `@solidjs/start`). Se usan **solo al compilar** para descubrir rutas; no procesan entradas de usuarios. Npm solo propone bajar a SolidStart 1.x, así que **se acepta el riesgo** y se revisa en cada actualización de SolidStart.
 - **Nitro v3 en beta** (ADR 0002).
+- **Repo público:** cualquiera puede leer el código y `docs/` (incluye notas de negocio no confidenciales). Nunca subir secretos, precios internos ni datos de autores sin autorización.
 
 ## Enlaces
 
-- **Repositorio (privado):** https://github.com/2-Erick-2/huapango-reads
+- **Repositorio (público):** https://github.com/2-Erick-2/huapango-reads
+- **Demo (GitHub Pages):** https://2-erick-2.github.io/huapango-reads/
 
 - **Diseño (Claude Design):** https://claude.ai/artifact/CpdQ77dtym3sgLXDPW852m
 - **Landing de la editorial:** https://www.editorialhuapango.com.mx
