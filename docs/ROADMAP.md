@@ -15,7 +15,7 @@
 - [x] Primer commit y repo `2-Erick-2/huapango-reads` en GitHub (público desde 2026-10-22)
 - [x] Demo publicado en GitHub Pages: https://2-erick-2.github.io/huapango-reads/ (ADR 0009)
 - [ ] Deploy en Vercel + CNAME `reads.editorialhuapango.com.mx` (pospuesto por el dueño)
-- [ ] Lighthouse ≥ 95 en móvil (medir sobre el demo de GitHub Pages)
+- [x] Lighthouse ≥ 95 en móvil (rendimiento 96–100 en el demo de GitHub Pages; accesibilidad corregida)
 - [ ] Revisión con el cliente y ajustes
 
 ## Hito 2 — Cuentas y contenido real

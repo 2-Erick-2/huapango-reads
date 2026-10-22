@@ -27,7 +27,19 @@
 - **Build normal sin cambios:** canonical a `reads.editorialhuapango.com.mx`, sin `noindex`, portadas en `/books/…` y 404 real.
 - **Build de Pages:** 9 rutas prerenderizadas, más `404.html` y `.nojekyll`; `noindex` y canonical a `2-erick-2.github.io/huapango-reads/…`.
 - **Playwright** sirviendo `.output/public` bajo `/huapango-reads/` (escritorio y celular): **32/32 ✅**, 0 imágenes rotas y sin errores de JavaScript.
-- El resultado del deploy real en Pages se anota abajo, en "Deploy".
+- **Deploy:**
+  - Workflows "CI" y "Demo en GitHub Pages" ✅.
+  - En vivo: `/` → 200, las fichas → 301 a la ruta con `/` final (comportamiento normal de Pages) y una ruta inexistente → 404.
+  - **Playwright contra el sitio en vivo: 32/32 ✅.**
+- **Lighthouse móvil sobre el demo en vivo** (antes de las correcciones):
+  - Rendimiento 97 / 96 / 100 (inicio / ficha / lector), CLS 0.
+  - SEO 63 a 66 **a propósito** (`noindex`).
+  - Caché corta: la impone GitHub Pages.
+- **Correcciones de accesibilidad tras Lighthouse:**
+  - Enlaces dentro de texto subrayados (pie de página y Mercado Libre).
+  - Color de "Capítulo" por tema con contraste AA (`THEMES[].accent`: 5.9 / 5.18 / 5.05).
+  - Botones A−/A+ con el texto visible dentro de su nombre accesible.
+  - Re-verificado: `npm run check` ✅ y Playwright en la simulación de Pages 32/32 ✅.
 
 **Pendiente / siguiente:** mostrar el demo al cliente; Lighthouse sobre el demo publicado; producción en Vercel cuando el dueño lo autorice.
 

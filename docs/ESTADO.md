@@ -16,6 +16,8 @@
 | Lector         | `/leer/demo`        | ✅ Paginación real (2 páginas en escritorio y 1 en celular), A−/A+ que repagina, 3 temas, índice, zonas de toque, swipe, teclado, modo inmersivo, barra de progreso, marca de agua, contenido oculto al cambiar de pestaña, sin copiar ni imprimir, preferencias guardadas |
 | 404            | cualquier otra ruta | ✅ Responde con estado HTTP 404 real                                                                                                                                                                                                                                       |
 
+**Lighthouse móvil (demo en vivo, 2026-10-22):** rendimiento 96 a 100, CLS 0. El SEO sale bajo a propósito por el `noindex` del demo. Se corrigieron los avisos de accesibilidad (ver bitácora).
+
 Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas unitarias, build y **30/30 pruebas de interacción con Playwright** (escritorio 1440 y celular 390).
 
 ## Qué es demo o mock (NO real todavía)
@@ -40,7 +42,6 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 
 1. **Mostrar el demo al cliente** con el link de GitHub Pages y recoger sus ajustes.
 2. **Producción (pospuesta por el dueño):** proyecto en Vercel + CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.
-3. Medir Lighthouse sobre el demo publicado.
 
 ## Riesgos conocidos
 

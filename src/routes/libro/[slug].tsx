@@ -211,7 +211,7 @@ export default function BookPage() {
                         href={book().print.mercadoLibreUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-terregal-400 hover:text-bond-300"
+                        class="text-terregal-400 underline underline-offset-2 hover:text-bond-300"
                       >
                         Cómpralo en Mercado Libre
                       </a>

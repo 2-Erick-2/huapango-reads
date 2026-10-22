@@ -269,7 +269,7 @@ export function Reader(props: ReaderProps) {
             <button
               type="button"
               class={`${iconButton} text-[13px]`}
-              aria-label="Reducir tamaño de letra"
+              aria-label="A− Reducir tamaño de letra"
               disabled={settings().fontSize <= FONT_SIZE.min}
               onClick={() => changeFont(-1)}
             >
@@ -278,7 +278,7 @@ export function Reader(props: ReaderProps) {
             <button
               type="button"
               class={`${iconButton} text-[17px]`}
-              aria-label="Aumentar tamaño de letra"
+              aria-label="A+ Aumentar tamaño de letra"
               disabled={settings().fontSize >= FONT_SIZE.max}
               onClick={() => changeFont(1)}
             >
@@ -419,7 +419,10 @@ export function Reader(props: ReaderProps) {
                       class="mb-[1.6em] pt-[2.5em] text-center"
                       style={{ "break-after": "avoid" }}
                     >
-                      <p class="m-0 font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-terregal-500">
+                      <p
+                        class="m-0 font-sans text-[11px] font-bold uppercase tracking-[0.3em]"
+                        style={{ color: theme().accent }}
+                      >
                         {ch.label}
                       </p>
                       <h2 class="m-0 mt-2 text-[1.75em] font-light leading-tight">{ch.title}</h2>

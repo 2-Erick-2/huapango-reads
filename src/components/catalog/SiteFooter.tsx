@@ -6,7 +6,7 @@ export function SiteFooter() {
           Huapango +reads · Una plataforma de{" "}
           <a
             href="https://www.editorialhuapango.com.mx"
-            class="text-terregal-400 hover:text-bond-300"
+            class="text-terregal-400 underline underline-offset-2 hover:text-bond-300"
           >
             Editorial Huapango
           </a>
