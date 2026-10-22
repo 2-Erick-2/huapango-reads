@@ -12,7 +12,15 @@
 - Repo **privado** `2-Erick-2/huapango-reads` creado con `gh` y push de `main`.
 - `docs/ESTADO.md` y `docs/ROADMAP.md` actualizados: el deploy queda pospuesto por decisión del dueño.
 
-**Verificado:** ver la entrada siguiente (verificación completa del Hito 1A). Antes del commit se revisó que no se incluyeran secretos, `.env`, `node_modules` ni builds (`.gitignore`). El resultado del CI en GitHub Actions se anota en la siguiente entrada.
+**Verificado:**
+
+- Antes del commit se revisó que no se incluyeran secretos, `.env`, `node_modules` ni builds.
+- Push de `main` OK. **CI de GitHub Actions ✅ en el primer push:** `npm ci`, typecheck, lint, formato, tests y build.
+
+**Notas para otros agentes:**
+
+- Subir workflows (`.github/workflows/`) requiere el permiso `workflow` en `gh`: se hizo `gh auth refresh -s workflow`.
+- En esta Mac, el llavero de git tiene guardada **otra cuenta** (`loomindev02-debug`). Este repo usa la sesión de `gh` (`2-Erick-2`) **solo a nivel local**: `git config --local credential.https://github.com.helper '!gh auth git-credential'`. No se cambió la configuración global para no afectar otros proyectos.
 
 **Pendiente / siguiente:** deploy en Vercel cuando el dueño lo autorice; revisión del demo con el cliente.
 

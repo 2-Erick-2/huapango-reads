@@ -10,6 +10,7 @@
 - **Producción (planeada):** `https://reads.editorialhuapango.com.mx`
 - **Landing de la editorial (otro repo, NO tocar desde aquí):** `https://www.editorialhuapango.com.mx` (repo `2-Erick-2/editorialhuapangolanding`)
 - **Diseño de referencia (Claude Design, privado del dueño):** https://claude.ai/artifact/CpdQ77dtym3sgLXDPW852m
+- **Repositorio (privado):** https://github.com/2-Erick-2/huapango-reads. CI en GitHub Actions; en esta Mac, git usa `gh` como credencial solo en este repo (ver bitácora).
 - **Dueño técnico:** Erick (GitHub `2-Erick-2`). **Cliente:** Luis Armando Rosado, Editorial Huapango.
 
 ## Reglas que no se negocian
