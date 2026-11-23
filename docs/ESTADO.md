@@ -74,7 +74,7 @@ Erick decidió construir un **editor completo solo para los libros de Huapango**
 ## Bloqueos y siguientes pasos
 
 1. **Mostrar el demo al cliente** con el link de GitHub Pages y recoger sus ajustes.
-2. **Fase 0 del taller:** pedir a la imprenta su versión de PDF/X, perfil ICC, sangrado, calibre y múltiplos de pliego; resolver la capitular; mandar _El príncipe feliz_ a prueba física.
+2. **Fase 0 del taller:** mandar el mensaje de `docs/editorial/solicitud-datos-imprenta.md` (pide un PDF ya impreso con éxito y el `.joboptions`) y pedir a la imprenta su versión de PDF/X, perfil ICC, sangrado, calibre y múltiplos de pliego; resolver la capitular; mandar _El príncipe feliz_ a prueba física.
 3. Mandar a la editorial la guía de exportación y las dudas de _El príncipe feliz_ (incluye si los minilibros son gratis, se venden o vienen incluidos).
 4. **Correr EPUBCheck en local** sobre los EPUB recibidos (no se pudo en la sesión del 2026-11-23).
 5. **Producción (pospuesta por el dueño):** proyecto en Vercel + CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.

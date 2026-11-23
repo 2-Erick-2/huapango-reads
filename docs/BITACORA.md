@@ -2,6 +2,25 @@
 
 > Historial cronológico. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 
+## 2026-11-23 — Solicitud de datos a la imprenta
+
+**Pedido:** "¿a qué te refieres con su versión de PDF/X? Les pido eso de una vez para que tú lo analices".
+
+**Hecho:** `docs/editorial/solicitud-datos-imprenta.md` con:
+
+- Explicación corta de PDF/X-1a, X-3 y X-4.
+- Mensaje listo para mandar a la imprenta (11 preguntas).
+- Lista de lo que hay que pedir a la editorial.
+- Tabla para anotar las respuestas.
+- **Recomendación clave:** pedir un **PDF ya impreso con éxito** en esa imprenta y el preset `.joboptions` de InDesign. De ahí se obtiene casi toda la configuración sin depender de que la imprenta conteste todo.
+
+**Verificado:** solo documentación; `prettier` OK.
+
+**Pendiente / siguiente:**
+
+- Erick manda el mensaje.
+- Cuando lleguen los archivos, guardarlos en `contenido-privado/imprenta/` y pedirle a Claude que analice el PDF de referencia (versión de PDF/X, `OutputIntent`/ICC, cajas, fuentes, tinta) y ajuste el prototipo.
+
 ## 2026-11-23 — Minilibros y decisión de construir el taller editorial con PDF de imprenta (prototipo Typst → PDF/X)
 
 **Pedido:**
