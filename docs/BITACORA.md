@@ -2,6 +2,73 @@
 
 > Historial cronológico. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 
+## 2026-11-23 — Minilibros y decisión de construir el taller editorial con PDF de imprenta (prototipo Typst → PDF/X)
+
+**Pedido:**
+
+- **Corrección de Erick:** "solo el EPUB que dice CONTENIDO es el libro". El prólogo y la nota son contenido externo; el prólogo "se presentará como otro minilibro", igual que la nota.
+- **Decisión:** "quiero realmente desarrollarles un editor completo solo para sus libros, y que de ahí puedan exportar"; "quiero poder exportar PDF de imprenta correcto"; "analiza bien a fondo, quiero usarte a ti para lograr eso".
+- **Pregunta:** ¿las portadas se pueden hacer en la plataforma o hay que usar Affinity?
+- También avisó que ya conectó GitHub.
+
+**Hecho:**
+
+- **Push** de la rama `claude/loving-hamilton-5m2lei` (antes fallaba con 403).
+- **ADR 0012 (Aceptada):** prólogo y nota como **minilibros** (`kind: "complemento"`, `parentSlug`). Falta saber si son gratis, se venden o vienen incluidos.
+- **Correcciones:**
+  - El análisis de los EPUB ya no propone unir las partes.
+  - La guía de exportación pide un EPUB por obra.
+- **ADR 0010:** pasa a **Aceptada**.
+- **Investigación (web, 2026-11-23):**
+  - Typst 0.15 no exporta PDF/X.
+  - Vivliostyle CLI tiene modo _press-ready_ (PDF/X-1a) y es AGPL.
+  - Chromium no produce CMYK ni PDF/X.
+  - Prince cuesta $3,800 USD por servidor y exige licencia de sitio para uso comercial.
+  - Affinity es gratis desde octubre de 2025 y, según reseñas, exporta PDF/X-4; no se confirmó en una página oficial.
+- **Prototipo** en `prototipos/taller-impresion/` (solo código; el contenido queda fuera):
+  - `normalizar.py`: XHTML de InDesign → `libro.json` con mapeo por libro.
+  - `desofuscar_fuentes.py`: fuentes OFL del EPUB.
+  - `coleccion-cuentos.typ`: interior de 5.5 × 8.5 in.
+  - `portada.typ`: portada extendida con lomo automático, sangrado, marcas de corte y EAN-13 propio.
+  - `README.md` con todos los comandos para reproducirlo.
+- **Análisis a fondo:** `docs/analisis/2026-11-23-taller-editorial-completo.md`. Incluye arquitectura, editor, plantillas, ajuste fino, PDF/X con preflight, portadas, infraestructura, motores comparados, 8 fases (16 a 26 semanas), riesgos, cómo trabajar con Claude, datos a pedir y negocio.
+- **ADR 0013 (Aceptada en lo general):** taller con ProseMirror, plantillas Typst por colección, Ghostscript para PDF/X y servicio de impresión aparte. **Reemplaza al ADR 0011.** El análisis anterior del editor quedó marcado como superado.
+- **Actualizados:** `ESTADO.md`, `ROADMAP.md` (sección del taller por fases) y `AGENTS.md` (`prototipos/`).
+
+**Verificado (en el contenedor de la sesión, con Typst 0.15.2 vía PyPI y Ghostscript 10.02.1):**
+
+- **Interior:**
+  - 14 páginas de 396 × 612 pt.
+  - Libertinus Regular e Italic y Tangerine incrustadas.
+  - Separación silábica en español correcta y sin ríos (revisado visualmente en las páginas 1 y 2).
+- **PDF/X:**
+  - `GTS_PDFXVersion (PDF/X-3:2002)`, `OutputIntents` y `TrimBox` presentes, sin `DeviceRGB`.
+  - Con `inkcov`: páginas 1 a 3 con C = M = Y = 0 y K de 3.7 % a 5.9 %.
+- **Portada:**
+  - 850 × 665 pt, lomo de 1.8 mm (36 págs. × calibre de prueba de 0.1 mm por hoja).
+  - Convertida a PDF/X-3 sin RGB.
+  - EAN-13 leído con `zbarimg` (`9783161484100`, **ISBN de ejemplo**).
+- **Velocidad:**
+  - Cuento: 0.04 s.
+  - Libro de 131 págs.: 0.40 s.
+  - Conversión a PDF/X con Ghostscript: 2.1 s.
+- **Problema real detectado:** la ilustración de golondrinas queda a 147 ppp en la portada impresa (se necesitan ~300).
+- **No verificado:**
+  - Capitular descolgada: no se pudo usar el paquete `droplet` (`packages.typst.org` bloqueado y no se permitió ejecutar el paquete descargado).
+  - PDF/X-1a y X-4.
+  - Preflight comercial.
+  - Perfil ICC real.
+  - Prueba física con la imprenta.
+- **Gotcha de Ghostscript:** `-dPDFX=3` truena (en 10.02 la opción es booleana: `-dPDFX`). Además, `PDFX_def.ps` debe pasarse con **ruta absoluta**; si no, Ghostscript usa el suyo del sistema y falla con `undefinedfilename`.
+
+**Pendiente / siguiente:**
+
+- **Fase 0:** pedir a la imprenta los datos de PDF/X, ICC, sangrado, tinta, calibre y pliego; resolver la capitular; mandar _El príncipe feliz_ a prueba física.
+- Pedir a la editorial las ilustraciones a 300 ppp y los `.indd` o PDF de referencia.
+- Confirmar el modelo comercial de los minilibros.
+- Revisión legal de Ghostscript (AGPL).
+- Cotizar el taller aparte.
+
 ## 2026-11-23 — Revisión senior del proyecto, análisis de los EPUB de _El príncipe feliz_ y opinión sobre el "editor tipo InDesign"
 
 **Pedido:**

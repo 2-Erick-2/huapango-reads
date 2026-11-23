@@ -24,7 +24,8 @@
 - [ ] Login con correo (_magic link_) y Google; perfil creado por trigger
 - [ ] Cambiar `src/lib/catalog` de datos locales a Supabase
 - [x] Análisis de los primeros EPUB reales (_El príncipe feliz_, InDesign): no sirven tal cual (`docs/analisis/2026-11-23-epub-el-principe-feliz.md`)
-- [ ] Decidir el ADR 0010 (ingesta → formato canónico de bloques)
+- [x] ADR 0010 aceptado (ingesta → formato canónico de bloques)
+- [ ] Minilibros: `kind: "libro" | "complemento"` y `parentSlug` en el catálogo y en Supabase (ADR 0012)
 - [ ] Mandar a la editorial la guía de exportación (`docs/editorial/`) y resolver los datos que no coinciden (traductora, ilustraciones, dirección, permisos digitales)
 - [ ] Correr EPUBCheck en local sobre los EPUB recibidos
 - [ ] Ingesta EPUB de InDesign / Word → validación → normalizador con mapeo por libro → vista previa en 390/768/1440 → Storage privado (ADR 0010)
@@ -54,12 +55,23 @@
 - [ ] Aviso de privacidad (LFPDPPP), términos y política de reembolsos
 - [ ] Beta cerrada y apertura
 
-## Taller editorial (propuesta, ADR 0011; después del lanzamiento y cotizado aparte)
+## Taller editorial (decidido, ADR 0013; plan en `docs/analisis/2026-11-23-taller-editorial-completo.md`)
 
-- [ ] Reencuadrar con el cliente: "taller editorial para narrativa", no un clon de InDesign
-- [ ] v1: editor estructurado (ProseMirror / núcleo de Tiptap) sobre el formato canónico, con publicación directa al lector
-- [ ] v2: exportar EPUB 3 válido con metadatos completos
-- [ ] v3 (opcional): PDF de imprenta con plantillas por colección (Paged.js / Vivliostyle / Typst), validado con su imprenta
+- [x] Prototipo: _El príncipe feliz_ → Typst → PDF/X-3, y portada extendida con lomo y EAN-13 (`prototipos/taller-impresion/`)
+- [ ] **Fase 0:**
+  - [ ] Datos de la imprenta (PDF/X, ICC, sangrado, tinta, calibre, pliego).
+  - [ ] Capitular.
+  - [ ] Libro completo con su perfil.
+  - [ ] Preflight comercial.
+  - [ ] **Prueba física aprobada.**
+- [ ] Fase 1: formato canónico compartido (TS) + importador EPUB de InDesign y Word con mapeo por libro (junto con el Hito 2)
+- [ ] Fase 2: editor ProseMirror en Solid, estilos, notas, versiones y rol "editorial"
+- [ ] Fase 3: plantillas Typst de 2 colecciones, parámetros editables y vista previa en vivo (evaluar `typst.ts` en WASM)
+- [ ] Fase 4: servicio de impresión (contenedor Typst + Ghostscript, cola en Supabase) y preflight propio
+- [ ] Fase 5: portadas extendidas por colección (lomo automático, EAN-13 y validación de ppp)
+- [ ] Fase 6: exportar EPUB 3 (EPUBCheck en CI) y publicar al lector
+- [ ] Fase 7: ajuste fino por párrafo y detector de viudas, huérfanas y ríos
+- [ ] Revisión legal de Ghostscript (AGPL) y contrato aparte (alcance, propiedad intelectual)
 
 ## Después
 

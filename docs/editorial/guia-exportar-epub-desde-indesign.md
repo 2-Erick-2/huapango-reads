@@ -4,7 +4,7 @@
 
 ## Lo más importante (si solo hacen 5 cosas)
 
-1. **Un solo EPUB por libro**, con todo en orden: portadilla, prólogo, nota, texto y colofón. No en archivos separados.
+1. **Un EPUB por obra:** el libro en uno; cada complemento que se publique como minilibro (prólogo, nota de la traductora) en el suyo, como ya lo hicieron. Dentro de cada EPUB, todo en orden y con un nombre de archivo propio (no copiar la plantilla de otro).
 2. **Estilos de párrafo con nombre**, nunca formato a mano. Por ejemplo: `Titulo capitulo`, `Firma`, `Texto`, `Texto sin sangria`, `Epigrafe`, `Fin`.
 3. **La portada como imagen propia** (JPG de al menos 1600 px de alto), no "rasterizar la primera página".
 4. **Fuentes libres** (por ejemplo Libertinus, Tangerine, Newsreader o EB Garamond). No Times New Roman, Monotype Corsiva, Microsoft Himalaya ni Minion Pro: son de pago y no se pueden incluir en un libro digital sin licencia.

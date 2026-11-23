@@ -1,7 +1,7 @@
 # Opinión técnica: ¿un editor "tipo InDesign" dentro de +reads? (2026-11-23)
 
 > **Contexto:** Erick les comentó a los dueños de Editorial Huapango que podía desarrollar, dentro de su plataforma, un editor como InDesign para crear sus libros, exportarlos y usarlos en +reads, y así dejar de pagar Adobe. Aquí está el análisis. La decisión propuesta está en el [ADR 0011](../decisiones/0011-alcance-del-editor-editorial.md).
-> **Estado:** propuesta. **Falta que Erick decida y que se renegocie el alcance con el cliente.**
+> **Estado: SUPERADO.** Erick decidió construir el taller completo con PDF de imprenta. El prototipo mostró que el motor ya existe (Typst + Ghostscript). Ver [`2026-11-23-taller-editorial-completo.md`](2026-11-23-taller-editorial-completo.md) y el ADR 0013. Se conserva como historial.
 
 ## Resumen en una línea
 

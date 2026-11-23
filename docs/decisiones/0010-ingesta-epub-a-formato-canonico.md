@@ -1,7 +1,7 @@
 # 0010 — Ingesta: EPUB/Word de la editorial → formato canónico de bloques
 
 - **Fecha:** 2026-11-23
-- **Estado:** Propuesta (falta que Erick la acepte; se implementaría en el Hito 2)
+- **Estado:** Aceptada (2026-11-23, como base del taller editorial, ADR 0013). Corrección: el prólogo y la nota **no se unen** al libro; son minilibros (ADR 0012)
 - **Decide:** Erick, con recomendación técnica
 
 ## Contexto

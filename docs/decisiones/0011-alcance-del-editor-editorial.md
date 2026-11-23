@@ -1,7 +1,7 @@
 # 0011 — Alcance del "editor tipo InDesign": taller editorial estructurado, no clon
 
 - **Fecha:** 2026-11-23
-- **Estado:** Propuesta (falta que Erick decida y renegocie el alcance con el cliente)
+- **Estado:** Reemplazada por 0013 (2026-11-23): Erick decidió construir el taller completo con PDF de imprenta
 - **Decide:** Erick / Editorial Huapango
 
 ## Contexto

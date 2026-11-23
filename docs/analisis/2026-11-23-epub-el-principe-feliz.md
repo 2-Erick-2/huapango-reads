@@ -2,6 +2,8 @@
 
 > Primer contenido real que mandó la editorial. Este documento explica **cómo vienen**, **qué falla** y **cómo deben entrar a +reads** para verse bien en cualquier pantalla. La decisión propuesta está en el [ADR 0010](../decisiones/0010-ingesta-epub-a-formato-canonico.md). La guía para la editorial está en [`docs/editorial/guia-exportar-epub-desde-indesign.md`](../editorial/guia-exportar-epub-desde-indesign.md).
 
+> **Corrección (2026-11-23, más tarde):** Erick aclaró que solo `EL_PRINCIPE_FELIZ_CONTENIDO.epub` es el libro. El prólogo y la nota de la traductora son contenido externo que se presentará como **minilibros aparte** ([ADR 0012](../decisiones/0012-piezas-complementarias-como-minilibros.md)). Donde este análisis hablaba de "unir las partes", ya no aplica.
+
 ## Archivos recibidos
 
 **No están en el repo:** el repo es público y el contenido tiene derechos (traducción, prólogo e ilustraciones). En local, guárdalos en `contenido-privado/`, que está en `.gitignore`.
@@ -76,7 +78,6 @@ Los tres son **EPUB 3 reflujable** (no de diseño fijo), exportados con **Adobe 
 - En el tema Carbón el texto es negro.
 - La "portada" es una página del libro.
 - Las portadillas se rompen.
-- El libro llega partido en 3 archivos.
 - El colofón es incorrecto.
 
 Con un lector de EPUB genérico (Apple Books o foliate-js) se vería "aceptable", pero no "perfecto en todas las pantallas".
@@ -94,7 +95,7 @@ Word (.docx) ────────┼─► 1. Validar ─► 2. Normalizar �
 
 1. **Validar.** EPUBCheck, presencia de fuentes con licencia, imágenes, tamaño.
 2. **Normalizar** (script propio en `scripts/ingesta/`, con pruebas):
-   - **Unir** las partes en el orden del libro (portada → portadilla → prólogo → nota de la traductora → cuento → colofón), con IDs únicos.
+   - **Cada EPUB es una obra aparte** (corrección del 2026-11-23, ADR 0012): `CONTENIDO` es el libro; el prólogo y la nota de la traductora son **minilibros** ligados a él. No se unen.
    - **Mapear estilos a semántica:**
      - Títulos → `heading`.
      - Firma ("Por …") → `byline`.
