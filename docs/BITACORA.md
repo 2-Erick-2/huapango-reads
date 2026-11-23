@@ -14,6 +14,8 @@
 - Tabla para anotar las respuestas.
 - **Recomendación clave:** pedir un **PDF ya impreso con éxito** en esa imprenta y el preset `.joboptions` de InDesign. De ahí se obtiene casi toda la configuración sin depender de que la imprenta conteste todo.
 
+- (Ampliado el mismo día) Mensaje para la editorial: pedir el PDF **exacto** enviado a la imprenta (sin volver a exportarlo), el `.joboptions`, el paquete de InDesign (_Archivo → Empaquetar_) y las ilustraciones originales.
+
 **Verificado:** solo documentación; `prettier` OK.
 
 **Pendiente / siguiente:**

@@ -37,6 +37,24 @@ El prototipo ya produce **PDF/X-3**. Si la imprenta pide X-1a o X-4, se ajusta, 
 >
 > ¡Muchas gracias!
 
+## Mensaje listo para mandar a la editorial
+
+**Prioridad:** el PDF **exacto** que ya se mandó a la imprenta, **sin volver a exportarlo**. Ese archivo prueba qué aceptó la imprenta; uno nuevo podría salir con otra configuración.
+
+> Hola. Para que la plataforma genere los PDF de imprenta igual que los suyos, ¿me pueden mandar esto de algún libro que ya se haya impreso bien? (de preferencia _El príncipe feliz_ o el más reciente):
+>
+> 1. **El PDF final que le mandaron a la imprenta**, tal cual se envió (interior y portada), sin volver a exportarlo.
+> 2. **El ajuste de exportación de PDF que usan en InDesign:** en InDesign, menú _Archivo → Ajustes preestablecidos de Adobe PDF → Definir…_, seleccionan el que usan para la imprenta y le dan _Guardar como…_. Se guarda un archivo `.joboptions`; mándenme ese archivo.
+> 3. Si se puede, el **paquete del libro**: con el archivo abierto en InDesign, _Archivo → Empaquetar…_ (incluye el `.indd`, las fuentes y las imágenes). Si pesa mucho, por WeTransfer o Drive.
+> 4. Las **ilustraciones originales** en la mayor resolución que tengan (las golondrinas, por ejemplo).
+>
+> ¡Gracias!
+
+Notas:
+
+- El **paquete** (punto 3) trae las fuentes: sirve para revisar sus licencias y copiar el diseño en la plantilla. Las fuentes comerciales no se redistribuyen ni se suben al repo.
+- Si solo mandan uno, que sea el **PDF de la imprenta** (punto 1).
+
 ## Qué pedir a la editorial
 
 - [ ] PDF de un libro que ya se imprimió bien en esa imprenta (interior y portada).
