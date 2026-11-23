@@ -2,6 +2,78 @@
 
 > Historial cronológico. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 
+## 2026-11-23 — Revisión senior del proyecto, análisis de los EPUB de _El príncipe feliz_ y opinión sobre el "editor tipo InDesign"
+
+**Pedido:**
+
+1. "Analiza este proyecto y dime qué piensas como senior top".
+2. Con los 3 EPUB que mandó la editorial (prólogo, nota de la traductora y contenido de _El príncipe feliz_): "dime cómo entrarían en la plataforma para que funcione perfecto en todo tipo de pantallas".
+3. Opinión sobre la promesa a los dueños de desarrollarles "un editor como InDesign" en su plataforma para no pagar Adobe.
+4. "Todo lo que analices o hagas, documéntalo" para retomarlo en local con Claude Code.
+
+**Hecho (solo documentación, sin cambios de código):**
+
+- **Revisión del proyecto (conclusiones de esta sesión):**
+  - **Fortalezas:**
+    - Documentación con ADR, reglas de honestidad (no inventar datos, no prometer anticapturas) y la interfaz async del catálogo.
+    - Pagos solo por webhook, versiones fijas y CI.
+    - Lighthouse de 96 a 100.
+  - **Riesgos detectados:**
+    - Los bloqueos reales son de negocio (precios, contenido, regalías, revisión del cliente), no de código.
+    - Falta la parte fiscal (CFDI e IVA de libros electrónicos; validar con el contador).
+    - OXXO es un pago **asíncrono**: el webhook debe manejar `checkout.session.async_payment_succeeded` y `..._failed`, y la UI necesita un estado "pago pendiente".
+    - Stack muy nuevo (Nitro 3 beta, SolidStart 2, TS 6, Vite 8) para una sola persona.
+    - `remapSpread` conserva la posición de forma proporcional, no anclada.
+    - Las pruebas de Playwright (32/32) no están en el repo ni en CI.
+    - Colores fijos en `Reader.tsx` (`#D66E53`, `#3A3935`).
+    - Un inicio estilo Netflix con 4 libros se ve vacío.
+    - `user-select: none` impide buscar en el diccionario.
+  - **Pregunta estratégica:** canal propio frente a Kindle, Google o Apple. Se sugiere un modelo híbrido.
+  - Las tareas que salen de aquí se agregaron al ROADMAP.
+- **Análisis de los EPUB:** [`docs/analisis/2026-11-23-epub-el-principe-feliz.md`](analisis/2026-11-23-epub-el-principe-feliz.md).
+  - **Resumen:** EPUB 3 reflujable de InDesign 21.6, en 3 archivos con el mismo nombre de XHTML interno.
+  - **Problemas:**
+    - Sin encabezados semánticos.
+    - Fuentes ofuscadas que el navegador no carga; 3 de ellas comerciales (Monotype Corsiva, Times New Roman y Microsoft Himalaya).
+    - `color:#000000` fijo (ilegible en el tema Carbón).
+    - La portada es la página 1 rasterizada y la capitular se pierde.
+    - Las portadillas con golondrinas se separan del título.
+    - Marcas de página impresa a mitad de frase.
+    - Párrafos vacíos.
+    - `alt=""` en todas las imágenes.
+    - Metadatos pobres.
+    - Colofón "Impreso en…" con otra dirección.
+  - **Veredicto:** no se pueden subir tal cual.
+- **ADR 0010 (Propuesta):** ingesta EPUB/Word → formato canónico de bloques tipados con ids estables → lector y EPUB limpio. foliate-js deja de ser necesario para libros propios.
+- **Opinión sobre el editor:** [`docs/analisis/2026-11-23-editor-tipo-indesign.md`](analisis/2026-11-23-editor-tipo-indesign.md). Un clon de InDesign no es viable. Se recomienda un "taller editorial" estructurado por fases, después de lanzar +reads y cotizado aparte.
+- **ADR 0011 (Propuesta):** alcance del editor.
+- **Guía para la editorial:** [`docs/editorial/guia-exportar-epub-desde-indesign.md`](editorial/guia-exportar-epub-desde-indesign.md). Cómo exportar desde InDesign y qué mandar, con las dudas pendientes del libro.
+- **`.gitignore`:** se agregó `contenido-privado/` para guardar en local los EPUB y Word de la editorial. **El repo es público: el contenido con derechos nunca se sube.**
+- Actualizados `docs/ESTADO.md`, `docs/ROADMAP.md` y `AGENTS.md` (mapa de `docs/`).
+
+**Verificado:**
+
+- Se descomprimieron los 3 EPUB y se revisaron OPF, `encryption.xml`, CSS, XHTML, navegación e imágenes.
+- Se renderizaron los XHTML con Chromium (Playwright) a 390 px y 1024 px:
+  - Las 9 cargas de fuentes fallan (`OTS parsing error: invalid sfntVersion`).
+  - El texto cae a Times.
+  - No hay desbordamiento horizontal.
+  - La portadilla del prólogo sale como una pantalla de pájaros y el título suelto debajo.
+- `pandoc 3.1.3` extrae el texto completo, pero conserva las clases de InDesign.
+- **EPUBCheck NO se corrió:** el entorno de la sesión no permitió ejecutar el validador descargado. Pendiente en local.
+- Las capturas y los archivos no se subieron al repo (contenido con derechos y repo público).
+
+**Pendiente / siguiente:**
+
+- Erick decide los ADR 0010 y 0011.
+- Mandar la guía a la editorial y resolver las dudas:
+  - Traductora: "Yarely Campos" en el EPUB contra "Isabel Campos" en el catálogo.
+  - Ilustraciones "NEKO".
+  - Dirección.
+  - Autorización digital.
+- Correr EPUBCheck en local.
+- Copiar los EPUB a `contenido-privado/` en la máquina de Erick.
+
 ## 2026-10-22 — Repo público y demo en GitHub Pages
 
 **Pedido:** "hazlo público en GitHub para poder mostrar la demo". El dueño eligió la opción "Público + GitHub Pages".

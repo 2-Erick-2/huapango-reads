@@ -17,3 +17,6 @@ dist
 !.vscode/extensions.json
 .DS_Store
 Thumbs.db
+
+# Contenido con derechos de la editorial (EPUB, Word, PDF). El repo es público: nunca se sube.
+contenido-privado/

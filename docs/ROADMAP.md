@@ -23,8 +23,15 @@
 - [ ] Supabase (por MCP): esquema v2 con RLS (libros, autores, colecciones, archivos, compras, ledger de regalías, progreso, subrayados, listas)
 - [ ] Login con correo (_magic link_) y Google; perfil creado por trigger
 - [ ] Cambiar `src/lib/catalog` de datos locales a Supabase
-- [ ] Ingesta Word → EPUB (Pandoc) → validación → Storage privado
-- [ ] Evaluar foliate-js con EPUB reales (ADR 0005)
+- [x] Análisis de los primeros EPUB reales (_El príncipe feliz_, InDesign): no sirven tal cual (`docs/analisis/2026-11-23-epub-el-principe-feliz.md`)
+- [ ] Decidir el ADR 0010 (ingesta → formato canónico de bloques)
+- [ ] Mandar a la editorial la guía de exportación (`docs/editorial/`) y resolver los datos que no coinciden (traductora, ilustraciones, dirección, permisos digitales)
+- [ ] Correr EPUBCheck en local sobre los EPUB recibidos
+- [ ] Ingesta EPUB de InDesign / Word → validación → normalizador con mapeo por libro → vista previa en 390/768/1440 → Storage privado (ADR 0010)
+- [ ] `ReadableText` con bloques tipados e ids estables; el lector pinta portadillas, capitular, imágenes y ornamentos (ADR 0010)
+- [ ] Posición de lectura anclada al bloque visible, en lugar de proporcional (`remapSpread`)
+- [ ] ~~Evaluar foliate-js con EPUB reales (ADR 0005)~~: innecesario para libros propios si se acepta el ADR 0010
+- [ ] Subir las pruebas de Playwright del demo al repo y al CI
 - [ ] Edge Function `get-chapter`: verifica la compra, firma la URL y aplica marca de agua con datos del lector
 - [ ] Muestra real de _Nahual_ en el lector
 - [ ] Progreso, marcadores y subrayados sincronizados (anclas estables)
@@ -32,6 +39,8 @@
 ## Hito 3 — Pagos y regalías
 
 - [ ] Stripe Checkout en MXN (tarjeta y OXXO)
+- [ ] OXXO asíncrono: manejar `checkout.session.async_payment_succeeded` / `..._failed` y el estado "pago pendiente" en la UI
+- [ ] Facturación (CFDI) e IVA de libros electrónicos: validar con el contador antes de definir el esquema
 - [ ] Webhook idempotente: compra → acceso → ledger de regalías
 - [ ] Stripe Connect (si está disponible en México) o reporte mensual para SPEI
 - [ ] Mi biblioteca, historial de compras y recibos
@@ -44,6 +53,13 @@
 - [ ] Accesibilidad con lector de pantalla, Lighthouse, Sentry y analítica respetuosa
 - [ ] Aviso de privacidad (LFPDPPP), términos y política de reembolsos
 - [ ] Beta cerrada y apertura
+
+## Taller editorial (propuesta, ADR 0011; después del lanzamiento y cotizado aparte)
+
+- [ ] Reencuadrar con el cliente: "taller editorial para narrativa", no un clon de InDesign
+- [ ] v1: editor estructurado (ProseMirror / núcleo de Tiptap) sobre el formato canónico, con publicación directa al lector
+- [ ] v2: exportar EPUB 3 válido con metadatos completos
+- [ ] v3 (opcional): PDF de imprenta con plantillas por colección (Paged.js / Vivliostyle / Typst), validado con su imprenta
 
 ## Después
 

@@ -62,6 +62,9 @@ docs/
   ARQUITECTURA.md          Cómo está construido
   DISENO.md                Diseño de referencia y cómo se aplica
   decisiones/              ADRs numerados (por qué se decidió cada cosa)
+  analisis/                Análisis puntuales con fecha (EPUB recibidos, editor tipo InDesign…)
+  editorial/               Guías para el equipo de la editorial (cómo exportar y entregar libros)
+contenido-privado/        (solo local, en .gitignore) EPUB/Word de la editorial; nunca se suben (repo público)
 public/
   books/                   Portadas (JPG 500×720, WebP 500 y 260)
   brand/                   Logos SVG copiados de la landing

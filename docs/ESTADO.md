@@ -1,7 +1,7 @@
 # Estado actual — Huapango +reads
 
 > Foto del proyecto **hoy**. Se reescribe al final de cada tarea (skill `documentacion-continua`).
-> **Última actualización:** 2026-10-22
+> **Última actualización:** 2026-11-23
 
 ## En una frase
 
@@ -30,6 +30,27 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 - **Insignia "Demo"** visible en el encabezado.
 - **GitHub Pages** sirve una versión **estática** (prerenderizada) con `noindex`; no tiene servidor. Producción usará SSR en Vercel (ADR 0009).
 
+## Contenido real recibido (2026-11-23)
+
+- **_El príncipe feliz_:** 3 EPUB exportados de InDesign (prólogo, nota de la traductora y cuento). **No se pueden subir tal cual**:
+  - Las fuentes están ofuscadas y algunas son comerciales.
+  - Tienen texto negro fijo.
+  - La portada es la página 1 rasterizada.
+  - Las portadillas se rompen y no hay semántica.
+- Análisis: `docs/analisis/2026-11-23-epub-el-principe-feliz.md`. Propuesta de ingesta: ADR 0010 (**Propuesta**, falta decidir).
+- Los archivos **no están en el repo** (es público). En local van en `contenido-privado/` (en `.gitignore`).
+- Guía para que la editorial exporte bien: `docs/editorial/guia-exportar-epub-desde-indesign.md` (aún no se les manda).
+
+## Propuesta abierta: "editor tipo InDesign"
+
+Erick les ofreció a los dueños un editor como InDesign. Recomendación (ADR 0011, **Propuesta**):
+
+- No hacer un clon.
+- Hacer un "taller editorial" estructurado para narrativa, por fases, **después** de lanzar +reads y cotizado aparte.
+- Para portadas e ilustrados, recomendar una herramienta gratuita (Affinity o Scribus).
+
+Detalle: `docs/analisis/2026-11-23-editor-tipo-indesign.md`.
+
 ## Por confirmar con la editorial
 
 - **Precio digital** de cada libro (hoy dice "Precio por confirmar").
@@ -37,16 +58,27 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 - **Word** de al menos un capítulo (de preferencia _Nahual_) para la muestra real.
 - **Porcentaje de regalías** por autor y autorización de distribución digital.
 - **Disponibilidad de Stripe Connect** en México (preguntar a Stripe) y retenciones fiscales (contador).
+- **Facturación (CFDI) e IVA** de los libros electrónicos (contador).
+- **_El príncipe feliz_:**
+  - Traductora: el EPUB dice "Yarely Campos" y el catálogo "Isabel Campos".
+  - Autoría de las ilustraciones (archivos "NEKO").
+  - Dirección del colofón (Elías Piña #100 contra Calle Novena #225).
+  - Autorización digital de la traductora, la prologuista (Mercedes Varela) y quien ilustró.
 
 ## Bloqueos y siguientes pasos
 
 1. **Mostrar el demo al cliente** con el link de GitHub Pages y recoger sus ajustes.
-2. **Producción (pospuesta por el dueño):** proyecto en Vercel + CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.
+2. **Decidir los ADR 0010 y 0011** y mandarle a la editorial la guía de exportación y las dudas de _El príncipe feliz_.
+3. **Correr EPUBCheck en local** sobre los EPUB recibidos (no se pudo en la sesión del 2026-11-23).
+4. **Producción (pospuesta por el dueño):** proyecto en Vercel + CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.
 
 ## Riesgos conocidos
 
 - **`npm audit`:** 4 alertas "high" en una sola cadena (`braces` → `micromatch` → `fast-glob` → `@solidjs/start`). Se usan **solo al compilar** para descubrir rutas; no procesan entradas de usuarios. Npm solo propone bajar a SolidStart 1.x, así que **se acepta el riesgo** y se revisa en cada actualización de SolidStart.
-- **Nitro v3 en beta** (ADR 0002).
+- **Nitro v3 en beta** (ADR 0002). Stack muy nuevo en general (SolidStart 2, TS 6, Vite 8) para una sola persona.
+- **OXXO es asíncrono:** sin manejar `async_payment_succeeded`/`failed`, habría compras pagadas sin acceso.
+- **Pruebas de Playwright fuera del repo:** las 32 pruebas reportadas no se pueden repetir en CI.
+- **Expectativa del cliente** con el "editor tipo InDesign": reencuadrar antes de comprometer fechas (ADR 0011).
 - **Repo público:** cualquiera puede leer el código y `docs/` (incluye notas de negocio no confidenciales). Nunca subir secretos, precios internos ni datos de autores sin autorización.
 
 ## Enlaces
