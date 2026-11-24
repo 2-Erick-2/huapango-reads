@@ -32,6 +32,11 @@ jobs:
           BASE_PATH: /huapango-reads/
           VITE_SITE_ORIGIN: https://2-erick-2.github.io
           VITE_NOINDEX: "true"
+          # Conexión PÚBLICA a Supabase (dirección y llave publicable, hechas para ir en el
+          # navegador): activa cuentas de lectores, ensayos y libros publicados desde el panel.
+          # Son variables del repositorio, no secretos. La llave de servicio NUNCA va aquí.
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
