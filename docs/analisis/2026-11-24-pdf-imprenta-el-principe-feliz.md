@@ -1,8 +1,29 @@
 # Análisis del PDF de imprenta de _El príncipe feliz_ (2026-11-24)
 
-> **Archivo:** `EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf`, el que la editorial **usó para imprimir** (lo entregó Erick el 2026-11-24). No está en el repo (es público); en local va en `contenido-privado/imprenta/`.
+> **Archivo:** `EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf`, el que la editorial **usó para imprimir** (lo entregó Erick el 2026-11-24). Está en el repo en `contenido-privado/el-principe-feliz/imprenta/` (decisión del dueño, 2026-11-24).
 > **Cómo se analizó:** `prototipos/taller-impresion/analizar_pdf_referencia.py` (pdfplumber, poppler y Ghostscript), más revisión visual de las 62 páginas.
 > **Para qué sirve:** es la referencia de la **Fase 0** del taller (ADR 0013). De aquí salen las especificaciones de la plantilla "Cuentos a todas partes" y lo que su imprenta acepta.
+
+## 0. Cómo imprimen (confirmado por la editorial, 2026-11-24)
+
+> "Este lo mando a imprimir en **folleto de Adobe**. Adobe organiza las páginas como deben salir para que abarquen **media hoja** cada una."
+
+- Imprimen **ellos mismos**: el PDF media carta se manda a la impresora con la opción **"Folleto"** de Adobe Acrobat.
+- Acrobat **impone** las páginas: 2 por cara en hojas **carta** (8.5 × 11 in) a doble cara. Al doblar por la mitad queda un **cuadernillo engrapado a caballo** de 5.5 × 8.5 in.
+- **Consecuencias:**
+  - **Sangrado:** no hace falta, porque no se refila; la hoja carta doblada ya es el tamaño final. Las impresoras de escritorio no imprimen al borde (dejan ~4 a 5 mm), así que las ilustraciones "a sangre" (págs. 5, 11 y 17) salen con **margen blanco**. Si quieren imágenes al borde, hace falta otra impresora o refilar.
+  - **62 páginas:** Acrobat completa con blancas hasta 64 (16 hojas carta). No es un error.
+  - **PDF/X y perfiles ICC:** no aplican. La impresora de oficina recibe RGB y convierte sola. La salida "compatible" (ADR 0014) es la correcta.
+  - **Creep (desplazamiento):** con 16 hojas dobladas, las del centro sobresalen al doblar. Al refilar o al cerrar el libro, los márgenes exteriores de las páginas centrales quedan más angostos. Acrobat no lo compensa; el taller puede hacerlo (`imponer_folleto.py --desplazamiento-mm`).
+- **El taller ya hace esa imposición** (`prototipos/taller-impresion/imponer_folleto.py`). Se verificó con este PDF:
+  - 32 caras = 16 hojas.
+  - Hoja 1: 64|1 y 2|63.
+  - Hoja central: 34|31 al frente y 32|33 atrás.
+  - Así pueden imprimir desde cualquier visor sin depender de Acrobat.
+- **Falta confirmar:**
+  - Modelo de impresora y papel (gramaje y calibre).
+  - Si los forros (portada) se imprimen aparte y en qué papel.
+  - Si engrapan o pegan.
 
 ## 1. Resumen ejecutivo
 
@@ -10,9 +31,9 @@
    - Es un PDF 1.4 normal exportado de InDesign 21.6 (Windows), sin perfil de salida (`OutputIntents`) y **con imágenes en RGB y transparencias**.
    - Su imprenta acepta PDF "normal": el taller **no necesita PDF/X para que les impriman**. Aun así se recomienda salir en CMYK controlado (ver 6).
 2. **No tiene sangrado:** `BleedBox = TrimBox = 396 × 612 pt`.
-   - Tres páginas tienen ilustraciones que llegan al borde (5, 11 y 17). Sin sangrado, al refilar puede quedar un filo blanco.
-3. **Formato confirmado:** 5.5 × 8.5 in (13.97 × 21.59 cm), **62 páginas**. **62 no es múltiplo de 4**: la imprenta agrega hojas en blanco o el armado es distinto (preguntar).
-4. **Imprenta probablemente propia:** el colofón dice "Impreso en Editorial Huapango, Elías Piña #100, Fuentes Secc. Lomas, Reynosa". Eso explica por qué aceptan PDF sin PDF/X ni sangrado. **Confirmar** qué equipo usan (digital de tóner u offset): cambia los requisitos.
+   - Tres páginas tienen ilustraciones que llegan al borde (5, 11 y 17). Con su método (folleto en impresora de oficina) no se refila, así que el sangrado no aplica; esas imágenes salen con el margen blanco de la impresora (ver sección 0).
+3. **Formato confirmado:** 5.5 × 8.5 in (13.97 × 21.59 cm), **62 páginas**. 62 no es múltiplo de 4: Acrobat completa con blancas hasta 64 = 16 hojas carta (sección 0).
+4. **Imprenta propia, confirmado:** imprimen en folleto desde Adobe Acrobat en hojas carta (sección 0). Falta saber el modelo de impresora y el papel.
 5. **El libro impreso incluye el prólogo y la nota de la traductora** dentro del mismo volumen. En digital se publican como minilibros (ADR 0012). El taller debe permitir ambas cosas con la misma fuente.
 6. **14 fuentes distintas, 6 comerciales:** Minion Pro, Garamond, Courier New, Monotype Corsiva, Times New Roman y Microsoft Himalaya. Hay que sustituirlas por libres en las plantillas.
 7. **La plantilla Typst ya se calibró** contra este PDF y reproduce sus páginas casi idénticas (comparación visual de las págs. 27 a 29).

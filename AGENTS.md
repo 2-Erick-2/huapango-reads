@@ -65,7 +65,7 @@ docs/
   decisiones/              ADRs numerados (por qué se decidió cada cosa)
   analisis/                Análisis puntuales con fecha (EPUB recibidos, taller editorial con PDF de imprenta…)
   editorial/               Guías para el equipo de la editorial (cómo exportar y entregar libros)
-contenido-privado/        (solo local, en .gitignore) EPUB/Word de la editorial; nunca se suben (repo público)
+contenido-privado/        Material de la editorial (EPUB, PDF de imprenta, ilustraciones). Versionado por decisión del dueño (2026-11-24); ver su README.md
 prototipos/
   taller-impresion/        Prueba de concepto Typst → PDF/X (interior y portada). No es producción (ADR 0013)
 public/

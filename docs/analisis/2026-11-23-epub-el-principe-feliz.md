@@ -6,7 +6,7 @@
 
 ## Archivos recibidos
 
-**No están en el repo:** el repo es público y el contenido tiene derechos (traducción, prólogo e ilustraciones). En local, guárdalos en `contenido-privado/`, que está en `.gitignore`.
+**Actualización 2026-11-24:** por decisión del dueño, ahora sí están en el repo, en `contenido-privado/el-principe-feliz/epub/`. Texto original: _no están en el repo:_ el repo es público y el contenido tiene derechos (traducción, prólogo e ilustraciones). En local, guárdalos en `contenido-privado/`, que está en `.gitignore`.
 
 | Archivo                                        | Tamaño | Contenido                                                               | Palabras |
 | ---------------------------------------------- | -----: | ----------------------------------------------------------------------- | -------: |

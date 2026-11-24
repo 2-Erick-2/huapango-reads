@@ -31,7 +31,7 @@
 // Fondo de toda la tapa con sangrado
 #place(dx: marca, dy: marca, rect(width: ancho + 2 * sangrado, height: corte.h + 2 * sangrado, fill: cmyk(0%, 0%, 4%, 0%), stroke: none))
 // Portada (derecha): ilustración a sangre + título
-#place(dx: x0 + corte.w + lomo, dy: marca, image("golondrinas.png", width: corte.w + sangrado, height: corte.h + 2 * sangrado, fit: "cover"))
+#place(dx: x0 + corte.w + lomo, dy: marca, image(sys.inputs.at("ilustracion", default: "golondrinas.png"), width: corte.w + sangrado, height: corte.h + 2 * sangrado, fit: "cover"))
 #place(dx: x0 + corte.w + lomo, dy: y0 + 2.6in, box(width: corte.w, align(center)[
   #text(font: "Tangerine", size: 58pt)[El príncipe feliz] \
   #v(4pt) #text(size: 14pt, tracking: 0.1em)[OSCAR WILDE]

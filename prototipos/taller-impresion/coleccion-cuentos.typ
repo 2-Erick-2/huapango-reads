@@ -4,7 +4,8 @@
 
 #let negro = cmyk(0%, 0%, 0%, 100%) // el impreso usa texto en 100 % K
 #let gris-cornisa = cmyk(0%, 0%, 0%, 78%) // cornisas al 78 % K, igual que el impreso
-#let libro = json("libro.json")
+// Ruta del libro: --input libro=/ruta/desde/la/raiz.json (con root = raíz del repo). Por omisión, libro.json junto a la plantilla.
+#let libro = json(sys.inputs.at("libro", default: "libro.json"))
 #let autor = sys.inputs.at("autor", default: libro.author)
 #let titulo = sys.inputs.at("titulo", default: libro.title)
 

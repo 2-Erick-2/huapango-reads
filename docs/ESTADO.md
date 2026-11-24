@@ -5,20 +5,36 @@
 
 ## Para retomar en local (léelo primero)
 
-1. Trae la rama de trabajo:
+1. **Trae la rama de trabajo:**
 
    ```bash
    git fetch origin && git checkout claude/loving-hamilton-5m2lei
    ```
 
-2. Copia a `contenido-privado/` (no se suben; están en `.gitignore`):
-   - Los 3 EPUB de _El príncipe feliz_.
-   - El PDF de imprenta, en `contenido-privado/imprenta/EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf`.
-3. Lee, en este orden:
-   - `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md` (lo último).
+2. **Todo el material ya está en el repo:** `contenido-privado/el-principe-feliz/` (EPUB, PDF de imprenta, `libro.json`, fuentes, salidas y capturas; ver su `README.md`). Se subió por decisión del dueño. ⚠️ **Hacer el repo privado** en GitHub: _Settings → General → Danger Zone → Change visibility_. Al hacerlo, **GitHub Pages deja de servir el demo** si la cuenta es gratuita.
+3. **App web (UI):** Node 24 (`nvm use`).
+
+   ```bash
+   npm install
+   ```
+
+   ```bash
+   npm run dev
+   ```
+
+   Se abre en http://localhost:3000. Antes de cada commit: `npm run check`.
+
+4. **Prototipo del taller** (Python): guía rápida en `prototipos/taller-impresion/README.md`.
+5. **Lee, en este orden:**
+   - `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md` (cómo imprimen: folleto de Acrobat).
    - `docs/analisis/2026-11-23-taller-editorial-completo.md` (plan del taller).
-   - `prototipos/taller-impresion/README.md` (cómo correr el prototipo).
-4. **Siguiente tarea de código sugerida:** Fase 1 del taller = formato canónico en TypeScript (`src/lib/libro/`) + importador EPUB de InDesign, con pruebas (ADR 0010 y 0013).
+   - ADR 0010 a 0015.
+6. **Siguientes tareas sugeridas:**
+   - **UI de +reads** (lo que Erick quiere seguir):
+     - Ficha del libro con minilibros ligados (ADR 0012: `kind` y `parentSlug`).
+     - _El príncipe feliz_ con sus créditos reales.
+     - Lector con bloques tipados para cargar `libro.json` real como muestra (ADR 0010).
+   - **Taller, Fase 1:** formato canónico en TypeScript (`src/lib/libro/`) + importador EPUB, con pruebas.
 
 ## En una frase
 
@@ -57,7 +73,7 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
   - Las portadillas se rompen y no hay semántica.
   - Entran por la ingesta al formato canónico de bloques (ADR 0010, **Aceptada**).
 - Análisis: `docs/analisis/2026-11-23-epub-el-principe-feliz.md`.
-- Los archivos **no están en el repo** (es público). En local van en `contenido-privado/` (en `.gitignore`).
+- Los archivos están en el repo, en `contenido-privado/el-principe-feliz/` (decisión del dueño, 2026-11-24).
 - Guía para que la editorial exporte bien: `docs/editorial/guia-exportar-epub-desde-indesign.md` (aún no se les manda).
 
 ## Taller editorial (decidido el 2026-11-23; ADR 0013 y 0014)
@@ -65,7 +81,9 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 Editor completo solo para los libros de Huapango, que exporta PDF de imprenta, EPUB y +reads. Prototipo en `prototipos/taller-impresion/`.
 
 - **PDF real de imprenta analizado** (2026-11-24): `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md`.
-  - **No es PDF/X:** PDF 1.4 con RGB, sin sangrado y 62 páginas. Lo imprimen en su propio taller.
+  - **No es PDF/X:** PDF 1.4 con RGB, sin sangrado y 62 páginas.
+  - **Imprimen ellos mismos** con "Folleto" de Adobe Acrobat (2 páginas por cara en hojas carta, doblado y engrapado).
+  - El taller ya hace esa imposición: `imponer_folleto.py`, ADR 0015.
   - **Decisión (ADR 0014):** salida "compatible" por omisión; PDF/X como opción.
 - **Plantilla "Cuentos a todas partes" calibrada** contra ese PDF:
   - Libertinus 14/18, márgenes de 70/76 pt.
@@ -97,7 +115,7 @@ Editor completo solo para los libros de Huapango, que exporta PDF de imprenta, E
   - Autorización digital de la traductora, la prologuista (Mercedes Varela) y el ilustrador.
   - ISBN **digital** (el 979-8-9961338-4-0 es del impreso).
   - ¿Ya está publicado? (el catálogo dice "En prensa").
-  - PDF de la portada (forros), papel y calibre, equipo de impresión y armado de pliegos (62 págs. no es múltiplo de 4).
+  - PDF de la portada (forros), modelo de impresora, papel (gramaje y calibre) y si engrapan o pegan. Lo de 62 páginas ya se aclaró: Acrobat completa a 64.
   - Original del frontispicio a 300 ppp y logo vectorial.
   - Erratas del impreso: cornisa "EL PRINCIPE FELIZ" sin tilde; `¨Neko¨` con diéresis en la página legal.
 
@@ -127,7 +145,7 @@ Editor completo solo para los libros de Huapango, que exporta PDF de imprenta, E
   - Ghostscript es AGPL (confirmar con un abogado o comprar licencia).
   - La imprenta podría rechazar el PDF: por eso se hace primero la Fase 0.
   - Definir en el contrato la propiedad intelectual del taller.
-- **Repo público:** cualquiera puede leer el código y `docs/` (incluye notas de negocio no confidenciales). Nunca subir secretos, precios internos ni datos de autores sin autorización.
+- **Repo público con contenido con derechos:** desde el 2026-11-24 `contenido-privado/` (EPUB, PDF del libro, ilustraciones) está en el repo por decisión del dueño. **Hacerlo privado cuanto antes.** Nunca subir secretos.
 
 ## Enlaces
 

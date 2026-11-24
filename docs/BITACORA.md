@@ -2,6 +2,52 @@
 
 > Historial cronológico. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 
+## 2026-11-24 — Imprimen en folleto de Acrobat, imposición propia y contenido subido al repo
+
+**Pedido:**
+
+- **La editorial explicó:** "Este lo mando a imprimir en folleto de Adobe… Adobe organiza las páginas para que abarquen media hoja cada una".
+- **Erick:** "los archivos sí súbelos tú, no quiero batallar, que todo esté ahí, no importa que sea público, yo lo haré privado después… quiero ya poder pasar a mi máquina local… y seguir desarrollando la UI".
+
+**Hecho:**
+
+- **Sección 0 "Cómo imprimen"** en `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md`:
+  - Impresora propia con "Folleto" de Acrobat en hojas carta.
+  - El sangrado no aplica; las 62 páginas se completan a 64.
+  - PDF/X no aplica.
+  - Riesgo de creep con 16 hojas.
+  - Las imágenes a sangre salen con margen blanco.
+- **ADR 0015 (Aceptada):** el taller exporta además el folleto impuesto.
+- **Nuevo `prototipos/taller-impresion/imponer_folleto.py`** (pypdf): imposición como Acrobat, con relleno a múltiplo de 4 y compensación de creep opcional.
+- **Plantillas parametrizadas** para correr desde la raíz del repo: `libro` en `coleccion-cuentos.typ`; `libro` e `ilustracion` en `portada.typ`. Guía rápida reescrita en el README del prototipo.
+- **Contenido subido al repo por decisión del dueño** en `contenido-privado/el-principe-feliz/`:
+  - EPUB y PDF de imprenta.
+  - Folleto impuesto.
+  - `libro.json`, fuentes OFL, ilustración y salidas del prototipo.
+  - Capturas y reporte JSON.
+  - Con su `README.md`.
+- **Ignorados nuevos:**
+  - `.gitignore` ya no ignora `contenido-privado/`; ignora `prototipos/**/.venv/` y `__pycache__/`.
+  - ESLint (`eslint.config.js`) y Prettier (`.prettierignore`) ignoran `contenido-privado` y `prototipos/**/.venv`.
+  - El número de teléfono del mensaje de la editorial **no** se guardó.
+- **`ESTADO.md` "Para retomar en local" reescrito:** rama, contenido, aviso para hacer el repo privado (y que Pages deja de servir el demo en cuenta gratuita), cómo correr la UI y siguientes tareas de UI.
+- Actualizados `AGENTS.md` y el análisis de los EPUB.
+- **Corrección de un error propio:** el commit `0a4cea9` dejó **`docs/ROADMAP.md` vacío** (un script abrió el archivo para escribir antes de leerlo). Se restauró desde `b9703dc` y se volvieron a aplicar los cambios del 2026-11-24. Se revisó que no haya otros archivos vacíos.
+
+**Verificado:**
+
+- `imponer_folleto.py` sobre el PDF real: 32 caras = 16 hojas carta (792 × 612 pt). Revisión visual:
+  - Hoja 1: 64|1 y 2|63 (blancas).
+  - Hoja 16: 34|31 al frente y 32|33 atrás (centro del cuadernillo).
+- La guía rápida corre desde la raíz con un venv nuevo (`typst==0.15.2`, pdfplumber, pillow y pypdf): el interior da 23 págs. y la portada de 62 págs. compila.
+- `npm run check` y `prettier --check`: ver el resultado en el commit de esta entrada.
+
+**Pendiente / siguiente:**
+
+- **Hacer el repo privado.**
+- Pedir a la editorial: modelo de impresora, papel y calibre, forros aparte y engrapado o pegado.
+- **En local:** UI (minilibros en la ficha, créditos reales y lector con bloques) y Fase 1 del taller.
+
 ## 2026-11-24 — Análisis del PDF real de imprenta de _El príncipe feliz_ y calibración de la plantilla
 
 **Pedido:** "aquí está el PDF que ellos me dieron, que es el que usaron para imprimir. Haz todo el análisis completo, sube todo a GitHub y deja todo listo para irme a seguir desarrollando en local con Claude Code".

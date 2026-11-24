@@ -18,5 +18,8 @@ dist
 .DS_Store
 Thumbs.db
 
-# Contenido con derechos de la editorial (EPUB, Word, PDF). El repo es público: nunca se sube.
-contenido-privado/
+# contenido-privado/ SÍ se versiona desde el 2026-11-24 por decisión del dueño (lo pidió explícitamente;
+# hará el repo privado). Ver docs/BITACORA.md. Solo se ignoran temporales de trabajo:
+contenido-privado/**/.venv/
+prototipos/**/.venv/
+__pycache__/

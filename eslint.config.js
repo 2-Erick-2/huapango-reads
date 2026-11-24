@@ -4,7 +4,18 @@ import solid from "eslint-plugin-solid/configs/typescript";
 import globals from "globals";
 
 export default tseslint.config(
-  { ignores: [".output", ".vinxi", ".nitro", "dist", "node_modules", ".vercel"] },
+  {
+    ignores: [
+      ".output",
+      ".vinxi",
+      ".nitro",
+      "dist",
+      "node_modules",
+      ".vercel",
+      "contenido-privado",
+      "prototipos/**/.venv",
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.strict,
   {

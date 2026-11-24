@@ -1,0 +1,556 @@
+{
+  "archivo": "a5174b58-EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf",
+  "creador": "Adobe InDesign 21.6 (Windows)",
+  "productor": "Adobe PDF Library 18.0",
+  "version_pdf": "1.4",
+  "paginas": 62,
+  "tamano_pt": "396 x 612 pts",
+  "cajas": {
+    "MediaBox": "0.00     0.00   396.00   612.00",
+    "TrimBox": "0.00     0.00   396.00   612.00",
+    "BleedBox": "0.00     0.00   396.00   612.00"
+  },
+  "sangrado": false,
+  "pdfx": {
+    "GTS_PDFXVersion": [],
+    "OutputIntents": 0,
+    "OutputConditionIdentifier": []
+  },
+  "espacios_de_color": {
+    "DeviceRGB": 7,
+    "DeviceCMYK": 33,
+    "DeviceGray": 5,
+    "ICCBased": 0,
+    "Separation": 0
+  },
+  "transparencias": 40,
+  "paginas_multiplo_de_4": false,
+  "fuentes": [
+    {
+      "nombre": "CourierNewPS-BoldMT",
+      "licencia": "REVISAR (posible comercial)"
+    },
+    {
+      "nombre": "Explora-Regular",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "Garamond",
+      "licencia": "REVISAR (posible comercial)"
+    },
+    {
+      "nombre": "LibertinusSerif-Bold",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "LibertinusSerif-Italic",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "LibertinusSerif-Regular",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "LibertinusSerif-Regular-SC700",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "LibreBaskerville-Regular",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "Microsoft-Himalaya",
+      "licencia": "REVISAR (posible comercial)"
+    },
+    {
+      "nombre": "MinionPro-Regular",
+      "licencia": "REVISAR (posible comercial)"
+    },
+    {
+      "nombre": "MonotypeCorsiva",
+      "licencia": "REVISAR (posible comercial)"
+    },
+    {
+      "nombre": "Tangerine-Bold",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "Tangerine-Regular",
+      "licencia": "libre (OFL)"
+    },
+    {
+      "nombre": "TimesNewRomanPS-ItalicMT",
+      "licencia": "REVISAR (posible comercial)"
+    }
+  ],
+  "imagenes": [
+    {
+      "pagina": 3,
+      "px": "495x333",
+      "color": "index",
+      "ppp": 435,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 3,
+      "px": "1027x730",
+      "color": "index",
+      "ppp": 300,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 5,
+      "px": "495x333",
+      "color": "index",
+      "ppp": 435,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 5,
+      "px": "1095x1298",
+      "color": "rgb",
+      "ppp": 200,
+      "baja_resolucion": true
+    },
+    {
+      "pagina": 7,
+      "px": "495x333",
+      "color": "index",
+      "ppp": 435,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 9,
+      "px": "495x333",
+      "color": "index",
+      "ppp": 435,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 11,
+      "px": "1659x2557",
+      "color": "rgb",
+      "ppp": 300,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 11,
+      "px": "581x62",
+      "color": "index",
+      "ppp": 300,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 17,
+      "px": "581x62",
+      "color": "index",
+      "ppp": 300,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 17,
+      "px": "1653x2536",
+      "color": "rgb",
+      "ppp": 300,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 28,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 29,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 30,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 31,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 32,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 33,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 34,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 35,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 36,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 37,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 38,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 39,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 40,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 41,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 42,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 43,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 44,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 45,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 46,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 47,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 48,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 49,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 50,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 51,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 52,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 53,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 54,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 55,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 56,
+      "px": "60x73",
+      "color": "index",
+      "ppp": 304,
+      "baja_resolucion": false
+    },
+    {
+      "pagina": 59,
+      "px": "500x252",
+      "color": "index",
+      "ppp": 282,
+      "baja_resolucion": true
+    }
+  ],
+  "estilos_de_texto_mas_usados": [
+    {
+      "fuente": "LibertinusSerif-Regular",
+      "pt": 14.0,
+      "caracteres": 26233
+    },
+    {
+      "fuente": "MinionPro-Regular",
+      "pt": 12.0,
+      "caracteres": 812
+    },
+    {
+      "fuente": "Garamond",
+      "pt": 8.0,
+      "caracteres": 508
+    },
+    {
+      "fuente": "LibertinusSerif-Regular-SC700",
+      "pt": 8.0,
+      "caracteres": 403
+    },
+    {
+      "fuente": "LibertinusSerif-Regular",
+      "pt": 12.0,
+      "caracteres": 129
+    },
+    {
+      "fuente": "TimesNewRomanPS-ItalicMT",
+      "pt": 9.0,
+      "caracteres": 87
+    },
+    {
+      "fuente": "LibertinusSerif-Bold",
+      "pt": 12.0,
+      "caracteres": 84
+    },
+    {
+      "fuente": "Explora-Regular",
+      "pt": 14.0,
+      "caracteres": 60
+    },
+    {
+      "fuente": "CourierNewPS-BoldMT",
+      "pt": 10.0,
+      "caracteres": 58
+    },
+    {
+      "fuente": "Microsoft-Himalaya",
+      "pt": 24.0,
+      "caracteres": 36
+    },
+    {
+      "fuente": "Microsoft-Himalaya",
+      "pt": 16.0,
+      "caracteres": 35
+    },
+    {
+      "fuente": "MonotypeCorsiva",
+      "pt": 20.0,
+      "caracteres": 22
+    }
+  ],
+  "colores_de_texto": {
+    "(0.0, 0.0, 0.0, 1.0)": 28141,
+    "(0.0, 0.0, 0.0, 0.78)": 403
+  },
+  "interlineado_pt_mas_comun": [
+    [
+      18.0,
+      565
+    ],
+    [
+      36.0,
+      102
+    ],
+    [
+      40.7,
+      8
+    ]
+  ],
+  "margenes_texto_corrido_pt": [
+    {
+      "pagina": 13,
+      "lado": "impar (recto)",
+      "izq": 70.9,
+      "der": 75.8,
+      "sup_texto": 114.2
+    },
+    {
+      "pagina": 14,
+      "lado": "par (verso)",
+      "izq": 79.4,
+      "der": 67.3,
+      "sup_texto": 115.5
+    },
+    {
+      "pagina": 15,
+      "lado": "impar (recto)",
+      "izq": 70.9,
+      "der": 75.9,
+      "sup_texto": 115.2
+    },
+    {
+      "pagina": 19,
+      "lado": "impar (recto)",
+      "izq": 70.9,
+      "der": 75.8,
+      "sup_texto": 113.5
+    },
+    {
+      "pagina": 20,
+      "lado": "par (verso)",
+      "izq": 79.6,
+      "der": 67.1,
+      "sup_texto": 115.5
+    },
+    {
+      "pagina": 21,
+      "lado": "impar (recto)",
+      "izq": 70.9,
+      "der": 75.8,
+      "sup_texto": 115.5
+    }
+  ],
+  "isbn": [
+    {
+      "isbn": "979-8-9961338-4-0",
+      "valido": true
+    }
+  ],
+  "paginas_con_color": [
+    {
+      "pagina": 3,
+      "C": 1.4,
+      "M": 1.5,
+      "Y": 1.5,
+      "K": 1.1,
+      "TAC_max": 279
+    },
+    {
+      "pagina": 5,
+      "C": 30.2,
+      "M": 32.1,
+      "Y": 32.2,
+      "K": 11.0,
+      "TAC_max": 281
+    },
+    {
+      "pagina": 7,
+      "C": 0.7,
+      "M": 0.7,
+      "Y": 0.7,
+      "K": 0.6,
+      "TAC_max": 279
+    },
+    {
+      "pagina": 9,
+      "C": 0.7,
+      "M": 0.7,
+      "Y": 0.7,
+      "K": 0.6,
+      "TAC_max": 279
+    },
+    {
+      "pagina": 11,
+      "C": 8.5,
+      "M": 8.5,
+      "Y": 8.5,
+      "K": 8.1,
+      "TAC_max": 287
+    },
+    {
+      "pagina": 17,
+      "C": 8.3,
+      "M": 8.4,
+      "Y": 8.4,
+      "K": 8.1,
+      "TAC_max": 288
+    },
+    {
+      "pagina": 59,
+      "C": 1.6,
+      "M": 1.7,
+      "Y": 1.7,
+      "K": 0.8,
+      "TAC_max": 279
+    }
+  ]
+}

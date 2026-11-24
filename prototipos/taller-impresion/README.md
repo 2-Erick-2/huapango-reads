@@ -11,25 +11,63 @@ Prueba de concepto del [ADR 0013](../../docs/decisiones/0013-taller-editorial-co
 | `coleccion-cuentos.typ`      | Plantilla de interior "Cuentos a todas partes", de 5.5 × 8.5 in. **Calibrada (2026-11-24)** contra el PDF real de imprenta: Libertinus 14/18, márgenes de 70/76 pt, sangría más línea en blanco, cornisas par/impar al 78 % K y apertura en página impar. Parámetros: `--input autor=… titulo=… guiones=si` |
 | `analizar_pdf_referencia.py` | Analiza un PDF de imprenta de referencia (cajas, PDF/X, color, fuentes y licencias, imágenes y ppp, tipografía, márgenes, interlineado, ISBN, tinta/TAC). Uso: `.venv/bin/python analizar_pdf_referencia.py <pdf> --json reporte.json`. Requiere `pip install pdfplumber pillow`                            |
 | `portada.typ`                | Portada extendida: contraportada + lomo calculado + portada, con sangrado de 3 mm, marcas de corte y código de barras EAN-13 propio                                                                                                                                                                         |
+| `imponer_folleto.py`         | Imposición en **folleto** (lo que hace "Folleto" de Adobe Acrobat al imprimir): hojas carta horizontales con 2 páginas por cara, para doble cara, doblar y engrapar. Completa a múltiplo de 4 y tiene compensación de _creep_ opcional                                                                      |
 
-**No se incluyen** (el repo es público): el EPUB, `libro.json`, las fuentes extraídas, la ilustración ni los PDF. Van en `contenido-privado/` (en `.gitignore`).
+Los archivos del libro (EPUB, PDF de imprenta, `libro.json`, fuentes OFL extraídas, ilustración y salidas) están en `contenido-privado/el-principe-feliz/` (ver su `README.md`).
 
-## Cómo reproducirlo en local
+## Guía rápida (desde la raíz del repo)
 
-Requiere Python 3, Ghostscript (≥ 10) y `poppler-utils`. Los EPUB van en `contenido-privado/`.
+Requiere Python 3, Ghostscript (≥ 10) y `poppler-utils` (en Mac: `brew install ghostscript poppler`).
 
 ```bash
-cd prototipos/taller-impresion
-python3 -m venv .venv && .venv/bin/pip install typst==0.15.2
-mkdir -p ../../contenido-privado/taller/fonts && cd ../../contenido-privado/taller
-unzip -oq ../EL_PRINCIPE_FELIZ_CONTENIDO.epub -d contenido
-python3 ../../prototipos/taller-impresion/desofuscar_fuentes.py contenido fonts
-python3 ../../prototipos/taller-impresion/normalizar.py contenido/OEBPS/EL_PRINCIPE_FELIZ_NOTA_DE_LA_TRADUCTORA.xhtml libro.json
-cp ../../prototipos/taller-impresion/*.typ .
-../../prototipos/taller-impresion/.venv/bin/python -c "import typst; typst.compile('coleccion-cuentos.typ', output='interior-rgb.pdf', font_paths=['fonts'], ignore_system_fonts=True)"
+python3 -m venv prototipos/taller-impresion/.venv
 ```
 
-Para la portada se necesita `golondrinas.png`, que sale de `OEBPS/image/…NEKO_(6).png` del EPUB del prólogo. Se compila con `sys_inputs={'paginas': '36'}`.
+```bash
+prototipos/taller-impresion/.venv/bin/pip install typst==0.15.2 pdfplumber pillow pypdf
+```
+
+Interior y portada (la salida va a `contenido-privado/el-principe-feliz/taller/salidas/`):
+
+```bash
+L=contenido-privado/el-principe-feliz
+prototipos/taller-impresion/.venv/bin/python -c "
+import typst
+typst.compile('prototipos/taller-impresion/coleccion-cuentos.typ', root='.', output='$L/taller/salidas/interior.pdf', font_paths=['$L/taller/fonts'], ignore_system_fonts=True, sys_inputs={'libro': '/$L/taller/libro.json', 'autor': 'Oscar Wilde', 'titulo': 'El príncipe feliz'})
+typst.compile('prototipos/taller-impresion/portada.typ', root='.', output='$L/taller/salidas/portada.pdf', font_paths=['$L/taller/fonts'], ignore_system_fonts=True, sys_inputs={'paginas': '62', 'ilustracion': '/$L/taller/golondrinas.png'})
+"
+```
+
+Folleto listo para imprimir (como lo hace la editorial con Acrobat):
+
+```bash
+prototipos/taller-impresion/.venv/bin/python prototipos/taller-impresion/imponer_folleto.py contenido-privado/el-principe-feliz/taller/salidas/interior.pdf contenido-privado/el-principe-feliz/taller/salidas/interior-folleto.pdf
+```
+
+Analizar un PDF de imprenta:
+
+```bash
+prototipos/taller-impresion/.venv/bin/python prototipos/taller-impresion/analizar_pdf_referencia.py contenido-privado/el-principe-feliz/imprenta/EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf --json /tmp/reporte.json
+```
+
+Regenerar `libro.json` y las fuentes desde el EPUB (solo si cambia el EPUB):
+
+```bash
+unzip -oq contenido-privado/el-principe-feliz/epub/EL_PRINCIPE_FELIZ_CONTENIDO.epub -d /tmp/epub-contenido
+```
+
+```bash
+python3 prototipos/taller-impresion/desofuscar_fuentes.py /tmp/epub-contenido contenido-privado/el-principe-feliz/taller/fonts
+```
+
+```bash
+python3 prototipos/taller-impresion/normalizar.py /tmp/epub-contenido/OEBPS/EL_PRINCIPE_FELIZ_NOTA_DE_LA_TRADUCTORA.xhtml contenido-privado/el-principe-feliz/taller/libro.json
+```
+
+Parámetros de las plantillas (`sys_inputs`):
+
+- **Interior:** `libro`, `autor`, `titulo`, `guiones=si`.
+- **Portada:** `paginas`, `ilustracion`.
 
 ### Conversión a PDF/X-3 (CMYK)
 
