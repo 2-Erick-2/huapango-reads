@@ -61,6 +61,8 @@ Los tres son **EPUB 3 reflujable** (no de diseño fijo), exportados con **Adobe 
 
 ## Datos que no coinciden con el catálogo (por confirmar con la editorial)
 
+> **Actualización 2026-11-24:** el PDF de imprenta lo resolvió. La traductora es Yarely Isabel Campos Servín; la ilustración, de Diego "Neko" Aguilar; Elías Piña #100 es donde se imprime. Ver `2026-11-24-pdf-imprenta-el-principe-feliz.md`.
+
 | Dato        | En el EPUB                           | En `references/catalogo.md`      |
 | ----------- | ------------------------------------ | -------------------------------- |
 | Traductora  | "Por Yarely Campos"                  | "Isabel Campos"                  |

@@ -66,17 +66,19 @@ Notas:
 
 ## Respuestas (llenar cuando lleguen)
 
-| Dato                          | Respuesta | Fecha |
-| ----------------------------- | --------- | ----- |
-| Imprenta (nombre)             |           |       |
-| Versión de PDF/X              |           |       |
-| Perfil de color (ICC)         |           |       |
-| Sangrado / marcas de corte    |           |       |
-| Cobertura máxima de tinta     |           |       |
-| Negro de texto / enriquecido  |           |       |
-| Resolución mínima             |           |       |
-| Múltiplos de páginas (pliego) |           |       |
-| Papel interior y calibre      |           |       |
-| Papel de forros y calibre     |           |       |
-| Formato de portada            |           |       |
-| Prueba de impresión           |           |       |
+> Varias se llenaron con lo que muestra el PDF que usaron para imprimir (análisis: `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md`). Lo que dice "confirmar" sigue pendiente.
+
+| Dato                          | Respuesta                                                                             | Fecha            |
+| ----------------------------- | ------------------------------------------------------------------------------------- | ---------------- |
+| Imprenta (nombre)             | Propia según el colofón ("Impreso en Editorial Huapango, Elías Piña #100"); confirmar | 2026-11-24 (PDF) |
+| Versión de PDF/X              | **Ninguna**: aceptan PDF 1.4 normal de InDesign (RGB, transparencias)                 | 2026-11-24 (PDF) |
+| Perfil de color (ICC)         | Ninguno en el PDF (`OutputIntents` 0)                                                 | 2026-11-24 (PDF) |
+| Sangrado / marcas de corte    | **Sin sangrado** ni marcas (BleedBox = TrimBox)                                       | 2026-11-24 (PDF) |
+| Cobertura máxima de tinta     | Su PDF llega a ~288 % (simulado); límite por confirmar                                | 2026-11-24 (PDF) |
+| Negro de texto / enriquecido  | Texto en 100 % K; cornisas al 78 % K; logo en 4 tintas                                | 2026-11-24 (PDF) |
+| Resolución mínima             | Aceptaron 200 ppp (frontispicio); el resto, 300 ppp                                   | 2026-11-24 (PDF) |
+| Múltiplos de páginas (pliego) | 62 págs. (no es múltiplo de 4): **confirmar armado**                                  | 2026-11-24 (PDF) |
+| Papel interior y calibre      |                                                                                       |                  |
+| Papel de forros y calibre     |                                                                                       |                  |
+| Formato de portada            |                                                                                       |                  |
+| Prueba de impresión           |                                                                                       |                  |

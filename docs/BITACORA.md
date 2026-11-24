@@ -2,6 +2,61 @@
 
 > Historial cronológico. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 
+## 2026-11-24 — Análisis del PDF real de imprenta de _El príncipe feliz_ y calibración de la plantilla
+
+**Pedido:** "aquí está el PDF que ellos me dieron, que es el que usaron para imprimir. Haz todo el análisis completo, sube todo a GitHub y deja todo listo para irme a seguir desarrollando en local con Claude Code".
+
+**Hecho:**
+
+- **Análisis completo:** `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md`.
+  - **No es PDF/X:** PDF 1.4 de InDesign 21.6 con RGB y transparencias, sin `OutputIntents` y **sin sangrado**.
+  - 62 páginas de 5.5 × 8.5 in (no es múltiplo de 4).
+  - Imprimen en su propio taller (colofón).
+  - Incluye el prólogo y la nota dentro del libro.
+  - Especificaciones medidas: Libertinus 14/18, márgenes de 70/76 pt, sangría más línea en blanco, cornisas en versalitas de 8 pt al 78 % K, folio en Explora 14, título en Tangerine 48 y capitular de 69.6 pt.
+  - 14 fuentes, 6 comerciales, con propuesta de sustitución.
+  - Imágenes: frontispicio a 200 ppp; logo rasterizado en 4 tintas.
+  - TAC máximo ≈ 288 %.
+  - Erratas: cornisa sin tilde y `¨Neko¨`.
+- **Datos resueltos por la página legal:**
+  - Traductora **Yarely Isabel Campos Servín**: actualizados `src/lib/catalog/data.ts` y `.claude/skills/huapango-reads/references/catalogo.md`.
+  - Ilustrador Diego "Neko" Aguilar.
+  - ISBN del impreso 979-8-9961338-4-0 (prefijo de EE. UU.; el digital necesita otro).
+- **ADR 0014 (Aceptada):** salida "compatible con su flujo" por omisión y PDF/X como opción.
+- **Nuevo** `prototipos/taller-impresion/analizar_pdf_referencia.py`: reporte JSON de cualquier PDF de imprenta. No copia el texto del libro.
+- **`coleccion-cuentos.typ` calibrada** contra el impreso, con parámetros `autor`, `titulo` y `guiones`. La división de palabras queda apagada como en su impreso.
+- **Documentos actualizados:**
+  - `ESTADO.md`: nueva sección "Para retomar en local", taller y por confirmar.
+  - `ROADMAP.md` y `AGENTS.md`.
+  - Tabla de respuestas en `docs/editorial/solicitud-datos-imprenta.md`.
+  - Notas de "resuelto" en la guía y en el análisis de los EPUB.
+
+**Verificado:**
+
+- `analizar_pdf_referencia.py` corrió sobre el PDF real. Los resultados están en el análisis.
+- Contacto visual de las 62 páginas y revisión a 50 ppp de las págs. 3–5, 7–9, 11, 13, 27–29, 59, 61 y 62.
+- **Comparación** del impreso (págs. 27–29) contra la plantilla Typst: misma caja, cuerpo, interlineado, sangría, espaciado y cornisas.
+- **Pendientes de la comparación:**
+  - Capitular descolgada.
+  - Ornamento de la cornisa.
+  - Folio en Explora.
+  - Foliado continuo (requiere las preliminares).
+- Sin guiones salen espacios grandes, igual que en el impreso. Se recomienda activarlos.
+- `npm run check` ✅ (cambió el texto de crédito en `data.ts`).
+- El PDF, las capturas y los reportes **no** se subieron (contenido con derechos).
+
+**Pendiente / siguiente:**
+
+- **Pedir a la editorial:**
+  - PDF de forros.
+  - Papel y calibre.
+  - Equipo y armado de pliegos.
+  - ISBN digital.
+  - Original del frontispicio y logo vectorial.
+  - Permisos digitales.
+- Avisar de las erratas.
+- **En local, Fase 1:** formato canónico en TypeScript + importador EPUB.
+
 ## 2026-11-23 — Solicitud de datos a la imprenta
 
 **Pedido:** "¿a qué te refieres con su versión de PDF/X? Les pido eso de una vez para que tú lo analices".

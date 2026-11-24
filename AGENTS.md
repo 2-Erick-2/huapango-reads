@@ -2,6 +2,7 @@
 
 > Punto de entrada para **cualquier agente de IA o persona** que trabaje en este repo.
 > Léelo completo antes de tocar código. Después lee `docs/ESTADO.md` y las últimas entradas de `docs/BITACORA.md`.
+> **Para retomar el trabajo en local** (rama, archivos privados y siguiente tarea): sección "Para retomar en local" al inicio de `docs/ESTADO.md`.
 
 ## Qué es
 

@@ -158,7 +158,7 @@ export const UPCOMING: UpcomingBook[] = [
   {
     slug: "el-principe-feliz",
     title: "El príncipe feliz",
-    credit: "Oscar Wilde · traducción actualizada y comentada por Isabel Campos",
+    credit: "Oscar Wilde · traducción actualizada y comentada por Yarely Isabel Campos Servín",
     collection: "cuentos-a-todas-partes",
     genre: "Cuento infantil",
     status: "en-prensa",

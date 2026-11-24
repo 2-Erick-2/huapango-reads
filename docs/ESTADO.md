@@ -1,7 +1,24 @@
 # Estado actual — Huapango +reads
 
 > Foto del proyecto **hoy**. Se reescribe al final de cada tarea (skill `documentacion-continua`).
-> **Última actualización:** 2026-11-23
+> **Última actualización:** 2026-11-24
+
+## Para retomar en local (léelo primero)
+
+1. Trae la rama de trabajo:
+
+   ```bash
+   git fetch origin && git checkout claude/loving-hamilton-5m2lei
+   ```
+
+2. Copia a `contenido-privado/` (no se suben; están en `.gitignore`):
+   - Los 3 EPUB de _El príncipe feliz_.
+   - El PDF de imprenta, en `contenido-privado/imprenta/EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf`.
+3. Lee, en este orden:
+   - `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md` (lo último).
+   - `docs/analisis/2026-11-23-taller-editorial-completo.md` (plan del taller).
+   - `prototipos/taller-impresion/README.md` (cómo correr el prototipo).
+4. **Siguiente tarea de código sugerida:** Fase 1 del taller = formato canónico en TypeScript (`src/lib/libro/`) + importador EPUB de InDesign, con pruebas (ADR 0010 y 0013).
 
 ## En una frase
 
@@ -43,19 +60,29 @@ Calidad verificada el 2026-10-22: `typecheck`, `lint`, `prettier`, 11 pruebas un
 - Los archivos **no están en el repo** (es público). En local van en `contenido-privado/` (en `.gitignore`).
 - Guía para que la editorial exporte bien: `docs/editorial/guia-exportar-epub-desde-indesign.md` (aún no se les manda).
 
-## Taller editorial (decidido el 2026-11-23, ADR 0013)
+## Taller editorial (decidido el 2026-11-23; ADR 0013 y 0014)
 
-Erick decidió construir un **editor completo solo para los libros de Huapango**, con exportación a **PDF de imprenta (PDF/X)**, EPUB y +reads. Hay un prototipo que funciona en `prototipos/taller-impresion/`:
+Editor completo solo para los libros de Huapango, que exporta PDF de imprenta, EPUB y +reads. Prototipo en `prototipos/taller-impresion/`.
 
-- **Interior:** formato canónico → Typst → PDF → Ghostscript → **PDF/X-3**. Probado con _El príncipe feliz_: 14 páginas de 5.5 × 8.5 in, texto 100 % K y sin RGB.
-- **Portada extendida:** lomo automático, sangrado, marcas de corte y EAN-13 que se lee con escáner.
-- **Velocidad:** un libro de 131 páginas compila en 0.4 s.
+- **PDF real de imprenta analizado** (2026-11-24): `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md`.
+  - **No es PDF/X:** PDF 1.4 con RGB, sin sangrado y 62 páginas. Lo imprimen en su propio taller.
+  - **Decisión (ADR 0014):** salida "compatible" por omisión; PDF/X como opción.
+- **Plantilla "Cuentos a todas partes" calibrada** contra ese PDF:
+  - Libertinus 14/18, márgenes de 70/76 pt.
+  - Sangría más línea en blanco entre párrafos.
+  - Cornisas par/impar y apertura en página impar.
+  - Comparación visual de las págs. 27–29: casi idéntica.
+  - División de palabras apagada como en su impreso (se recomienda activarla).
+- **Pipeline probado:** canónico → Typst → PDF → Ghostscript → PDF/X-3. Portada extendida con lomo automático y EAN-13. Un libro de 131 págs. compila en 0.4 s.
+- **Script reutilizable** `analizar_pdf_referencia.py`: saca especificaciones de cualquier PDF de imprenta.
 - **Falta:**
-  - La capitular.
-  - El perfil ICC y la versión de PDF/X de **su** imprenta.
-  - El preflight comercial y la **prueba física**.
-- **Portadas:** el taller arma la portada; la **ilustración** se hace en Affinity (gratis) a 300 ppp. Las golondrinas que tenemos quedan a 147 ppp: hace falta el original.
-- **Siguiente:** Fase 0 (spike con la imprenta). Plan completo, fases (16 a 26 semanas) y riesgos: `docs/analisis/2026-11-23-taller-editorial-completo.md`.
+  - Capitular descolgada.
+  - Ornamento de la cornisa (golondrina y puntos) y folio en Explora.
+  - Páginas preliminares (legal, portadillas).
+  - Portada real (falta el PDF de forros).
+  - Papel y calibre.
+  - Prueba física.
+- **Plan:** fases de 16 a 26 semanas en `docs/analisis/2026-11-23-taller-editorial-completo.md`.
 
 ## Por confirmar con la editorial
 
@@ -66,15 +93,25 @@ Erick decidió construir un **editor completo solo para los libros de Huapango**
 - **Disponibilidad de Stripe Connect** en México (preguntar a Stripe) y retenciones fiscales (contador).
 - **Facturación (CFDI) e IVA** de los libros electrónicos (contador).
 - **_El príncipe feliz_:**
-  - Traductora: el EPUB dice "Yarely Campos" y el catálogo "Isabel Campos".
-  - Autoría de las ilustraciones (archivos "NEKO").
-  - Dirección del colofón (Elías Piña #100 contra Calle Novena #225).
-  - Autorización digital de la traductora, la prologuista (Mercedes Varela) y quien ilustró.
+  - ✅ Resuelto por la página legal: la traductora es **Yarely Isabel Campos Servín** (catálogo actualizado) y la ilustración es de **Diego "Neko" Aguilar**. Elías Piña #100 es donde se imprime.
+  - Autorización digital de la traductora, la prologuista (Mercedes Varela) y el ilustrador.
+  - ISBN **digital** (el 979-8-9961338-4-0 es del impreso).
+  - ¿Ya está publicado? (el catálogo dice "En prensa").
+  - PDF de la portada (forros), papel y calibre, equipo de impresión y armado de pliegos (62 págs. no es múltiplo de 4).
+  - Original del frontispicio a 300 ppp y logo vectorial.
+  - Erratas del impreso: cornisa "EL PRINCIPE FELIZ" sin tilde; `¨Neko¨` con diéresis en la página legal.
 
 ## Bloqueos y siguientes pasos
 
 1. **Mostrar el demo al cliente** con el link de GitHub Pages y recoger sus ajustes.
-2. **Fase 0 del taller:** mandar el mensaje de `docs/editorial/solicitud-datos-imprenta.md` (pide un PDF ya impreso con éxito y el `.joboptions`) y pedir a la imprenta su versión de PDF/X, perfil ICC, sangrado, calibre y múltiplos de pliego; resolver la capitular; mandar _El príncipe feliz_ a prueba física.
+2. **Fase 0 del taller:**
+   - ✅ PDF de referencia recibido y analizado.
+   - Falta pedir (ver `docs/editorial/solicitud-datos-imprenta.md`):
+     - El PDF de forros y el `.joboptions`.
+     - El papel y su calibre.
+     - El equipo de impresión y el armado de pliegos.
+   - Resolver la capitular y las preliminares.
+   - Mandar _El príncipe feliz_ compuesto en el taller a **prueba física**.
 3. Mandar a la editorial la guía de exportación y las dudas de _El príncipe feliz_ (incluye si los minilibros son gratis, se venden o vienen incluidos).
 4. **Correr EPUBCheck en local** sobre los EPUB recibidos (no se pudo en la sesión del 2026-11-23).
 5. **Producción (pospuesta por el dueño):** proyecto en Vercel + CNAME `reads` en Neubox, **sin tocar los MX de Zoho ni los nameservers**.

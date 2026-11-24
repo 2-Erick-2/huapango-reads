@@ -55,13 +55,13 @@ Formato impreso común: 18.00 × 12.50 cm · Bond crema 70 g · Cubierta flexibl
 
 ## Próximos lanzamientos
 
-| Título                                    | Autor / traducción                                   | Colección              | Género             | Estado        |
-| ----------------------------------------- | ---------------------------------------------------- | ---------------------- | ------------------ | ------------- |
-| Observaciones de la estética de la poesía | Renato Tinajero                                      | Colección ECOS         | Ensayo             | En producción |
-| El búfalo entre la nieve                  | Luis Armando Rosado                                  | Colección Tinta blanca | Novela filosófica  | En producción |
-| Nohemí                                    | Pedro Luis Aguilar                                   | Cuentos a todas partes | Cuento adolescente | En producción |
-| El príncipe feliz — Oscar Wilde           | Traducción actualizada y comentada por Isabel Campos | Cuentos a todas partes | Cuento infantil    | En prensa     |
-| Carmilla — Sheridan Le Fanu               | Traducción actualizada por Valery Silva              | Gabinete Gótico        | Gótico             | En prensa     |
+| Título                                    | Autor / traducción                                                                            | Colección              | Género             | Estado        |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------- | ------------------ | ------------- |
+| Observaciones de la estética de la poesía | Renato Tinajero                                                                               | Colección ECOS         | Ensayo             | En producción |
+| El búfalo entre la nieve                  | Luis Armando Rosado                                                                           | Colección Tinta blanca | Novela filosófica  | En producción |
+| Nohemí                                    | Pedro Luis Aguilar                                                                            | Cuentos a todas partes | Cuento adolescente | En producción |
+| El príncipe feliz — Oscar Wilde           | Traducción actualizada y comentada por Yarely Isabel Campos Servín (página legal del impreso) | Cuentos a todas partes | Cuento infantil    | En prensa     |
+| Carmilla — Sheridan Le Fanu               | Traducción actualizada por Valery Silva                                                       | Gabinete Gótico        | Gótico             | En prensa     |
 
 No hay portadas de los próximos lanzamientos: usa una portada tipográfica generada (título + colección sobre carbón/terregal) y etiquétala como "Próximamente".
 

@@ -4,12 +4,13 @@ Prueba de concepto del [ADR 0013](../../docs/decisiones/0013-taller-editorial-co
 
 ## Qué hay aquí
 
-| Archivo                 | Qué hace                                                                                                                                                                                                       |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `normalizar.py`         | XHTML de InDesign → `libro.json` (bloques canónicos). Tiene el **mapeo de clases de _El príncipe feliz_** (InDesign renombra las clases en cada exportación). Descarta párrafos vacíos, lanzamientos y colofón |
-| `desofuscar_fuentes.py` | Recupera las fuentes **libres** (Libertinus y Tangerine, OFL) que InDesign ofusca dentro del EPUB                                                                                                              |
-| `coleccion-cuentos.typ` | Plantilla de interior "Cuentos a todas partes", de 5.5 × 8.5 in (medida deducida de la página 1 que exportó InDesign: 825 × 1275 px a 150 ppp)                                                                 |
-| `portada.typ`           | Portada extendida: contraportada + lomo calculado + portada, con sangrado de 3 mm, marcas de corte y código de barras EAN-13 propio                                                                            |
+| Archivo                      | Qué hace                                                                                                                                                                                                                                                                                                    |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `normalizar.py`              | XHTML de InDesign → `libro.json` (bloques canónicos). Tiene el **mapeo de clases de _El príncipe feliz_** (InDesign renombra las clases en cada exportación). Descarta párrafos vacíos, lanzamientos y colofón                                                                                              |
+| `desofuscar_fuentes.py`      | Recupera las fuentes **libres** (Libertinus y Tangerine, OFL) que InDesign ofusca dentro del EPUB                                                                                                                                                                                                           |
+| `coleccion-cuentos.typ`      | Plantilla de interior "Cuentos a todas partes", de 5.5 × 8.5 in. **Calibrada (2026-11-24)** contra el PDF real de imprenta: Libertinus 14/18, márgenes de 70/76 pt, sangría más línea en blanco, cornisas par/impar al 78 % K y apertura en página impar. Parámetros: `--input autor=… titulo=… guiones=si` |
+| `analizar_pdf_referencia.py` | Analiza un PDF de imprenta de referencia (cajas, PDF/X, color, fuentes y licencias, imágenes y ppp, tipografía, márgenes, interlineado, ISBN, tinta/TAC). Uso: `.venv/bin/python analizar_pdf_referencia.py <pdf> --json reporte.json`. Requiere `pip install pdfplumber pillow`                            |
+| `portada.typ`                | Portada extendida: contraportada + lomo calculado + portada, con sangrado de 3 mm, marcas de corte y código de barras EAN-13 propio                                                                                                                                                                         |
 
 **No se incluyen** (el repo es público): el EPUB, `libro.json`, las fuentes extraídas, la ilustración ni los PDF. Van en `contenido-privado/` (en `.gitignore`).
 
@@ -83,6 +84,31 @@ zbarimg -q portada.png
   - Cuento en frío: 0.04 s; recompilación: ~0 s.
   - Libro de ~33,000 palabras (131 páginas): 0.40 s.
   - Conversión a PDF/X del libro grande con Ghostscript: 2.1 s.
+
+## Calibración contra el impreso (2026-11-24)
+
+```bash
+.venv/bin/python -c "import typst; typst.compile('coleccion-cuentos.typ', output='interior.pdf', font_paths=['fonts'], ignore_system_fonts=True, sys_inputs={'autor':'Oscar Wilde','titulo':'El príncipe feliz'})"
+```
+
+```bash
+pdftoppm -r 50 -f 1 -l 3 -png interior.pdf nuestro
+```
+
+```bash
+pdftoppm -r 50 -f 27 -l 29 -png ../imprenta/EL_PRINCIPE_FELIZ_22OCTUBRE2026.pdf impreso
+```
+
+```bash
+montage impreso-*.png nuestro-*.png -tile 3x2 -geometry +4+4 comparacion.png
+```
+
+Resultado: misma caja, cuerpo, interlineado y estructura. Diferencias pendientes:
+
+- Capitular descolgada.
+- Ornamento de la cornisa (golondrina y puntos).
+- Folio en Explora (descargarla de Google Fonts a `fonts/`).
+- Foliado continuo: requiere componer el libro completo con preliminares.
 
 ## Limitaciones conocidas
 

@@ -70,7 +70,7 @@ En **Opciones de estilo de párrafo → Etiquetas de exportación**, asignen la 
 
 ## Dudas pendientes de _El príncipe feliz_
 
-- ¿La traducción es de **Yarely Campos** (como dice el EPUB) o de **Isabel Campos** (como dice nuestro catálogo)?
-- ¿Quién hizo las ilustraciones de golondrinas (archivos "NEKO")? ¿Tenemos su permiso para la edición digital?
+- ✅ Traductora: Yarely Isabel Campos Servín (resuelto por la página legal del impreso).
+- ✅ Ilustraciones: Diego "Neko" Aguilar. Falta su permiso para la edición digital.
 - ¿La dirección correcta es Elías Piña #100 o Calle Novena #225?
 - ¿El prólogo de Mercedes Varela entra completo en la versión digital?
