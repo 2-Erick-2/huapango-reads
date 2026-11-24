@@ -17,6 +17,7 @@
     "assets:portadas": "node scripts/assets/portadas.ts",
     "e2e:humo": "node scripts/e2e/humo.ts",
     "e2e:panel": "node scripts/e2e/panel.ts",
+    "e2e:imprenta": "node scripts/e2e/imprenta.ts",
     "contenido:publicar": "node scripts/contenido/publicar.ts",
     "contenido:importar": "node scripts/ingesta/importar.ts",
     "contenido:inspeccionar": "node scripts/ingesta/inspeccionar.ts",

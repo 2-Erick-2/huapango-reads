@@ -3,6 +3,16 @@
 > Historial cronológico reciente. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 > Entradas anteriores archivadas en [`BITACORA-archivo.md`](BITACORA-archivo.md) (no hace falta leerlas al arrancar).
 
+## 2026-11-24 — Plataforma completa en vivo en Render y verificada
+
+- **Dirección:** https://huapango-reads.onrender.com (sitio, cuentas, panel, importar EPUB, PDF de imprenta). Creada por Erick con `render.yaml`.
+- **Verificado en vivo (navegador real, 1440 y 390 px):**
+  - `e2e:humo` **57/57** y `e2e:panel` **33/33**, en día y en noche (importar El príncipe feliz real con portada, versiones, publicar como Dirección, ensayo visible en el inicio).
+  - Nuevo `npm run e2e:imprenta` (`scripts/e2e/imprenta.ts`): PDF de los dos libros en media carta y folleto, **4/4**. Tarda unos 15 s la primera vez tras despertar y unos 2 s después.
+  - Rutas `/api/panel/*` sin sesión responden 401.
+  - Arranque en frío del plan gratuito: unos 23 s.
+- **Guía para la editorial actualizada** (fuera del repositorio porque contiene los PIN): `C:UsersadminDesktopHuapango+readsGuia-Huapango-reads-2026-11-24.pdf` (8 páginas).
+
 ## 2026-11-24 — Despliegue completo en Render preparado (ADR 0025)
 
 - **Pedido (Erick):** que el enlace público tenga todo lo de local (panel, importar, PDF); gratis y con el menor trabajo posible.

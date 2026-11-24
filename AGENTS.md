@@ -64,6 +64,7 @@ npm run check        # typecheck + lint + tests + build (lo mismo que corre CI)
 npm run typecheck | lint | test | format     # en Windows: prettier --check --end-of-line auto .
 npm run e2e:humo     # recorrido en un navegador real contra el servidor en http://localhost:4300 (npm start)
 npm run e2e:panel    # panel contra Supabase: VITE_PANEL=true en el build, .env.local y HR_PIN_ADMIN / HR_PIN_EDITOR (pídeselos a Erick)
+npm run e2e:imprenta # PDF de imprenta (media carta y folleto) contra BASE_URL; necesita HR_PIN_EDITOR
 VITE_PANEL=true npm run build     # build con el panel encendido (SOLO local: no tiene cuentas); en `npm run dev` ya está encendido
 
 # Contenido (ver docs/INGESTA.md)

@@ -137,6 +137,7 @@ Editor completo solo para los libros de Huapango, que exporta PDF de imprenta, E
 ## Enlaces
 
 - **Repositorio (público):** https://github.com/2-Erick-2/huapango-reads
+- **Plataforma completa en vivo (Render, ADR 0025):** https://huapango-reads.onrender.com — sitio, cuentas, panel (`/panel`), importar EPUB y PDF de imprenta. Plan gratuito: se duerme tras unos 15 min sin uso.
 - **Demo (GitHub Pages, versión de `main`):** https://2-erick-2.github.io/huapango-reads/
 - **Diseño de las pantallas nuevas (Claude Design, privado del dueño):** https://claude.ai/artifact/A49y1xUCML5JfEVLCcUnve
 - **Diseño original (Claude Design):** https://claude.ai/artifact/CpdQ77dtym3sgLXDPW852m
