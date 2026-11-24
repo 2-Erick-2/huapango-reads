@@ -1,0 +1,33 @@
+# Despliegue completo en Render (plan gratuito): sitio, lector, panel de la editorial, importar EPUB
+# y PDF de imprenta, igual que en local (ADR 0025). Render lee este archivo ("Blueprint") al crear el
+# servicio con: https://render.com/deploy?repo=https://github.com/2-Erick-2/huapango-reads
+#
+# Las variables son PÚBLICAS por diseño (dirección y llave publicable de Supabase, que ya van en el
+# navegador). La llave de servicio de Supabase NUNCA va aquí.
+services:
+  - type: web
+    name: huapango-reads
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    # Incluye las dependencias de desarrollo: hacen falta para compilar (Vite, Tailwind, SolidStart).
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      # Enciende el panel de la editorial (con acceso por PIN; ver ADR 0021)
+      - key: VITE_PANEL
+        value: "true"
+      - key: VITE_SUPABASE_URL
+        value: https://apxhxjmdrudgrxifmqgs.supabase.co
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        value: sb_publishable_Qj95z0YCsRjWNb5QFKQkgA_musrhVnh
+      - key: VITE_SITE_ORIGIN
+        value: https://huapango-reads.onrender.com
+      # Demo: que los buscadores no lo indexen todavía
+      - key: VITE_NOINDEX
+        value: "true"

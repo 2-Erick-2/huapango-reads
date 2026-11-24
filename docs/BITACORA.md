@@ -3,6 +3,13 @@
 > Historial cronológico reciente. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 > Entradas anteriores archivadas en [`BITACORA-archivo.md`](BITACORA-archivo.md) (no hace falta leerlas al arrancar).
 
+## 2026-11-24 — Despliegue completo en Render preparado (ADR 0025)
+
+- **Pedido (Erick):** que el enlace público tenga todo lo de local (panel, importar, PDF); gratis y con el menor trabajo posible.
+- **Hecho:** `render.yaml` (Blueprint, plan gratuito, Node 24, panel encendido, conexión pública a Supabase). Erick solo tiene que entrar con GitHub al enlace de despliegue y confirmar.
+- **Verificado:** simulación local del despliegue con las mismas variables (`e2e:panel` 33/33 y `e2e:humo` 57/57 contra ese servidor).
+- **Incidente menor:** al probar, `Start-Process npm` hizo que Windows preguntara con qué abrir `npm.ps1`. No se ejecutó nada. Para pruebas locales en segundo plano se usa `node .output/server/index.mjs`.
+
 ## 2026-11-24 — Celular: menú hamburguesa, tarjetas de "Próximamente" y carrusel suave
 
 - **Reporte (Erick):** en el celular los enlaces del encabezado siempre estaban visibles (sin menú), el carrusel de "Próximamente" se veía amontonado y el autoplay se movía "de golpe, robotizado".
