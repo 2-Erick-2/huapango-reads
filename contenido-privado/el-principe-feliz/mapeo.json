@@ -1,0 +1,81 @@
+{
+  "obra": "el-principe-feliz",
+  "nota": "Tres EPUB de InDesign, uno por pieza (ADR 0012): el cuento es el libro; el prólogo y la nota de la traductora son complementos. Cada EPUB renombra sus clases, por eso cada fuente tiene su propio mapeo. 'Próximos lanzamientos' y el colofón de imprenta se ignoran a propósito: en digital los genera la plataforma.",
+  "fuentes": [
+    {
+      "archivo": "epub/EL_PRINCIPE_FELIZ_CONTENIDO.epub",
+      "clases": {
+        "ParaOverride-1": "titulo1",
+        "ParaOverride-6": "ignorar"
+      },
+      "textos": {
+        "FIN": "ornamento"
+      },
+      "imagenes": {
+        "image/LOGO_HUAPANGO.png": { "rol": "ignorar" }
+      },
+      "piezas": [
+        {
+          "slug": "el-principe-feliz",
+          "tipo": "libro",
+          "titulo": "El príncipe feliz",
+          "desde": "El príncipe feliz",
+          "hasta": "FIN",
+          "capitular": true
+        }
+      ]
+    },
+    {
+      "archivo": "epub/EL_PRINCIPE_FELIZ_PROLOGO.epub",
+      "clases": {
+        "ParaOverride-1": "titulo1"
+      },
+      "textos": {
+        "Por Mercedes Varela": "firma"
+      },
+      "imagenes": {
+        "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(6).png": { "rol": "portadilla" },
+        "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(4).png": { "rol": "divisor" }
+      },
+      "piezas": [
+        {
+          "slug": "el-principe-feliz-prologo",
+          "tipo": "complemento",
+          "titulo": "Prólogo",
+          "desde": "Prólogo",
+          "hasta": "Mercedes Varela",
+          "colocar": [
+            { "imagen": "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(6).png", "alInicio": true },
+            { "imagen": "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(4).png", "despues": "Prólogo" }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "epub/EL_PRINCIPE_FELIZ_NOTA_DE_LA_TRADUCTORA.epub",
+      "clases": {
+        "ParaOverride-1": "titulo1"
+      },
+      "textos": {
+        "Por Yarely Campos": "firma"
+      },
+      "imagenes": {
+        "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(6).png": { "rol": "portadilla" },
+        "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(4).png": { "rol": "divisor" }
+      },
+      "piezas": [
+        {
+          "slug": "el-principe-feliz-nota-de-la-traductora",
+          "tipo": "complemento",
+          "titulo": "Nota de la traductora",
+          "desde": "Nota de la traductora",
+          "hasta": "Yarely Campos Servín",
+          "colocar": [
+            { "imagen": "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(6).png", "alInicio": true },
+            { "imagen": "image/EL_PRINCIPE_FELIZ_PORTADA_PARA_EDICION_DE_ILUSTRACION_-_NEKO_(4).png", "despues": "Nota de la traductora" }
+          ]
+        }
+      ]
+    }
+  ]
+}

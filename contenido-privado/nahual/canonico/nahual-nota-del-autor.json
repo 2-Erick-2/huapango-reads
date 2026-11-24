@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "slug": "nahual-nota-del-autor",
+  "kind": "complemento",
+  "parentSlug": "nahual",
+  "title": "Nota del autor",
+  "credit": "Luis Armando Rosado Lara",
+  "language": "es-MX",
+  "blocks": [
+    {
+      "id": "nahual-nota-del-autor-1",
+      "page": null,
+      "type": "heading",
+      "level": 1,
+      "text": [
+        "Nota del autor"
+      ]
+    },
+    {
+      "id": "nahual-nota-del-autor-2",
+      "page": "7",
+      "type": "paragraph",
+      "text": [
+        "El momento cultural que vive nuestro país en el presente, deja a las generaciones siguientes con una expectativa cultural errática y muy diferente a la que tan dignamente se merecen heredar. Víctimas de una globalización ya moribunda, donde la regionalización es el nuevo paso, como momento histórico social, es el origen donde queda la oportunidad de reconectar con el ecosistema del pensamiento. La patria no sólo subyace en los héroes y sus proezas, sino también en la grandeza que habita en su pueblo trivializada como cotidiana, el lenguaje."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "cb304252",
+      "marks": []
+    },
+    {
+      "id": "nahual-nota-del-autor-3",
+      "page": "8",
+      "type": "paragraph",
+      "text": [
+        "Es ahí donde se resguarda el verdadero subsuelo de nuestra riqueza cultural, la de boca en boca, la que sin necesidad de registro se mantiene viva, producto del gran ingenio popular y el folklor que nos hace un pueblo sumamente interesante, vasto y divertido. Que sea este, motivo de testigo y aliciente para todos del tesoro lingüístico que habita en nosotros."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "ca485ada",
+      "marks": []
+    },
+    {
+      "id": "nahual-nota-del-autor-4",
+      "page": "8",
+      "type": "byline",
+      "text": [
+        "Luis Armando Rosado Lara"
+      ],
+      "credit": null,
+      "hash": "d8b7ca72"
+    }
+  ],
+  "stats": {
+    "words": 156,
+    "paragraphs": 2,
+    "minutes": 1
+  },
+  "source": {
+    "file": "NAHUAL PROLOGO1.epub",
+    "sha256": "d7ce9fcf5b94f4628b0a2ba8225b2b387e24f9241f3f90306410b1a3cf7fb7a8"
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "slug": "nahual-epilogo",
+  "kind": "complemento",
+  "parentSlug": "nahual",
+  "title": "Epílogo",
+  "credit": "Argenis González",
+  "language": "es-MX",
+  "blocks": [
+    {
+      "id": "nahual-epilogo-1",
+      "page": null,
+      "type": "heading",
+      "level": 1,
+      "text": [
+        "Epílogo"
+      ]
+    },
+    {
+      "id": "nahual-epilogo-2",
+      "page": null,
+      "type": "image",
+      "asset": "81a4b324-zopilotes-vi-eta1.png",
+      "alt": "",
+      "role": "ilustracion",
+      "decorative": true,
+      "widthPct": 26.63,
+      "width": 220,
+      "height": 133
+    },
+    {
+      "id": "nahual-epilogo-3",
+      "page": "85",
+      "type": "paragraph",
+      "text": [
+        "Algunas semanas pasaron, el pueblo había vuelto a la normalidad. No habían acontecido mas muertes; los habitantes gozaban de una paz extraña, aquella que se siente después de que termina la tormenta. No sabían si esa bestia volvería a atacar, pero la tranquilidad de varios días los hacía sentir más seguros. Sin embargo, esa espinita permanecía: ¿Había muerto la bestia? ¿Había escapado? ¿Se había asqueado por el sabor de sus presas que mejor decidió atormentar otros poblados? Quién sabe, ya no importaba tanto."
+      ],
+      "indent": false,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "bf266c62",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-4",
+      "page": "86",
+      "type": "paragraph",
+      "text": [
+        "El Padre Domingo, quien seguía haciendo sus labores usuales día a día, les decía a sus fieles que la bestia probablemente había huido. “Son tiempos difíciles que Dios nos hace enfrentar para recordarnos que debemos estar unidos ante todo”, logrando exitosamente paliar el miedo entre los asistentes de las misas."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "933e35e4",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-5",
+      "page": "86",
+      "type": "paragraph",
+      "text": [
+        "Un domingo no diferente a cualquier otro, Atilano, como un cometa que pasa una vez cada mil años, se volvió a presentar a confesión ante el Padre —¿Atilano? ¿De nuevo? Es muy raro verte por aquí, y más por segunda vez en un periodo tan corto de tiempo. Échalo, dime que te aqueja de una vez, que hoy he venido sin desayunar y mi hambre no es fácil de soportar."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "5a258104",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-6",
+      "page": "86",
+      "type": "paragraph",
+      "text": [
+        "—Mi señora me mandó, ya ve como es. En la comida de ayer, recordé en la mesa aquella vez que vi la pila de piedras con la vela en la punta. Yo no le hago a esas cosas del diablo Padre, créame, si yo soy fiel creyente de la virgencita, pero no se me olvida. Mi señora me dijo que ya estaba trayendo al chamuco nomás de mencionarlo en la comida. Me volvió a amenazar de no servirme de comer hoy. ¿Cómo ve Padre? De verdad no se puede con esa mujer."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "18e24f05",
+      "marks": [
+        {
+          "offset": 223,
+          "page": "87"
+        }
+      ]
+    },
+    {
+      "id": "nahual-epilogo-7",
+      "page": "87",
+      "type": "paragraph",
+      "text": [
+        "—Tranquilo Atilano, no has pecado —dijo el Padre Domingo, sonriendo ligeramente aguantando una risa suave."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "7a650bbe",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-8",
+      "page": "87",
+      "type": "paragraph",
+      "text": [
+        "—Los recuerdos están siempre en nosotros. A veces llegan otra vez sin razón alguna, pero no significa que pequemos por tenerlos. Regresa a tu parcela, yo platicare con tu señora. En el nombre del padre, del hijo y del espíritu santo, amén."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "3467dd53",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-9",
+      "page": "87",
+      "type": "paragraph",
+      "text": [
+        "Atilano se marchó, después de la breve plática con el Padre, quien inmediatamente fue a chiflarse con sus benditos alimentos de la mañana."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "48e55d82",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-10",
+      "page": "88",
+      "type": "paragraph",
+      "text": [
+        "—Los recuerdos están siempre en nosotros—"
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "e3dc4fe9",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-11",
+      "page": "88",
+      "type": "paragraph",
+      "text": [
+        "Se repetía mientras caminaba por fuera de la iglesia. Recordó aquella mañana donde los zopilotes volaban encima del campanario. Esa escena, donde vio a Remigio yaciendo moribundo, luciendo un aspecto bestial. No quedó de otra; era deshacerse de Remigio él mismo y conservar su imagen de buen seguidor, o desatar en el pueblo una ola de desconfianza, temor y confusión, además del terrible linchamiento."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "62a3e4ad",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-12",
+      "page": "88",
+      "type": "paragraph",
+      "text": [
+        "—Eras mi amigo, yo confié en ti, ¿cuánto tiempo ocultaste esa naturaleza tuya? —preguntaba el Padre, pero no obtenía respuesta. El Padre ocultó, como pudo, lo sucedido e invento una historia, que sus fieles, al respetarle, creyeron."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "ff0e044f",
+      "marks": []
+    },
+    {
+      "id": "nahual-epilogo-13",
+      "page": null,
+      "type": "spacer"
+    },
+    {
+      "id": "nahual-epilogo-14",
+      "page": "88",
+      "type": "paragraph",
+      "text": [
+        "Domingo cargaba con ese recuerdo. No era tan diferente de la bestia; él también había cometido un pecado capital. Sea cual sea la justificación, era un pecado y como fiel católico, pesaba mucho, pero continuaba con su vida diaria. Se preguntaba si podía siquiera juzgar a Remigio que, en su forma animal, actuaba conforme a otra naturaleza."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "891243c8",
+      "marks": [
+        {
+          "offset": 80,
+          "page": "89"
+        }
+      ]
+    },
+    {
+      "id": "nahual-epilogo-15",
+      "page": "89",
+      "type": "byline",
+      "text": [
+        "Argenis González"
+      ],
+      "credit": "Filósofo tamaulipeco",
+      "hash": "b916d0f8"
+    }
+  ],
+  "stats": {
+    "words": 542,
+    "paragraphs": 11,
+    "minutes": 2
+  },
+  "source": {
+    "file": "NAHUAL PROLOGO1.epub",
+    "sha256": "d7ce9fcf5b94f4628b0a2ba8225b2b387e24f9241f3f90306410b1a3cf7fb7a8"
+  }
+}

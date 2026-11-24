@@ -24,6 +24,28 @@ export interface CoverImage {
   webpSmall: string;
 }
 
+/** Quién participó en el libro además de los autores, con el rol tal como lo publica la editorial. */
+export interface Contributor {
+  role: string;
+  name: string;
+}
+
+/**
+ * Dónde está el contenido legible de un libro: la obra (carpeta `public/contenido/<obra>/`) y la
+ * pieza principal. Las demás piezas (prólogo, nota, epílogo…) salen del manifiesto de la obra.
+ */
+export interface ReadRef {
+  obra: string;
+  slug: string;
+}
+
+export interface CloudPieceRef {
+  slug: string;
+  title: string;
+  kind: "libro" | "complemento";
+  credit: string | null;
+}
+
 export interface Book {
   slug: string;
   title: string;
@@ -36,24 +58,29 @@ export interface Book {
   genres: string[];
   hashtag: string | null;
   synopsis: string;
-  /** Cita textual oficial del libro (no corregir su puntuación) */
-  quote: string;
+  /** Cita textual oficial del libro (no corregir su puntuación). null si la editorial no la ha dado. */
+  quote: string | null;
   prologue: string | null;
+  contributors: Contributor[];
   cover: CoverImage;
-  /** ISO 8601 */
-  publishedAt: string;
+  /** ISO 8601. null si la editorial aún no confirma la fecha de publicación. */
+  publishedAt: string | null;
   /** Edición digital — por confirmar */
   digitalPriceMXN: number | null;
   digitalIsbn: string | null;
-  /** Edición impresa (referencia, viene de la landing) */
+  /** Edición impresa (referencia, viene de la landing). null si todavía no está a la venta. */
   print: {
     priceMXN: number;
     format: string;
     weight: string;
     mercadoLibreUrl: string;
-  };
-  /** true si ya existe una muestra legible en el lector */
-  hasSample: boolean;
+  } | null;
+  /** Contenido legible en el lector; null si todavía no se ha importado. */
+  read: ReadRef | null;
+  /** Piezas complementarias publicadas desde la nube cuando no hay manifiesto local. */
+  cloudPieces?: CloudPieceRef[];
+  /** true si el libro proviene de una obra publicada en línea sin manifiesto local. */
+  fromCloud?: boolean;
 }
 
 export type UpcomingStatus = "en-produccion" | "en-prensa";

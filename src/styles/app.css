@@ -7,6 +7,14 @@
 @import "@fontsource-variable/plus-jakarta-sans/wght.css";
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Tangerine";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/tangerine-regular.ttf") format("truetype");
+}
+
 @theme {
   --color-bond-50: #fffefa;
   --color-bond-100: #fdfbf7;
@@ -39,20 +47,189 @@
   --color-ochre-500: #bf8a3d;
   --color-ochre-600: #9e6f2c;
 
+  /* Objetos "físicos" que se ven igual en los dos modos (minilibros, listón, insignias sobre portadas) */
+  --color-papel: #f5efe6;
+  --color-papel-tinta: #5a5953;
+  --color-papel-acento: #a3452b;
+  --color-liston: #141413;
+  --color-liston-tinta: #fdfbf7;
+
   --font-serif: "Newsreader Variable", Georgia, Cambria, serif;
+  --font-display: "Tangerine", "Newsreader Variable", Georgia, serif;
   --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
 
-  --shadow-book: 0 18px 38px -10px rgb(0 0 0 / 0.6), 0 8px 16px -6px rgb(0 0 0 / 0.35);
-  --shadow-book-hover: 0 25px 50px -12px rgb(0 0 0 / 0.7), 0 12px 24px -8px rgb(163 69 43 / 0.35);
-  --shadow-book-hero: 0 30px 60px -15px rgb(0 0 0 / 0.75), 0 12px 24px -8px rgb(163 69 43 / 0.25);
+/*
+ * Modo noche y modo día (ADR 0022). Las pantallas usan colores CON SIGNIFICADO (fondo, superficie,
+ * tinta, línea, acento, aviso…), nunca la paleta cruda: así cada pantalla funciona en los dos modos.
+ * - Noche: la identidad oscura de +reads. Día: la de la landing de Editorial Huapango (papel bond).
+ * - Por omisión sigue al dispositivo (prefers-color-scheme); el botón sol/luna fija uno con
+ *   data-tema="dia" | "noche" en <html> (ver src/lib/tema.ts).
+ * - Los valores de día se escriben dos veces (automático y forzado) porque CSS no tiene mezclas;
+ *   la prueba src/lib/tema.test.ts exige que sean idénticos y que todos los pares cumplan contraste AA.
+ */
+@theme inline {
+  --color-fondo: var(--hr-fondo);
+  --color-fondo-hondo: var(--hr-fondo-hondo);
+  --color-superficie: var(--hr-superficie);
+  --color-superficie-2: var(--hr-superficie-2);
+  --color-control: var(--hr-control);
+  --color-control-fuerte: var(--hr-control-fuerte);
+  --color-linea: var(--hr-linea);
+  --color-linea-fuerte: var(--hr-linea-fuerte);
+  --color-borde: var(--hr-borde);
+  --color-borde-hover: var(--hr-borde-hover);
+  --color-tinta: var(--hr-tinta);
+  --color-tinta-2: var(--hr-tinta-2);
+  --color-tinta-suave: var(--hr-tinta-suave);
+  --color-tinta-tenue: var(--hr-tinta-tenue);
+  --color-acento: var(--hr-acento);
+  --color-acento-borde: var(--hr-acento-borde);
+  --color-acento-fondo: var(--hr-acento-fondo);
+  --color-acento-fondo-hover: var(--hr-acento-fondo-hover);
+  --color-acento-vivo: var(--hr-acento-vivo);
+  --color-acento-tenue: var(--hr-acento-tenue);
+  --color-acento-tenue-borde: var(--hr-acento-tenue-borde);
+  --color-error: var(--hr-error);
+  --color-aviso: var(--hr-aviso);
+  --color-aviso-borde: var(--hr-aviso-borde);
+  --color-foco: var(--hr-foco);
+  --shadow-book: var(--hr-sombra-libro);
+  --shadow-book-hover: var(--hr-sombra-libro-hover);
+  --shadow-book-hero: var(--hr-sombra-libro-hero);
+  --shadow-hoja: var(--hr-sombra-hoja);
+}
+
+/* Variante dia: (p. ej. "hidden dia:block") para lo poco que cambia de forma, no de color, como el logo */
+@custom-variant dia {
+  @media (prefers-color-scheme: light) {
+    :root:not([data-tema="noche"]) & {
+      @slot;
+    }
+  }
+  :root[data-tema="dia"] & {
+    @slot;
+  }
+}
+
+/* noche */
+:root {
+  color-scheme: dark;
+  --hr-fondo: #141413;
+  --hr-fondo-hondo: #0c0c0b;
+  --hr-superficie: #1c1c1a;
+  --hr-superficie-2: #232321;
+  --hr-control: #3a3935;
+  --hr-control-fuerte: #5a5953;
+  --hr-linea: #232321;
+  --hr-linea-fuerte: #3a3935;
+  --hr-borde: #74736c;
+  --hr-borde-hover: #8e8d86;
+  --hr-tinta: #fdfbf7;
+  --hr-tinta-2: #eadfcf;
+  --hr-tinta-suave: #aba9a0;
+  --hr-tinta-tenue: #8e8d86;
+  --hr-acento: #d66e53;
+  --hr-acento-borde: #c05a3e;
+  --hr-acento-fondo: #a3452b;
+  --hr-acento-fondo-hover: #7e341f;
+  --hr-acento-vivo: #c05a3e;
+  --hr-acento-tenue: #381308;
+  --hr-acento-tenue-borde: #562112;
+  --hr-error: #7e341f;
+  --hr-aviso: #e5bf7a;
+  --hr-aviso-borde: #9e6f2c;
+  --hr-foco: #d66e53;
+  --hr-sombra-libro: 0 18px 38px -10px rgb(0 0 0 / 0.6), 0 8px 16px -6px rgb(0 0 0 / 0.35);
+  --hr-sombra-libro-hover:
+    0 25px 50px -12px rgb(0 0 0 / 0.7), 0 12px 24px -8px rgb(163 69 43 / 0.35);
+  --hr-sombra-libro-hero:
+    0 30px 60px -15px rgb(0 0 0 / 0.75), 0 12px 24px -8px rgb(163 69 43 / 0.25);
+  --hr-sombra-hoja: 0 30px 60px -20px rgb(0 0 0 / 0.8);
+  --hr-puntos-papel: #141413;
+}
+
+/* día automático: el dispositivo prefiere claro y nadie eligió noche */
+@media (prefers-color-scheme: light) {
+  :root:not([data-tema="noche"]) {
+    color-scheme: light;
+    --hr-fondo: #fdfbf7;
+    --hr-fondo-hondo: #f5efe6;
+    --hr-superficie: #fffefa;
+    --hr-superficie-2: #f5efe6;
+    --hr-control: #eadfcf;
+    --hr-control-fuerte: #d5c4ac;
+    --hr-linea: #eadfcf;
+    --hr-linea-fuerte: #d5c4ac;
+    --hr-borde: #84837c;
+    --hr-borde-hover: #5a5953;
+    --hr-tinta: #141413;
+    --hr-tinta-2: #3a3935;
+    --hr-tinta-suave: #5a5953;
+    --hr-tinta-tenue: #6c6b65;
+    --hr-acento: #a3452b;
+    --hr-acento-borde: #a3452b;
+    --hr-acento-fondo: #a3452b;
+    --hr-acento-fondo-hover: #7e341f;
+    --hr-acento-vivo: #c05a3e;
+    --hr-acento-tenue: #f6e8e1;
+    --hr-acento-tenue-borde: #e8c3b6;
+    --hr-error: #a3452b;
+    --hr-aviso: #8a6025;
+    --hr-aviso-borde: #9e6f2c;
+    --hr-foco: #a3452b;
+    --hr-sombra-libro: 0 18px 38px -10px rgb(20 20 19 / 0.28), 0 8px 16px -6px rgb(20 20 19 / 0.15);
+    --hr-sombra-libro-hover:
+      0 25px 50px -12px rgb(20 20 19 / 0.38), 0 12px 24px -8px rgb(163 69 43 / 0.22);
+    --hr-sombra-libro-hero:
+      0 30px 60px -15px rgb(20 20 19 / 0.35), 0 12px 24px -8px rgb(163 69 43 / 0.18);
+    --hr-sombra-hoja: 0 24px 50px -22px rgb(20 20 19 / 0.35), 0 2px 6px rgb(20 20 19 / 0.06);
+    --hr-puntos-papel: #d3c7b5;
+  }
+}
+
+/* día elegido con el botón */
+:root[data-tema="dia"] {
+  color-scheme: light;
+  --hr-fondo: #fdfbf7;
+  --hr-fondo-hondo: #f5efe6;
+  --hr-superficie: #fffefa;
+  --hr-superficie-2: #f5efe6;
+  --hr-control: #eadfcf;
+  --hr-control-fuerte: #d5c4ac;
+  --hr-linea: #eadfcf;
+  --hr-linea-fuerte: #d5c4ac;
+  --hr-borde: #84837c;
+  --hr-borde-hover: #5a5953;
+  --hr-tinta: #141413;
+  --hr-tinta-2: #3a3935;
+  --hr-tinta-suave: #5a5953;
+  --hr-tinta-tenue: #6c6b65;
+  --hr-acento: #a3452b;
+  --hr-acento-borde: #a3452b;
+  --hr-acento-fondo: #a3452b;
+  --hr-acento-fondo-hover: #7e341f;
+  --hr-acento-vivo: #c05a3e;
+  --hr-acento-tenue: #f6e8e1;
+  --hr-acento-tenue-borde: #e8c3b6;
+  --hr-error: #a3452b;
+  --hr-aviso: #8a6025;
+  --hr-aviso-borde: #9e6f2c;
+  --hr-foco: #a3452b;
+  --hr-sombra-libro: 0 18px 38px -10px rgb(20 20 19 / 0.28), 0 8px 16px -6px rgb(20 20 19 / 0.15);
+  --hr-sombra-libro-hover:
+    0 25px 50px -12px rgb(20 20 19 / 0.38), 0 12px 24px -8px rgb(163 69 43 / 0.22);
+  --hr-sombra-libro-hero:
+    0 30px 60px -15px rgb(20 20 19 / 0.35), 0 12px 24px -8px rgb(163 69 43 / 0.18);
+  --hr-sombra-hoja: 0 24px 50px -22px rgb(20 20 19 / 0.35), 0 2px 6px rgb(20 20 19 / 0.06);
+  --hr-puntos-papel: #d3c7b5;
 }
 
 @layer base {
   html {
-    color-scheme: dark;
-    background-color: var(--color-carbon-900);
-    color: var(--color-bond-100);
+    background-color: var(--hr-fondo);
+    color: var(--hr-tinta);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -65,12 +242,21 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-terregal-400);
+    outline: 2px solid var(--hr-foco);
     outline-offset: 2px;
   }
 }
 
 @layer components {
+  /* Papel de la landing (puntos de 0.75 px cada 24 px): solo en modo día, en portadas de sección */
+  .textura-papel {
+    background-image: radial-gradient(
+      var(--hr-puntos-papel, transparent) 0.75px,
+      transparent 0.75px
+    );
+    background-size: 24px 24px;
+  }
+
   /* Lomo de libro físico, igual que en la landing */
   .book-spine {
     position: relative;
@@ -109,5 +295,143 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Capitular decidida por la editorial: usa la primera letra del parrafo y escala con el tamano de letra. */
+@layer components {
+  /* Una palabra sin espacios más ancha que la columna se parte en lugar de salirse de la página. */
+  [data-reader-content],
+  [data-print-flow],
+  .pm-editor {
+    overflow-wrap: break-word;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-size: 3.55em;
+    line-height: 0.82;
+    padding: 0.06em 0.09em 0 0;
+    font-weight: 400;
+  }
+}
+
+/* Editor de la editorial (panel): la hoja se ve como la verá el lector. */
+@layer components {
+  .ProseMirror {
+    position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    outline: none;
+  }
+  .pm-editor {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.7;
+    color: #141413;
+    caret-color: #a3452b;
+  }
+  .pm-editor p {
+    margin: 0;
+  }
+  .pm-editor p[data-indent="true"] {
+    text-indent: 1.5em;
+  }
+  .pm-editor p[data-align="justify"] {
+    text-align: justify;
+    hyphens: auto;
+  }
+  .pm-editor p[data-align="center"] {
+    text-align: center;
+  }
+  .pm-editor p[data-align="end"] {
+    text-align: right;
+  }
+  .pm-editor p[data-dropcap="true"]::first-letter {
+    float: left;
+    font-size: 3.55em;
+    line-height: 0.82;
+    padding: 0.06em 0.09em 0 0;
+  }
+  .pm-editor h1,
+  .pm-editor h2,
+  .pm-editor h3 {
+    margin: 1.1em 0;
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+  .pm-editor h1 {
+    font-size: 1.75em;
+  }
+  .pm-editor h2 {
+    font-size: 1.4em;
+  }
+  .pm-editor h3 {
+    margin-bottom: 0;
+    font-family: var(--font-sans);
+    font-size: 0.58em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #a3452b;
+  }
+  .pm-editor .pm-byline {
+    margin-top: 1.1em;
+    text-align: right;
+    font-style: italic;
+  }
+  .pm-editor .pm-ornament {
+    margin-top: 2.2em;
+    text-align: center;
+    font-size: 0.85em;
+    letter-spacing: 0.45em;
+    color: #5a5953;
+  }
+  .pm-editor .pm-spacer {
+    position: relative;
+    height: 1.7em;
+  }
+  .pm-editor .pm-spacer::after {
+    content: "pausa";
+    position: absolute;
+    inset: 50% 0 auto;
+    border-top: 1px dashed #d5c4ac;
+    text-align: center;
+    font: 600 10px/1 var(--font-sans);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #bca88e;
+  }
+  .pm-editor .pm-image {
+    margin: 1.3em 0;
+    text-align: center;
+  }
+  .pm-editor .pm-image img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+  }
+  /* La acuarela de portadilla ocupa una página en el lector; en la hoja de edición se muestra acotada. */
+  .pm-editor .pm-image[data-role="portadilla"] img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    object-position: top;
+  }
+  .pm-editor .pm-image-crop {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .pm-editor .ProseMirror-selectednode {
+    outline: 2px solid #c05a3e;
+    outline-offset: 2px;
+  }
+  .pm-editor .small-caps {
+    font-variant-caps: small-caps;
+    letter-spacing: 0.04em;
   }
 }

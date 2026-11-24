@@ -10,7 +10,7 @@ Objetivo: que **cualquier agente de IA o persona** pueda abrir este repo y, en m
 ## Al iniciar una sesión (siempre, antes de tocar código)
 
 1. Lee `AGENTS.md` (punto de entrada) y luego `docs/ESTADO.md`.
-2. Lee las últimas 3 entradas de `docs/BITACORA.md`.
+2. Lee **solo las últimas 3 entradas** de `docs/BITACORA.md` (no leas `docs/BITACORA-archivo.md` salvo que la tarea lo requiera).
 3. Si la tarea toca algo con decisión previa, lee el ADR correspondiente en `docs/decisiones/`.
 4. Carga también la skill `huapango-reads` (reglas del proyecto, diseño y catálogo).
 
@@ -18,7 +18,7 @@ Objetivo: que **cualquier agente de IA o persona** pueda abrir este repo y, en m
 
 Actualiza en este orden:
 
-1. **`docs/BITACORA.md`**: nueva entrada **arriba**, con este formato exacto:
+1. **`docs/BITACORA.md`**: nueva entrada **arriba**, con este formato exacto (si `docs/BITACORA.md` supera ~200 líneas, mueve las entradas más antiguas a `docs/BITACORA-archivo.md` dejando al menos las últimas 4):
    ```
    ## AAAA-MM-DD — Título corto
    **Pedido:** qué pidió el usuario o el cliente (con sus palabras clave).

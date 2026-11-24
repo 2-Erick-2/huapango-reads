@@ -33,9 +33,27 @@ Resumen de las reglas:
 5. **Pagos solo con Stripe Checkout alojado**; el acceso se otorga solo desde un webhook.
 6. **Accesibilidad:** zoom permitido, teclado completo, sin trampas del botón "atrás".
 
+### Colores: modo día y noche
+
+Las pantallas usan **solo colores con significado** (`bg-fondo`, `text-tinta`, `text-acento`, `border-linea`…; ver `src/styles/app.css` y ADR 0022), nunca la paleta cruda (`bg-carbon-900`, `text-bond-100`…): así funcionan en modo día y noche. La prueba `src/lib/tema.test.ts` lo exige y revisa el contraste. Pruebas de navegador en oscuro: `HR_ESQUEMA=noche`.
+
+### Reglas aprendidas al alternar agentes (Claude Code ↔ Antigravity)
+
+Ver `docs/analisis/2026-11-24-revision-trabajo-antigravity.md`.
+
+- **Nunca rellenes con contenido falso.**
+- **Anota todo cambio de credenciales o permisos**, sin escribir los valores.
+- **Prueba los flujos de cuentas** con un usuario malicioso simulado.
+- **Describe cada verificación** con su comando y su equipo.
+- **Presenta los cambios grandes de producto** como decisión a Erick.
+
+### Textos de la interfaz
+
+Los textos visibles (panel y sitio) están en lenguaje de editorial: sin rutas de archivo, comandos, "JSON", "paquete", "Hito", "ADR" ni ids internos. Lo técnico va en `docs/` y en comentarios. Lo pidió el dueño: ellos leen el panel.
+
 ## Cómo correrlo
 
-Requiere **Node 24** (`.nvmrc`). Con nvm: `nvm use`.
+Requiere **Node 24** (`.nvmrc`). Con nvm: `nvm use` (en Windows sin nvm, el binario de nodejs.org: `winget` solo ofrece Node 26).
 
 ```bash
 npm install
@@ -43,7 +61,16 @@ npm run dev          # desarrollo en http://localhost:3000
 npm run build        # build de producción (Nitro) en .output/
 npm start            # sirve el build (PORT=4300 npm start para otro puerto)
 npm run check        # typecheck + lint + tests + build (lo mismo que corre CI)
-npm run typecheck | lint | test | format
+npm run typecheck | lint | test | format     # en Windows: prettier --check --end-of-line auto .
+npm run e2e:humo     # recorrido en un navegador real contra el servidor en http://localhost:4300 (npm start)
+npm run e2e:panel    # panel contra Supabase: VITE_PANEL=true en el build, .env.local y HR_PIN_ADMIN / HR_PIN_EDITOR (pídeselos a Erick)
+VITE_PANEL=true npm run build     # build con el panel encendido (SOLO local: no tiene cuentas); en `npm run dev` ya está encendido
+
+# Contenido (ver docs/INGESTA.md)
+npm run contenido:inspeccionar -- "contenido-privado/<obra>/epub/X.epub" [--bloques]
+npm run contenido:importar -- contenido-privado/<obra>/mapeo.json [--sin-escribir]
+npm run contenido:publicar     # importa y verifica TODAS las obras y actualiza public/contenido/ y el manifiesto
+npm run assets:pdf | assets:portadas     # portadas desde PDF/imagen con un navegador (ADR 0017)
 
 # Simular el demo de GitHub Pages en local (sitio estático bajo /huapango-reads/)
 BASE_PATH=/huapango-reads/ NITRO_PRESET=github_pages VITE_SITE_ORIGIN=https://2-erick-2.github.io VITE_NOINDEX=true npm run build
@@ -58,18 +85,25 @@ No se necesitan variables de entorno en el Hito 1. Para las siguientes, ver `.en
 .claude/skills/            Skills del proyecto (reglas, diseño, catálogo, documentación)
 docs/
   ESTADO.md                Foto actual: qué funciona, qué es demo y qué falta  ← empieza aquí
-  BITACORA.md              Historial de cambios (lo más reciente arriba)
+  BITACORA.md              Historial reciente (lo más nuevo arriba); archivo antiguo en BITACORA-archivo.md
   ROADMAP.md               Hitos y tareas
   ARQUITECTURA.md          Cómo está construido
   DISENO.md                Diseño de referencia y cómo se aplica
   decisiones/              ADRs numerados (por qué se decidió cada cosa)
-  analisis/                Análisis puntuales con fecha (EPUB recibidos, taller editorial con PDF de imprenta…)
+  INGESTA.md               Cómo entra un libro nuevo (EPUB → formato canónico → lector). Empieza aquí para contenido
+  analisis/                Análisis puntuales con fecha (EPUB recibidos, taller editorial, plan del panel de la editorial…)
   editorial/               Guías para el equipo de la editorial (cómo exportar y entregar libros)
-contenido-privado/        Material de la editorial (EPUB, PDF de imprenta, ilustraciones). Versionado por decisión del dueño (2026-11-24); ver su README.md
+contenido-privado/        Material de la editorial (EPUB, PDF, ilustraciones), mapeo.json y salida auditable (canonico/) por obra. Versionado por decisión del dueño; ver su README.md
+scripts/
+  ingesta/                 Importador EPUB → formato canónico (TS sobre Node 24) y sus pruebas
+  contenido/publicar.ts    Publica las obras a public/contenido/ y genera el manifiesto
+  assets/                  Portadas: PDF → PNG y recorte/exportación (con un navegador)
+  e2e/                     Pruebas de navegador real: humo.ts (sitio) y panel.ts (editor)
 prototipos/
   taller-impresion/        Prueba de concepto Typst → PDF/X (interior y portada). No es producción (ADR 0013)
 public/
   books/                   Portadas (JPG 500×720, WebP 500 y 260)
+  contenido/               GENERADO por contenido:publicar: piezas JSON e imágenes de cada obra. No editar a mano
   brand/                   Logos SVG copiados de la landing
 src/
   app.tsx                  Router y layout raíz
@@ -77,17 +111,28 @@ src/
   styles/app.css           Tailwind v4 + tokens de la landing (@theme)
   lib/site.ts              URL pública, subruta (BASE_PATH) y helpers asset()/absoluteUrl()
   lib/catalog/             Tipos, datos locales del catálogo y funciones de acceso (async)
-  lib/reader/              Paginación, preferencias, tipos y texto de demostración
-  components/ui/           Logo, Button, Seo
-  components/catalog/      Header, footer, portadas y filas tipo Netflix
-  components/reader/       Motor de lectura v0
-  routes/                  index (inicio) · libro/[slug] (ficha) · leer/demo (lector) · 404
+  lib/editor/              Esquema de ProseMirror = formato canónico, y su conversión de ida y vuelta (ADR 0018)
+  lib/club/                Reseñas del Club de lectura (HOY DE EJEMPLO, detrás de una interfaz async)
+  lib/libro/               Formato canónico v1 (tipos, texto, validación). Lo usan el importador, el lector y el futuro editor
+  lib/contenido/           Acceso al contenido legible: manifiesto compilado (GENERADO), loadPieza, rutas de lectura
+  lib/reader/              Paginación, posición de lectura, preferencias, tipos y texto de demostración
+  lib/panel/               Panel conectado a Supabase (sesión PIN, obras, versiones, archivos, URLs firmadas)
+  lib/supabase/            Clientes `panel()` y `publico()` de Supabase
+  components/ui/           Logo, Button, BotonTema, Stars, Seo
+  components/catalog/      Header, footer, portadas, carrusel y filas tipo Netflix
+  components/reader/       Motor de lectura sobre bloques (Reader, Blocks, ObraReader, SettingsPanel)
+  components/panel/        Panel de la editorial: marco, editor, obras en nube, vista previa e impresión PDF
+  routes/                  index · libro/[slug] · leer/demo · leer/[obra] · panel · api/panel/{importar,imprimir} · 404
+  server/                  Lógica de servidor Node: importador EPUB (`importar-epub.ts`), auth panel y taller PDF (`imprenta/`)
+supabase/migrations/       Esquema SQL, RLS y carpetas de Storage (`originales`, `imagenes`, `portadas`, `impresion`)
 ```
 
 ## Convenciones
 
 - **Idioma:** UI, documentación y commits en español. Ortografía RAE: mayúscula solo inicial en títulos.
-- **Datos:** la UI consume solo `~/lib/catalog` (funciones async). En el Hito 2 se cambia la implementación por Supabase sin tocar componentes.
+- **Datos:** la UI consume solo `~/lib/catalog` y `~/lib/contenido` (funciones async). En el Hito 2 se cambia la implementación por Supabase y `get-chapter` sin tocar componentes.
+- **Contenido:** nunca se escribe a mano en `public/contenido/` ni en `manifests.generated.ts`: se genera con `npm run contenido:publicar` y las pruebas verifican que no haya quedado desactualizado. Un texto jamás se corrige en el JSON generado: se corrige en el origen o en el mapeo y se vuelve a importar.
+- **Fecha de las entradas de bitácora:** usar el día de trabajo (UTC) de los commits.
 - **Rutas y archivos:** enlaces internos siempre con `<A>` del router; archivos de `public/` siempre con `asset("/ruta")`. Así funciona igual en un dominio propio que bajo `/huapango-reads/` (ADR 0009).
 - **Estilos:** utilidades de Tailwind con los tokens de `app.css`. Nada de colores ni fuentes fuera de la paleta.
 - **Solid:** signals, `createAsync` + `query` para datos, refs con `let el!: HTMLElement`. Lógica pura en `lib/` con pruebas en Vitest.

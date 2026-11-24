@@ -23,3 +23,6 @@ Thumbs.db
 contenido-privado/**/.venv/
 prototipos/**/.venv/
 __pycache__/
+
+# Carpeta de entrega de archivos de la editorial (el material vive en contenido-privado/)
+/epubs/

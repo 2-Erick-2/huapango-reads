@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "obra": "el-principe-feliz",
+  "pieces": [
+    {
+      "slug": "el-principe-feliz",
+      "kind": "libro",
+      "title": "El príncipe feliz",
+      "credit": null,
+      "file": "el-principe-feliz.json",
+      "stats": {
+        "words": 3259,
+        "paragraphs": 109,
+        "minutes": 14
+      }
+    },
+    {
+      "slug": "el-principe-feliz-prologo",
+      "kind": "complemento",
+      "title": "Prólogo",
+      "credit": "Mercedes Varela",
+      "file": "el-principe-feliz-prologo.json",
+      "stats": {
+        "words": 357,
+        "paragraphs": 4,
+        "minutes": 2
+      }
+    },
+    {
+      "slug": "el-principe-feliz-nota-de-la-traductora",
+      "kind": "complemento",
+      "title": "Nota de la traductora",
+      "credit": "Yarely Campos Servín",
+      "file": "el-principe-feliz-nota-de-la-traductora.json",
+      "stats": {
+        "words": 824,
+        "paragraphs": 12,
+        "minutes": 4
+      }
+    }
+  ]
+}

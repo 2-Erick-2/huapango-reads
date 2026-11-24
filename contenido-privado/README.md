@@ -19,3 +19,25 @@
 | `capturas/`                                                     | Comparación impreso vs. taller, hoja de contacto de las 62 páginas, EPUB renderizados a 390/1024 px, muestra del folleto                                      |
 
 Análisis: `docs/analisis/2026-11-23-epub-el-principe-feliz.md` y `docs/analisis/2026-11-24-pdf-imprenta-el-principe-feliz.md`.
+
+## `mapeo.json` y `canonico/` (todas las obras)
+
+Cada obra importada con el importador (`docs/INGESTA.md`) trae:
+
+| Ruta                          | Qué es                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `<obra>/mapeo.json`           | Decisiones editoriales (roles de clases e imágenes, piezas). Lo escribe y revisa una persona.            |
+| `<obra>/canonico/`            | **Generado**: piezas en formato canónico, `manifest.json`, `assets/` e `informe.md` con la verificación. |
+
+`npm run contenido:publicar` lo copia a `public/contenido/<obra>/` para la app.
+
+## `nahual/`
+
+| Ruta                                      | Qué es                                                                                                                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `epub/NAHUAL PROLOGO1.epub`               | **El libro completo** exportado de InDesign: prólogo, nota del autor, cuento, epílogo y análisis visual (95 págs. impresas, 17 imágenes).                    |
+| `epub/NAHUAL EPILOGO.epub`, `…NOTA DEL AUTOR.epub` | La misma exportación con otro nombre de archivo (mismo texto, palabra por palabra). Se usan para contrastar.                                    |
+| `epub/NAHUAL CUENTO.epub`                 | El cuento más el epílogo. También se contrasta.                                                                                                             |
+| `mapeo.json`, `canonico/`                 | Ver arriba. Cinco piezas: el libro y cuatro complementos.                                                                                                   |
+
+Las portadas (frente y contraportada) las entregó la editorial como JPG; la de frente está procesada en `public/books/portada-nahual*`. De _El príncipe feliz_, el PDF de forros está en `el-principe-feliz/imprenta/EL_PRINCIPE_FELIZ_forros.pdf` (cubierta extendida de Canva con la sinopsis oficial en la contraportada).

@@ -1,11 +1,27 @@
+import { onMount } from "solid-js";
 import { Reader } from "~/components/reader/Reader";
 import { Seo } from "~/components/ui/Seo";
-import { DEMO_TEXT } from "~/lib/reader/demo-text";
+import { estadoCuenta, iniciarCuentaLector } from "~/lib/lector/cuenta";
+import { demoPieza, DEMO_NOTICE } from "~/lib/reader/demo-pieza";
 
 const today = new Intl.DateTimeFormat("es-MX", { dateStyle: "medium" }).format(new Date());
+const pieza = demoPieza();
 
-/** Lector de demostración (Hito 1). Sin login: marca de agua con datos de muestra. */
+/** Lector de demostración. Refleja cuenta o modo invitado en la marca de agua. */
 export default function ReaderDemo() {
+  onMount(() => iniciarCuentaLector());
+
+  const watermark = () => {
+    const cuenta = estadoCuenta();
+    if (cuenta.modo === "sesion" && cuenta.lector) {
+      return `${cuenta.lector.nombre} · ${cuenta.lector.correo} · ${today}`;
+    }
+    if (cuenta.modo === "invitado") {
+      return `Modo invitado · Lectura de muestra · ${today}`;
+    }
+    return `Ejemplar de muestra · Huapango +reads · ${today}`;
+  };
+
   return (
     <>
       <Seo
@@ -15,9 +31,11 @@ export default function ReaderDemo() {
         noindex
       />
       <Reader
-        text={DEMO_TEXT}
-        watermark={`Ejemplar de muestra · lector@ejemplo.com · ${today} · ID HR-DEMO`}
+        pieza={pieza}
+        assetUrl={() => ""}
+        watermark={watermark()}
         exitHref="/"
+        notice={DEMO_NOTICE}
       />
     </>
   );

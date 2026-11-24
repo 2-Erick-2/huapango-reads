@@ -7,9 +7,9 @@ const base =
   "inline-flex h-12 items-center justify-center gap-2.5 rounded-sm px-7 text-[13px] font-semibold uppercase tracking-[0.16em] no-underline transition-colors";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-terregal-600 text-white hover:bg-terregal-700",
-  secondary: "bg-carbon-700 text-bond-100 hover:bg-carbon-600",
-  ghost: "border border-carbon-700 text-bond-300 hover:border-carbon-400",
+  primary: "bg-acento-fondo text-white hover:bg-acento-fondo-hover",
+  secondary: "bg-control text-tinta hover:bg-control-fuerte",
+  ghost: "border border-linea-fuerte text-tinta-2 hover:border-borde-hover",
 };
 
 /** Enlace con apariencia de botón (navegación) */
@@ -36,7 +36,7 @@ export function Button(props: JSX.ButtonHTMLAttributes<HTMLButtonElement> & { va
     <button
       type="button"
       {...rest}
-      class={`${base} ${variants[local.variant ?? "primary"]} disabled:cursor-not-allowed disabled:bg-carbon-700 disabled:text-carbon-300 ${local.class ?? ""}`}
+      class={`${base} ${variants[local.variant ?? "primary"]} disabled:cursor-not-allowed disabled:bg-control disabled:text-tinta-suave ${local.class ?? ""}`}
     >
       {local.children}
     </button>

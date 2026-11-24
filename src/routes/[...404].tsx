@@ -22,8 +22,8 @@ export default function NotFound() {
       <SiteHeader />
       <main class="mx-auto max-w-[1360px] px-4 py-24 text-center sm:px-10">
         <h1 class="font-serif text-4xl font-light sm:text-5xl">Esta página no existe</h1>
-        <p class="mt-4 text-carbon-300">
-          <A href="/" class="text-terregal-400">
+        <p class="mt-4 text-tinta-suave">
+          <A href="/" class="text-acento">
             Volver al catálogo
           </A>
         </p>

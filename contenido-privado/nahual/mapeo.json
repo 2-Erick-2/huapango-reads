@@ -1,0 +1,90 @@
+{
+  "obra": "nahual",
+  "nota": "Las 5 tarjetas VI_ETAS_NAHUAL (8 a 12) son portadillas de capítulo: adorno de pájaros + el nombre del capítulo dentro de la imagen (Jornalero, Media Vida, Alambrado, Rezandera, Zopilotes). Se importan como adorno recortado + título real. El archivo NAHUAL PROLOGO1.epub trae el libro completo (prólogo, nota del autor, cuento, epílogo y análisis visual). Los EPUB de EPILOGO y NOTA DEL AUTOR son otras exportaciones del mismo documento y se usan para contrastar. El EPUB CUENTO trae el cuento más el epílogo. Pendiente de confirmar con la editorial: qué texto es el epílogo (se asumió el de Argenis González, que termina el cuento) y para qué sirve la imagen ChatGPT_Image… de la última página.",
+  "fuentes": [
+    {
+      "archivo": "epub/NAHUAL PROLOGO1.epub",
+      "contrastes": [
+        { "archivo": "epub/NAHUAL EPILOGO.epub" },
+        { "archivo": "epub/NAHUAL NOTA DEL AUTOR.epub" },
+        { "archivo": "epub/NAHUAL CUENTO.epub", "piezas": ["nahual", "nahual-epilogo"] }
+      ],
+      "clases": {},
+      "textos": {},
+      "imagenes": {
+        "image/prologo.jpg": { "rol": "titulo", "texto": "Prólogo" },
+        "image/nota_del_autor.jpg": { "rol": "titulo", "texto": "Nota del autor" },
+        "image/epilogo.png": { "rol": "titulo", "texto": "Epílogo" },
+        "image/analisis_visual.jpg": { "rol": "titulo", "texto": "Análisis visual de la obra" },
+        "image/VI_ETAS_NAHUAL_(8).png": { "rol": "capitulo", "texto": "Jornalero" },
+        "image/VI_ETAS_NAHUAL_(9).png": { "rol": "capitulo", "texto": "Media Vida" },
+        "image/VI_ETAS_NAHUAL_(10).png": { "rol": "capitulo", "texto": "Alambrado" },
+        "image/VI_ETAS_NAHUAL_(11).png": { "rol": "capitulo", "texto": "Rezandera" },
+        "image/VI_ETAS_NAHUAL_(12).png": { "rol": "capitulo", "texto": "Zopilotes" },
+        "image/VI_ETA_JORNALERO.jpg": { "rol": "ilustracion" },
+        "image/media_vida_vi_eta.png": { "rol": "ilustracion" },
+        "image/alambrado_vi_eta.png": { "rol": "ilustracion" },
+        "image/rezabdera_vi_eta.png": { "rol": "ilustracion" },
+        "image/ZOPILOTES_VI_ETA.png": { "rol": "ilustracion" },
+        "image/ZOPILOTES_VI_ETA1.png": { "rol": "ilustracion" },
+        "image/ZOPILOTES_VI_ETA2.png": { "rol": "ilustracion" },
+        "image/ChatGPT_Image_28_ene_2026,_14_16_18.png": { "rol": "ignorar" }
+      },
+      "piezas": [
+        {
+          "slug": "nahual-prologo",
+          "tipo": "complemento",
+          "titulo": "Prólogo",
+          "desde": "Conozco al autor desde hace años",
+          "hasta": "Ángelus",
+          "portadilla": "image/prologo.jpg"
+        },
+        {
+          "slug": "nahual-nota-del-autor",
+          "tipo": "complemento",
+          "titulo": "Nota del autor",
+          "desde": "El momento cultural que vive nuestro país",
+          "hasta": "Luis Armando Rosado Lara",
+          "portadilla": "image/nota_del_autor.jpg"
+        },
+        {
+          "slug": "nahual",
+          "tipo": "libro",
+          "titulo": "Nahual",
+          "desde": "Fue Miguel, el hijo de Atilano",
+          "hasta": "Subió con las piernas cada vez más tembleques",
+          "colocar": [
+            { "imagen": "image/VI_ETAS_NAHUAL_(8).png", "antes": "Fue Miguel, el hijo de Atilano" },
+            { "imagen": "image/VI_ETA_JORNALERO.jpg", "antes": "Fue Miguel, el hijo de Atilano" },
+            { "imagen": "image/VI_ETAS_NAHUAL_(9).png", "antes": "Media Vida se la pasaba" },
+            { "imagen": "image/media_vida_vi_eta.png", "antes": "Media Vida se la pasaba" },
+            { "imagen": "image/VI_ETAS_NAHUAL_(10).png", "antes": "Fueron los Peña, los Aguilar Morgado" },
+            { "imagen": "image/alambrado_vi_eta.png", "antes": "Fueron los Peña, los Aguilar Morgado" },
+            { "imagen": "image/VI_ETAS_NAHUAL_(11).png", "antes": "Junto a la plaza de La Higuera" },
+            { "imagen": "image/rezabdera_vi_eta.png", "antes": "Junto a la plaza de La Higuera" },
+            { "imagen": "image/VI_ETAS_NAHUAL_(12).png", "antes": "Bajados los ánimos y sin habeas corpus" },
+            { "imagen": "image/ZOPILOTES_VI_ETA.png", "antes": "Bajados los ánimos y sin habeas corpus" }
+          ]
+        },
+        {
+          "slug": "nahual-epilogo",
+          "tipo": "complemento",
+          "titulo": "Epílogo",
+          "desde": "Algunas semanas pasaron",
+          "hasta": "Argenis González",
+          "portadilla": "image/epilogo.png",
+          "colocar": [{ "imagen": "image/ZOPILOTES_VI_ETA1.png", "antes": "Algunas semanas pasaron" }]
+        },
+        {
+          "slug": "nahual-analisis-visual",
+          "tipo": "complemento",
+          "titulo": "Análisis visual de la obra",
+          "desde": "Dentro del sinsentido del noreste",
+          "hasta": "Eduardo Serrato",
+          "portadilla": "image/analisis_visual.jpg",
+          "colocar": [{ "imagen": "image/ZOPILOTES_VI_ETA2.png", "antes": "Dentro del sinsentido del noreste" }]
+        }
+      ]
+    }
+  ]
+}

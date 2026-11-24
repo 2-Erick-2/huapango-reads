@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "slug": "el-principe-feliz-prologo",
+  "kind": "complemento",
+  "parentSlug": "el-principe-feliz",
+  "title": "Prólogo",
+  "credit": "Mercedes Varela",
+  "language": "es-MX",
+  "blocks": [
+    {
+      "id": "el-principe-feliz-prologo-1",
+      "page": null,
+      "type": "image",
+      "asset": "c07a9796-el-principe-feliz-portada-para-edicion-de-ilustracion-neko-6.png",
+      "alt": "",
+      "role": "portadilla",
+      "decorative": true,
+      "widthPct": null,
+      "width": 825,
+      "height": 1274
+    },
+    {
+      "id": "el-principe-feliz-prologo-2",
+      "page": "1",
+      "type": "heading",
+      "level": 1,
+      "text": [
+        {
+          "strong": [
+            "Prólogo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "el-principe-feliz-prologo-3",
+      "page": null,
+      "type": "image",
+      "asset": "91af9c05-el-principe-feliz-portada-para-edicion-de-ilustracion-neko-4.png",
+      "alt": "",
+      "role": "divisor",
+      "decorative": true,
+      "widthPct": 34.67,
+      "width": 286,
+      "height": 26
+    },
+    {
+      "id": "el-principe-feliz-prologo-4",
+      "page": "1",
+      "type": "byline",
+      "text": [
+        "Por Mercedes Varela"
+      ],
+      "credit": null,
+      "hash": "6012ac4d"
+    },
+    {
+      "id": "el-principe-feliz-prologo-5",
+      "page": "3",
+      "type": "paragraph",
+      "text": [
+        "El Príncipe Feliz es un cuento atemporal, que nos sumerge en el género de narrativa maravillosa y que se da en un ambiente de desigualdad social en un Reino no definido, sin clase social media con el propósito de mostrar una realidad que nos puede conmover, quizá hasta nos haga reflexionar a tomar acciones y a no dejarnos llevar por las apariencias porque realmente ¿el príncipe era feliz? sin embargo hasta que lo convirtieron en ese monumento dorado y alto, pudo, desde su altura ver la realidad de su mundo y se permitió expresar sus sentimientos, antes disfrazados en su eterna sonrisa."
+      ],
+      "indent": false,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "1c32c3cc",
+      "marks": []
+    },
+    {
+      "id": "el-principe-feliz-prologo-6",
+      "page": "3",
+      "type": "paragraph",
+      "text": [
+        "El palacio del Príncipe se llamaba Sans-Souci (Sin Preocupaciones). ¿Cómo se relaciona este aislamiento con la burbuja en la que viven a veces las personas con muchos recursos en la actualidad? Critica a la política con la actitud del alcalde y los concejales, cuando ven la estatua desgastada y nos lleva a preguntarnos: ¿Es justo que el Príncipe y la Golondrina pierdan la vida para solucionar problemas que deberían resolver los gobernantes?"
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "53e18608",
+      "marks": [
+        {
+          "offset": 243,
+          "page": "4"
+        }
+      ]
+    },
+    {
+      "id": "el-principe-feliz-prologo-7",
+      "page": "4",
+      "type": "paragraph",
+      "text": [
+        "Conforme vamos avanzando en la lectura descubrimos, como tanto el Príncipe Feliz como la Golondrina, los dos personajes principales se van despojando de su egoísmo y ya no sólo piensan en lo que los hace felices. El Príncipe deja de sonreír y aunque no llora abiertamente, lo hace frente a la Golondrina, quien a su vez, olvida sus sueños de libertad y se deja domesticar, primero por la belleza del dorado Príncipe, después por sus lágrimas y definitivamente por el amor que nació entre ellos derivado de la compasión y que se ve recompensado porque a partir de su sacrificio vivirán en El Jardín del Paraíso, en donde cantarán y serán felices por siempre."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "c46947d9",
+      "marks": [
+        {
+          "offset": 566,
+          "page": "5"
+        }
+      ]
+    },
+    {
+      "id": "el-principe-feliz-prologo-8",
+      "page": "5",
+      "type": "paragraph",
+      "text": [
+        "Resumiendo, ",
+        {
+          "em": [
+            "El Príncipe Feliz"
+          ]
+        },
+        " es un cuento clásico. Sus personajes con características y peculiaridades muy bien definidas son los pilares que nos dan una clara visión entre las virtudes, el egoísmo, la corrupción y la codicia, sentimientos bien delimitados que facilitan la comprensión del conflicto tanto para las infancias como para los jóvenes y nos transmite una moraleja que nos invita a recapacitar."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "9c33ae7a",
+      "marks": []
+    },
+    {
+      "id": "el-principe-feliz-prologo-9",
+      "page": "5",
+      "type": "byline",
+      "text": [
+        "Mercedes Varela"
+      ],
+      "credit": "Julio 2026",
+      "hash": "e1d7b308"
+    }
+  ],
+  "stats": {
+    "words": 357,
+    "paragraphs": 4,
+    "minutes": 2
+  },
+  "source": {
+    "file": "EL_PRINCIPE_FELIZ_PROLOGO.epub",
+    "sha256": "0f118a9835440829ef5f5f19faae51f6fe84907249ec5de4922a777e0a74228c"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "slug": "nahual-analisis-visual",
+  "kind": "complemento",
+  "parentSlug": "nahual",
+  "title": "Análisis visual de la obra",
+  "credit": "Eduardo Serrato",
+  "language": "es-MX",
+  "blocks": [
+    {
+      "id": "nahual-analisis-visual-1",
+      "page": null,
+      "type": "heading",
+      "level": 1,
+      "text": [
+        "Análisis visual de la obra"
+      ]
+    },
+    {
+      "id": "nahual-analisis-visual-2",
+      "page": null,
+      "type": "image",
+      "asset": "35508f7f-zopilotes-vi-eta2.png",
+      "alt": "",
+      "role": "ilustracion",
+      "decorative": true,
+      "widthPct": 26.63,
+      "width": 220,
+      "height": 133
+    },
+    {
+      "id": "nahual-analisis-visual-3",
+      "page": "91",
+      "type": "paragraph",
+      "text": [
+        "Dentro del sinsentido del noreste se encuentran dos extremos: el realismo brutal, que busca mostrar todo tal y como es, sin pie a interpretaciones y siempre buscando el shock como método de denuncia, y el de la fantasía extrema, redentora, esa que quiere esconder lo atroz y voltear la vista hacia la farsa total; y es justo en medio, en lo que me gusta llamar como “hilarantemente trágico”, donde se ubica esta historia."
+      ],
+      "indent": false,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "1eedabd0",
+      "marks": []
+    },
+    {
+      "id": "nahual-analisis-visual-4",
+      "page": "92",
+      "type": "paragraph",
+      "text": [
+        "Hablar de Nahual es hablar de muchas cosas. Es hablar de miedo, es hablar de carne, es hablar de tierra, de risa, del cuerpo, de aquello que nos atraviesa."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "66faabc1",
+      "marks": []
+    },
+    {
+      "id": "nahual-analisis-visual-5",
+      "page": "92",
+      "type": "paragraph",
+      "text": [
+        "La identidad tamaulipeca se encuentra en constante búsqueda de sí misma. Al compartir fronteras con identidades tan fuertes y marcadas, como lo son la sureña, la norteña y la estadounidense, el tamaulipeco sufre de una falta de identidad tan grande como su territorio."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "b8a8ea7c",
+      "marks": []
+    },
+    {
+      "id": "nahual-analisis-visual-6",
+      "page": "92",
+      "type": "paragraph",
+      "text": [
+        "Como norteño fronterizo, como reynosense, siempre estoy buscando ese sentido de pertenencia que a tantos nos falta por jamás sentirse ni de aquí ni de allá, y creo que en estas páginas se encuentra un pedazo del Tamaulipas que no se ve, que no se cuenta, del folklor y el misticismo que muchas veces pareciera inexistente."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "0ecc9795",
+      "marks": []
+    },
+    {
+      "id": "nahual-analisis-visual-7",
+      "page": "93",
+      "type": "paragraph",
+      "text": [
+        "Nahual no intenta resolver dudas territoriales, ni de existencia, mucho menos de identidad, pero mediante sus personajes, sus vívidas imágenes de la tierra, la carne, y su humor norestense, caracterizado por ser seco, a veces involuntario y siempre usado como mecanismo de defensa, nos recuerda que, más allá de lo que se nos ha dicho que somos, aún tenemos la oportunidad de ser nosotros quienes contemos nuestras propias historias."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "49ba994d",
+      "marks": []
+    },
+    {
+      "id": "nahual-analisis-visual-8",
+      "page": "93",
+      "type": "paragraph",
+      "text": [
+        "En algún lugar leí que de Tamaulipas se dice mucho, pero que son pocas las veces que Tamaulipas dice algo; creo que es verdad, pero también creo que Nahual es la prueba de que aún hay mucho por decir."
+      ],
+      "indent": true,
+      "align": "justify",
+      "dropCap": false,
+      "hash": "ac5ba785",
+      "marks": []
+    },
+    {
+      "id": "nahual-analisis-visual-9",
+      "page": "93",
+      "type": "byline",
+      "text": [
+        "Eduardo Serrato"
+      ],
+      "credit": "Cineasta tamaulipeco",
+      "hash": "3cdfcb03"
+    }
+  ],
+  "stats": {
+    "words": 316,
+    "paragraphs": 6,
+    "minutes": 1
+  },
+  "source": {
+    "file": "NAHUAL PROLOGO1.epub",
+    "sha256": "d7ce9fcf5b94f4628b0a2ba8225b2b387e24f9241f3f90306410b1a3cf7fb7a8"
+  }
+}

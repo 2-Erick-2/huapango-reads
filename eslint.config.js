@@ -14,6 +14,7 @@ export default tseslint.config(
       ".vercel",
       "contenido-privado",
       "prototipos/**/.venv",
+      "supabase/functions",
     ],
   },
   js.configs.recommended,

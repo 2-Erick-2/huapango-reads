@@ -39,7 +39,8 @@ export const BOOKS: Book[] = [
       "Un cuento largo de comedy horror donde un nahual pone de cabeza al pueblo al darle caza. Una inmersión en el misticismo del monte fronterizo y la transmutación humana donde las criaturas míticas desafían el orden cotidiano del noreste.",
     quote:
       "«Fue Miguel, el hijo de Atilano el que lo vio primero. Algo parecido a un perro, bebía embelesado la tibia sangre encharcada dentro de la panza de un becerro.»",
-    prologue: null,
+    prologue: "Prólogo de Ángelus",
+    contributors: [{ role: "Fotografía de portada", name: "Alejandro Banda Aranda" }],
     cover: cover("portada-nahual"),
     publishedAt: "2026-04-23",
     digitalPriceMXN: null,
@@ -50,7 +51,7 @@ export const BOOKS: Book[] = [
       weight: "153 g",
       mercadoLibreUrl: `${ML}/nahual--luis-armando-rosado--editorial-huapango/up/MLMU4103853249${SELLER}`,
     },
-    hasSample: false,
+    read: { obra: "nahual", slug: "nahual" },
   },
   {
     slug: "terregal",
@@ -65,6 +66,7 @@ export const BOOKS: Book[] = [
       "El uróboros contemporáneo: una coautoría de 100 cuentos cortos de mexa-ficción donde el sarcasmo protagoniza en todo momento este imaginario retrofuturista del desierto norestense.",
     quote: "«¿Qué polvo se levanta si agitamos las páginas del sinsentido entre pasado y futuro?»",
     prologue: "Prólogo de Renato Tinajero",
+    contributors: [],
     cover: cover("portada-terregal"),
     publishedAt: "2026-04-23",
     digitalPriceMXN: null,
@@ -75,7 +77,7 @@ export const BOOKS: Book[] = [
       weight: "176 g",
       mercadoLibreUrl: `${ML}/terregal-entre-este-y-los-proximos-mil-anos/up/MLMU4172477919${SELLER}`,
     },
-    hasSample: false,
+    read: null,
   },
   {
     slug: "todo-lo-que-puedas-imaginar",
@@ -90,6 +92,7 @@ export const BOOKS: Book[] = [
       "Una guía escondida entre las páginas donde niños y grandes se sientan a leer y encuentran en sus líneas un recordatorio lúdico del poder inagotable de soñar desde cualquier rincón.",
     quote: "«Una invitación a quedarnos con la mejor versión de nuestra imaginación.»",
     prologue: null,
+    contributors: [],
     cover: cover("portada-todo-lo-que-puedas-imaginar"),
     publishedAt: "2026-04-23",
     digitalPriceMXN: null,
@@ -100,7 +103,7 @@ export const BOOKS: Book[] = [
       weight: "110 g",
       mercadoLibreUrl: `${ML}/todo-lo-que-puedas-imaginar-cuentos-a-todas-partes/up/MLMU4190757094${SELLER}`,
     },
-    hasSample: false,
+    read: null,
   },
   {
     slug: "renacer-en-piel-del-tiempo",
@@ -116,6 +119,7 @@ export const BOOKS: Book[] = [
     quote:
       "«No es necesario que arda toda la noche, basta con que encienda lo suficiente para recordarnos que la vida pese a sus sombras sigue siendo habitable.»",
     prologue: null,
+    contributors: [],
     cover: cover("portada-renacer-en-piel-del-tiempo"),
     publishedAt: "2026-04-23",
     digitalPriceMXN: null,
@@ -126,10 +130,34 @@ export const BOOKS: Book[] = [
       weight: "Formato ligero",
       mercadoLibreUrl: `${ML}/renacer-en-piel-del-tiempo-poesia-de-lo-cotidiano/up/MLMU4190729604${SELLER}`,
     },
-    hasSample: false,
+    read: null,
+  },
+  {
+    slug: "el-principe-feliz",
+    title: "El príncipe feliz",
+    subtitle: null,
+    authors: ["Oscar Wilde"],
+    collection: "cuentos-a-todas-partes",
+    collectionNumber: null,
+    genres: ["Cuento infantil"],
+    hashtag: null,
+    // Sinopsis oficial: la que firma Mercedes Varela en la contraportada.
+    synopsis:
+      "El Príncipe Feliz es un cuento atemporal, que nos sumerge en el género de narrativa maravillosa y que se da en un ambiente de desigualdad social en un Reino no definido, sin clase social media con el propósito de mostrar una realidad que nos puede conmover, quizá hasta nos haga reflexionar a tomar acciones y a no dejarnos llevar por las apariencias porque realmente ¿el príncipe era feliz?, sin embargo hasta que lo convirtieron en ese monumento dorado y alto, pudo, desde su altura ver la realidad de su mundo y se permitió expresar sus sentimientos, antes disfrazados en su eterna sonrisa.",
+    quote: null,
+    prologue: "Prólogo de Mercedes Varela",
+    contributors: [
+      { role: "Traducción actualizada y comentada", name: "Yarely Isabel Campos Servín" },
+      { role: "Ilustración", name: "Diego “Neko” Aguilar" },
+    ],
+    cover: cover("portada-el-principe-feliz"),
+    publishedAt: null,
+    digitalPriceMXN: null,
+    digitalIsbn: null,
+    print: null,
+    read: { obra: "el-principe-feliz", slug: "el-principe-feliz" },
   },
 ];
-
 export const UPCOMING: UpcomingBook[] = [
   {
     slug: "observaciones-de-la-estetica-de-la-poesia",
@@ -154,14 +182,6 @@ export const UPCOMING: UpcomingBook[] = [
     collection: "cuentos-a-todas-partes",
     genre: "Cuento adolescente",
     status: "en-produccion",
-  },
-  {
-    slug: "el-principe-feliz",
-    title: "El príncipe feliz",
-    credit: "Oscar Wilde · traducción actualizada y comentada por Yarely Isabel Campos Servín",
-    collection: "cuentos-a-todas-partes",
-    genre: "Cuento infantil",
-    status: "en-prensa",
   },
   {
     slug: "carmilla",
