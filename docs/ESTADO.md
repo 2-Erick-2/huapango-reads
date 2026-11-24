@@ -48,7 +48,7 @@
 | _El príncipe feliz_ | El libro (14 min), Prólogo (Mercedes Varela, 2 min), Nota de la traductora (Yarely Campos Servín, 4 min)                                                                |    4,440 | Cuento completo (3,259 palabras; el normalizador viejo daba 2,836).                                                       |
 | _Nahual_            | Prólogo (Ángelus), Nota del autor (Luis Armando Rosado Lara), el cuento (44 min, 5 capítulos), Epílogo (Argenis González), Análisis visual de la obra (Eduardo Serrato) |   11,722 | El conteo independiente del XHTML coincide palabra por palabra; las otras 3 exportaciones y el EPUB del cuento coinciden. |
 
-**Calidad verificada el 2026-11-24:** `typecheck`, `lint`, `prettier --check --end-of-line auto`, **216 pruebas unitarias y de integración** en 23 archivos (incluidas contraste AA, validación binaria PNG, combinación de catálogo local/nube, lógica de cuentas/invitado y compilación Typst WASM + `droplet` + márgenes + folleto), `vite build`, `e2e:humo` (**51/51**), `e2e:panel` (**33/33** contra Supabase) y revisión visual multi-pantalla (`1440`, `1024`, `768`, `390` px en día y noche). El build público responde 404 en `/panel` y `/api/panel/*`. **No verificado:** envío real de correo de confirmación en registro público ni pago real (Hito 3), prueba física en impresora, Safari/Firefox, ni el workflow de GitHub Pages con las rutas nuevas.
+**Calidad verificada el 2026-11-24:** `typecheck`, `lint`, `prettier --check --end-of-line auto`, **216 pruebas unitarias y de integración** en 23 archivos (incluidas contraste AA, validación binaria PNG, combinación de catálogo local/nube, lógica de cuentas/invitado y compilación Typst WASM + `droplet` + márgenes + folleto), `vite build`, `e2e:humo` (**51/51**), `e2e:panel` (**33/33** contra Supabase) y revisión visual multi-pantalla (`1440`, `1024`, `768`, `390` px en día y noche). El build público responde 404 en `/panel` y `/api/panel/*`. **No verificado:** envío real de correo de confirmación en registro público ni pago real (Hito 3), prueba física en impresora, Safari/Firefox, ni Lighthouse del sitio publicado. El workflow de GitHub Pages ya se verificó con las rutas nuevas (2026-11-24).
 
 ## Qué es demo o mock (NO real todavía)
 
@@ -113,7 +113,7 @@ Editor completo solo para los libros de Huapango, que exporta PDF de imprenta, E
 
 ## Bloqueos y siguientes pasos
 
-1. **Decidir cuándo fusionar a `main`** para que el demo público muestre lo nuevo (y aceptar que el texto completo queda público).
+1. **Publicado en `main` el 2026-11-24 (commit `144b000`)** por decisión de Erick: el demo público ya muestra todo (CI y Pages en verde). **Riesgo aceptado por Erick:** PIN del panel secuenciales con el repo público. Recomendación vigente: cambiarlos por PIN aleatorios.
 2. **Siguiente paso:** mostrar la versión actual al cliente, confirmar la prueba física impresa y definir reglas comerciales (precios, pagos con Stripe/OXXO, Club de lectura).
 3. **Panel y catálogo conectados (ADR 0020–0024): HECHO.** Acceso editorial con PIN, importación y edición con PNG reales, historial restaurable, edición de datos de ficha pública, publicación en catálogo + muestra segura, Tangerine autoalojada, impresión PDF (media carta / folleto) y cuentas de lectores + modo invitado + Mi biblioteca.
 4. **Guardar avances en Git:** cambios en la rama `claude/loving-hamilton-5m2lei` listos para commit atómico cuando el dueño lo pida.
