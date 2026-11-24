@@ -281,6 +281,14 @@
   .row-scroll {
     scrollbar-width: none;
     scroll-snap-type: x proximity;
+    /* El "imán" respeta el margen de la fila: la tarjeta queda alineada, no pegada al borde */
+    scroll-padding-inline: 1rem;
+    overscroll-behavior-x: contain;
+  }
+  @media (min-width: 640px) {
+    .row-scroll {
+      scroll-padding-inline: 2.5rem;
+    }
   }
   .row-scroll::-webkit-scrollbar {
     display: none;

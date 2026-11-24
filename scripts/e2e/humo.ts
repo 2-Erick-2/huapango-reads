@@ -296,6 +296,74 @@ try {
       izquierdas.length >= 3 && new Set(izquierdas).size === 1,
       izquierdas.join(","),
     );
+    // --- Carrusel automático: movimiento suave, tarjeta por tarjeta (sin saltos)
+    {
+      const medicion = await page.evaluate(async () => {
+        const fila = [...document.querySelectorAll(".row-scroll")].find(
+          (r) => r.scrollWidth > r.clientWidth + 40,
+        ) as HTMLElement | undefined;
+        if (!fila) return null;
+        fila.scrollIntoView({ block: "center" });
+        const pos: number[] = [];
+        const t0 = performance.now();
+        await new Promise<void>((listo) => {
+          const cuadro = () => {
+            pos.push(fila.scrollLeft);
+            if (performance.now() - t0 < 12_000) requestAnimationFrame(cuadro);
+            else listo();
+          };
+          requestAnimationFrame(cuadro);
+        });
+        const margen = parseFloat(getComputedStyle(fila).paddingLeft) || 0;
+        const inicios = [...fila.children].map((h) => (h as HTMLElement).offsetLeft - margen);
+        return { pos, inicios, maximo: fila.scrollWidth - fila.clientWidth };
+      });
+      if (medicion) {
+        const { pos, inicios, maximo } = medicion;
+        const pasos = pos.slice(1).map((v, i) => Math.abs(v - (pos[i] ?? 0)));
+        const final = pos[pos.length - 1] ?? 0;
+        const movio = Math.abs(final - (pos[0] ?? 0)) > 20;
+        comprobar(
+          etiqueta(
+            "el carrusel avanza solo, suave (sin saltos) y se detiene alineado con una tarjeta",
+          ),
+          movio &&
+            Math.max(...pasos) <= 12 &&
+            (inicios.some((x) => Math.abs(x - final) < 2) || Math.abs(final - maximo) < 2),
+          `avance ${Math.round(final - (pos[0] ?? 0))} px, paso máximo ${Math.max(...pasos).toFixed(1)} px`,
+        );
+      }
+    }
+    if (dispositivo === "celular") {
+      const enlacesSueltos = await page
+        .locator("header")
+        .getByRole("link", { name: "Colecciones" })
+        .filter({ visible: true })
+        .count();
+      comprobar(
+        etiqueta("en el celular los enlaces van dentro del menú hamburguesa"),
+        enlacesSueltos === 0,
+      );
+      await page.getByRole("button", { name: "Abrir menú" }).click();
+      const enMenu = await page.locator("#menu-principal a").count();
+      const cabe = await page.evaluate(() =>
+        [...document.querySelectorAll("header > div a, header > div button")].every(
+          (e) => e.getBoundingClientRect().right <= window.innerWidth + 0.5,
+        ),
+      );
+      await page.keyboard.press("Escape");
+      comprobar(
+        etiqueta("el menú abre con sus 4 opciones, el encabezado cabe completo y Escape lo cierra"),
+        enMenu === 4 && cabe && (await page.locator("#menu-principal").count()) === 0,
+      );
+      const desbordes = await page.evaluate(
+        () =>
+          [...document.querySelectorAll('#proximamente [role="img"] span')].filter(
+            (e) => e.scrollWidth > e.clientWidth + 1,
+          ).length,
+      );
+      comprobar(etiqueta("en Próximamente ningún texto se sale de su tarjeta"), desbordes === 0);
+    }
     if (dispositivo === "escritorio") {
       comprobar(
         etiqueta("la fila Ensayos tiene flechas para moverse"),

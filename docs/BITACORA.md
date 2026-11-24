@@ -3,6 +3,22 @@
 > Historial cronológico reciente. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 > Entradas anteriores archivadas en [`BITACORA-archivo.md`](BITACORA-archivo.md) (no hace falta leerlas al arrancar).
 
+## 2026-11-24 — Celular: menú hamburguesa, tarjetas de "Próximamente" y carrusel suave
+
+- **Reporte (Erick):** en el celular los enlaces del encabezado siempre estaban visibles (sin menú), el carrusel de "Próximamente" se veía amontonado y el autoplay se movía "de golpe, robotizado".
+- **Hecho:**
+  - **Menú hamburguesa** en `SiteHeader.tsx` (debajo de `lg`): se cierra al elegir, al tocar fuera, con Escape o al cambiar de página. Logo y botones ajustados para caber en 390 px.
+  - **`UpcomingCover.tsx`:** letra adaptable, los títulos largos se parten dentro de la tarjeta y la etiqueta cabe completa.
+  - **Carrusel (`Carousel.tsx`):** avance propio con `requestAnimationFrame` y aceleración suave.
+    - Avanza una tarjeta exacta en 1.1 s y regresa suave al final, con el "imán" (scroll-snap) apagado durante el movimiento.
+    - Cada fila arranca desfasada y se suelta en cuanto la persona toca, arrastra o usa la rueda.
+    - Tiene **botón visible de pausa** (WCAG 2.2.2).
+  - `scroll-padding-inline` en las filas.
+- **Verificado:**
+  - Tipos, lint y 216 pruebas.
+  - `e2e:humo` **57/57** en día y en noche, con 4 comprobaciones nuevas en celular: menú, encabezado sin desbordes, tarjetas sin desbordes y carrusel suave medido cuadro a cuadro (paso máximo de 3 a 8 px, alineado con una tarjeta).
+  - `e2e:panel` 33/33 en día y en noche.
+
 ## 2026-11-24 — Cuentas de lectores activas en el sitio público
 
 - **Reporte (Erick):** en https://2-erick-2.github.io/huapango-reads/ su cuenta decía "las cuentas en línea no están activas en esta vista previa".
