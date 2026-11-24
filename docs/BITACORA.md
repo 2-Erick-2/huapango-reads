@@ -3,6 +3,13 @@
 > Historial cronológico reciente. **Lo más reciente arriba.** Formato definido en la skill `documentacion-continua`.
 > Entradas anteriores archivadas en [`BITACORA-archivo.md`](BITACORA-archivo.md) (no hace falta leerlas al arrancar).
 
+## 2026-11-24 — Cuentas de lectores activas en el sitio público
+
+- **Reporte (Erick):** en https://2-erick-2.github.io/huapango-reads/ su cuenta decía "las cuentas en línea no están activas en esta vista previa".
+- **Causa:** el build de GitHub Pages no recibía la conexión a Supabase, que vive en `.env.local` y no se sube.
+- **Hecho:** variables del repositorio `VITE_SUPABASE_URL` y `VITE_SUPABASE_PUBLISHABLE_KEY` (públicas por diseño), pasadas en `.github/workflows/pages.yml`.
+- **Verificado:** build estático local con conexión (30 rutas, sin llaves secretas en el resultado); CI y Pages en verde; en el sitio publicado ya no aparece el aviso y un intento de entrada con un correo inexistente responde "El correo o la contraseña no coinciden". La cuenta de Erick existe, está confirmada y es de lector.
+
 ## 2026-11-24 — Revisión de Claude Code al trabajo hecho con Antigravity
 
 - **Pedido (Erick):** revisar todo lo que hizo Antigravity, corregir errores reales, dejar escrito lo que falló para que mejore y hacer commit si está listo.
